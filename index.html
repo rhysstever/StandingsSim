@@ -8,14 +8,26 @@
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
      <link rel="stylesheet" href="styles/index.css">
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-     <script src="js/classes.js"></script>
-	<script src="js/index.js"></script>
+     <script src="src/classes.js"></script>
+	<script src="src/tournaments.js"></script>
+	<script src="src/index.js"></script>
 </head>
 <body>
+     <header>
+          <div class="dropdown">
+               <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                    Tournament
+               </button>
+               <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><button id="0" class="dropdown-item" type="button" onclick="tournamentButtonClicked(event)">WEU Upper Div</button></li>
+                    <li><button id="1" class="dropdown-item" type="button" onclick="tournamentButtonClicked(event)">NA Upper Div</button></li>
+               </ul>
+          </div>
+     </header>
      <main>
           <h1>Dota Pro Circuit Standings Simulator</h1>
           <p>Click on which team(s) you think will win, and see how it affects the standings!</p>
-          <h2>Season 2 Western Europe Upper Division</h2>
+          <h2 id="tournamentName">Tournament Name</h2>
           <div id="sections">
                <div class="section">
                     <h3>Current Standings</h3>
@@ -30,6 +42,7 @@
                          <tbody id="currentStandings">
                          </tbody>
                     </table>
+                    <a id="source" href="">Source</a>
                </div>
                <div class="section">
                     <h3>Remaining Games</h3>
