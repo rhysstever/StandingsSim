@@ -95,24 +95,37 @@ class Tournament {
                // Get the team's score
                let teamScore = document.createElement("td");
                teamScore.innerHTML = this.teams[i].score[0] + "-" + this.teams[i].score[1];
+               // Color row
+               this.colorRow(i, place);
+               // Add the score to the table row 
+               // and the table row to the table
                tableRow.appendChild(teamScore);
-               // Color the row depending on the place
-               let teamPlace = i + 1;
-               if(teamPlace == 1)
-                    place.classList.add("table-primary");
-               else if(teamPlace == 2)
-                    place.classList.add("table-info");
-               else if(teamPlace == 3 || 
-                    teamPlace == 4)
-                    place.classList.add("table-success");
-               else if(teamPlace == 5 || 
-                    teamPlace == 6)
-                    place.classList.add("table-warning");
-               else
-                    place.classList.add("table-danger");
-               // Add the table row to the table
                table.appendChild(tableRow);
           }
+     }
+
+     colorRow(index, place){
+          // Color the row depending on the place
+          let teamPlace = index + 1;
+          if(teamPlace == 1)
+               place.classList.add("table-primary");
+          else if(teamPlace == 2)
+               place.classList.add("table-info");
+          else if(teamPlace == 3 &&
+               (this.region == "WEU"
+               || this.region == "China"
+               || this.region == "EEU"
+               || this.region == "SEA"))
+               place.classList.add("table-success");
+          else if(teamPlace == 4 &&
+               (this.region == "WEU"
+               || this.region == "China"))
+               place.classList.add("table-success");
+          else if(teamPlace == 7 || 
+               teamPlace == 8)
+               place.classList.add("table-danger");
+          else
+               place.classList.add("table-warning");
      }
 
      setupGameButtons(){

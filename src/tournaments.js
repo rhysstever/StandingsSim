@@ -2,7 +2,7 @@ function createTournaments(){
      // Create tournament
      dpcWestEUS2UppDiv = new Tournament(
           "Season 2 Western Europe Upper Division", 
-          "Western Europe", "Upper", [], [], 
+          "WEU", "Upper", [], [], 
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division");
      // Add games to tournament
      dpcWestEUS2UppDiv.addTeam(new Team("Alliance", "[A]", [5, 1]));           
@@ -37,7 +37,7 @@ function createTournaments(){
      // Create tournament
      dpcNAS2UppDiv = new Tournament(
           "Season 2 North America Upper Division", 
-          "North America", "Upper", [], [], 
+          "NA", "Upper", [], [], 
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division");
      // Add games to tournament
      dpcNAS2UppDiv.addTeam(new Team("Undying", "UND", [5, 0]));           
