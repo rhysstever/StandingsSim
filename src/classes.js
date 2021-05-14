@@ -20,11 +20,11 @@ class Tournament {
           this.name = name;
           this.region = region;
           if(division.toLowerCase() == "upper")
-               division = 1;
+               this.division = "Upper";
           else if(division.toLowerCase() == "lower")
-               division = 2;
+               this.division = "Lower";
           else 
-               division = -1;
+               this.division = "None";
           this.teams = teams;
           this.remainingSeries = remainingSeries;
           this.link = link;
