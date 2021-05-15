@@ -5,23 +5,17 @@ function createTournaments(){
           "WEU", "Upper", [], [], 
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division");
      // Add games to tournament
-     dpcWestEUS2UppDiv.addTeam(new Team("Alliance", "[A]", [5, 1]));           
+     dpcWestEUS2UppDiv.addTeam(new Team("Alliance", "[A]", [6, 1]));           
      dpcWestEUS2UppDiv.addTeam(new Team("Team Liquid", "TL", [4, 2]));         
-     dpcWestEUS2UppDiv.addTeam(new Team("OG", "OG", [3, 2]));                  
-     dpcWestEUS2UppDiv.addTeam(new Team("Team Nigma", "Nigma", [3, 2]));       
+     dpcWestEUS2UppDiv.addTeam(new Team("Team Nigma", "Nigma", [4, 2]));       
      dpcWestEUS2UppDiv.addTeam(new Team("Brame", "Brame", [3, 3]));            
+     dpcWestEUS2UppDiv.addTeam(new Team("OG", "OG", [3, 3]));                  
      dpcWestEUS2UppDiv.addTeam(new Team("Team Secret", "Secret", [3, 3]));
      dpcWestEUS2UppDiv.addTeam(new Team("Tundra Esports", "Tundra", [2, 4]));
-     dpcWestEUS2UppDiv.addTeam(new Team("Hellbear Smashers", "SMASH", [0, 6]));
+     dpcWestEUS2UppDiv.addTeam(new Team("Hellbear Smashers", "SMASH", [0, 7]));
      // Calculate team place values
      dpcWestEUS2UppDiv.sortTeams();
      // Add remaining games
-     dpcWestEUS2UppDiv.addSeries(new Series("May 15th", 
-          dpcWestEUS2UppDiv.findTeamByName("Alliance"), 
-          dpcWestEUS2UppDiv.findTeamByName("Hellbear Smashers")));
-     dpcWestEUS2UppDiv.addSeries(new Series("May 15th", 
-          dpcWestEUS2UppDiv.findTeamByName("OG"), 
-          dpcWestEUS2UppDiv.findTeamByName("Nigma")));
      dpcWestEUS2UppDiv.addSeries(new Series("May 18th", 
           dpcWestEUS2UppDiv.findTeamByName("Secret"), 
           dpcWestEUS2UppDiv.findTeamByName("Brame")));
