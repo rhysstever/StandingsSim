@@ -7,21 +7,15 @@ function createTournaments(){
      // Add games to tournament
      dpcWestEUS2UppDiv.addTeam(new Team("Alliance", "[A]", [6, 1]));           
      dpcWestEUS2UppDiv.addTeam(new Team("Team Liquid", "TL", [4, 2]));         
-     dpcWestEUS2UppDiv.addTeam(new Team("Team Nigma", "Nigma", [4, 2]));       
-     dpcWestEUS2UppDiv.addTeam(new Team("Brame", "Brame", [3, 3]));            
+     dpcWestEUS2UppDiv.addTeam(new Team("Team Nigma", "Nigma", [4, 3]));       
+     dpcWestEUS2UppDiv.addTeam(new Team("Team Secret", "Secret", [4, 3]));
      dpcWestEUS2UppDiv.addTeam(new Team("OG", "OG", [3, 3]));                  
-     dpcWestEUS2UppDiv.addTeam(new Team("Team Secret", "Secret", [3, 3]));
-     dpcWestEUS2UppDiv.addTeam(new Team("Tundra Esports", "Tundra", [2, 4]));
+     dpcWestEUS2UppDiv.addTeam(new Team("Brame", "Brame", [3, 4]));            
+     dpcWestEUS2UppDiv.addTeam(new Team("Tundra Esports", "Tundra", [3, 4]));
      dpcWestEUS2UppDiv.addTeam(new Team("Hellbear Smashers", "SMASH", [0, 7]));
      // Calculate team place values
      dpcWestEUS2UppDiv.sortTeams();
      // Add remaining games
-     dpcWestEUS2UppDiv.addSeries(new Series("May 18th", 
-          dpcWestEUS2UppDiv.findTeamByName("Secret"), 
-          dpcWestEUS2UppDiv.findTeamByName("Brame")));
-     dpcWestEUS2UppDiv.addSeries(new Series("May 18th", 
-          dpcWestEUS2UppDiv.findTeamByName("Nigma"), 
-          dpcWestEUS2UppDiv.findTeamByName("Tundra")));
      dpcWestEUS2UppDiv.addSeries(new Series("May 19th", 
           dpcWestEUS2UppDiv.findTeamByName("Team Liquid"), 
           dpcWestEUS2UppDiv.findTeamByName("OG")));
@@ -37,17 +31,14 @@ function createTournaments(){
      dpcNAS2UppDiv.addTeam(new Team("Quincy Crew", "QC", [6, 0]));                  
      dpcNAS2UppDiv.addTeam(new Team("Evil Geniuses", "EG", [5, 1]));         
      dpcNAS2UppDiv.addTeam(new Team("Undying", "UND", [5, 1]));           
-     dpcNAS2UppDiv.addTeam(new Team("simply TOOBASED", "sT", [3, 3]));       
-     dpcNAS2UppDiv.addTeam(new Team("Black N Yellow", "BNY", [2, 3]));            
-     dpcNAS2UppDiv.addTeam(new Team("4 Zoomers", "4Z", [2, 3]));
+     dpcNAS2UppDiv.addTeam(new Team("4 Zoomers", "4Z", [4, 3]));
+     dpcNAS2UppDiv.addTeam(new Team("simply TOOBASED", "sT", [3, 4]));       
+     dpcNAS2UppDiv.addTeam(new Team("Black N Yellow", "BNY", [2, 4]));            
      dpcNAS2UppDiv.addTeam(new Team("S A D B O Y S", "S A D", [1, 6]));
      dpcNAS2UppDiv.addTeam(new Team("The Cut", "Cut", [0, 7]));
      // Calculate team place values
      dpcNAS2UppDiv.sortTeams();
      // Add remaining games
-     dpcNAS2UppDiv.addSeries(new Series("May 18th", 
-          dpcNAS2UppDiv.findTeamByName("BNY"), 
-          dpcNAS2UppDiv.findTeamByName("4Z")));
      dpcNAS2UppDiv.addSeries(new Series("May 20th", 
           dpcNAS2UppDiv.findTeamByName("EG"), 
           dpcNAS2UppDiv.findTeamByName("BNY")));
