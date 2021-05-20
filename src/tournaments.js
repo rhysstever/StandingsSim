@@ -1,7 +1,7 @@
 function createTournaments(){
      // Create tournament
      dpcWestEUS2UppDiv = new Tournament(
-          "Season 2 Western Europe Upper Division", 
+          "DPC Season 2 Western Europe Upper Division", 
           "WEU", "Upper", [], [], 
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division");
      // Add games to tournament
@@ -30,24 +30,21 @@ function createTournaments(){
      
      // Create tournament
      dpcNAS2UppDiv = new Tournament(
-          "Season 2 North America Upper Division", 
+          "DPC Season 2 North America Upper Division", 
           "NA", "Upper", [], [], 
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division");
      // Add games to tournament
      dpcNAS2UppDiv.addTeam(new Team("Quincy Crew", "QC", 6, 0, 0));                  
-     dpcNAS2UppDiv.addTeam(new Team("Evil Geniuses", "EG", 5, 1, 0));         
+     dpcNAS2UppDiv.addTeam(new Team("Evil Geniuses", "EG", 6, 1, 0));         
      dpcNAS2UppDiv.addTeam(new Team("Undying", "UND", 5, 1, 0));           
      dpcNAS2UppDiv.addTeam(new Team("4 Zoomers", "4Z", 4, 3, 0));
      dpcNAS2UppDiv.addTeam(new Team("simply TOOBASED", "sT", 3, 4, 0));       
-     dpcNAS2UppDiv.addTeam(new Team("Black N Yellow", "BNY", 2, 4, 0));            
+     dpcNAS2UppDiv.addTeam(new Team("Black N Yellow", "BNY", 2, 5, 0));            
      dpcNAS2UppDiv.addTeam(new Team("S A D B O Y S", "S A D", 1, 6, 0));
      dpcNAS2UppDiv.addTeam(new Team("The Cut", "Cut", 0, 7, 0));
      // Calculate team place values
      dpcNAS2UppDiv.sortTeams();
      // Add remaining games
-     dpcNAS2UppDiv.addSeries(new Series("May 20th", 
-          dpcNAS2UppDiv.findTeamByName("EG"), 
-          dpcNAS2UppDiv.findTeamByName("BNY"), false));
      dpcNAS2UppDiv.addSeries(new Series("May 20th", 
           dpcNAS2UppDiv.findTeamByName("QC"), 
           dpcNAS2UppDiv.findTeamByName("Undying"), false));
