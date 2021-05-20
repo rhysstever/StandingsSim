@@ -1,9 +1,18 @@
-# StandingsSim
+# Standings Simulator
 A simulator to see the standings for tournaments after predicting remaining games' outcomes.
 
 ## Current Tournaments
 - [DPC S2 WEU Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division)
 - [DPC S2 NA Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division)
+
+## Demos
+Predicting a match result and displaying ties:<br/>
+<br/>
+<img src="media/tying.gif" width="80%" height="80%"><br/>
+<br/>
+Predicting tiebreaker results:<br/>
+<br/>
+<img src="media/tiebreakers.gif" width="80%" height="80%">
 
 ## To Do
 - Add more tournaments
