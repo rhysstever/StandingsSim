@@ -1,8 +1,5 @@
-//let teams = [];
-let remainingSeries = [];
 let tournaments = [];
 let currentTourney = 0;
-let fps = 20;
 
 function init(){
      // Get tournaments
@@ -15,24 +12,23 @@ function init(){
 }
 
 function teamButtonClicked(e){
-     // Get predicted winning team
-     let winningTeam = tournaments[currentTourney].findTeamByName(e.target.innerHTML);
-     
      // Get predicted losing team
      let teamNum = e.target.id.substring(11, 12);
      let id = e.target.id.substring(0, 11) + (3 - teamNum);
      let otherButton = document.querySelector("#" + id);
-     let losingTeam = tournaments[currentTourney].findTeamByName(otherButton.innerHTML);
-
+     
+     // Find series from getting the series number from the button
+     let seriesNum = e.target.id.substring(6, 7) - 1;
+     let series = tournaments[currentTourney].remainingSeries[seriesNum];
+     let changeType = null;
      // If the team was already predicted to win,
      // the team is deselected and the win is removed
      if(e.target.classList.contains("btn-success")){
-          winningTeam.score[0]--;
-          losingTeam.score[1]--;
           e.target.classList.remove("btn-success");
           otherButton.classList.remove("btn-danger");
           e.target.classList.add("btn-primary");
           otherButton.classList.add("btn-primary");
+          changeType = "deselection";
      }
      // If the other team was predicted (changed prediction)
      else if(e.target.classList.contains("btn-danger")){
@@ -40,14 +36,7 @@ function teamButtonClicked(e){
           otherButton.classList.remove("btn-success");
           e.target.classList.add("btn-success");
           otherButton.classList.add("btn-danger");
-          // Remove the loss from the now predicted team
-          // and remove the other team's win
-          winningTeam.score[1]--;
-          losingTeam.score[0]--;
-          // Give the predicted team a win
-          // and the other team a loss
-          winningTeam.score[0]++;
-          losingTeam.score[1]++;
+          changeType = "flip";
      }
      // First prediction
      else {
@@ -55,12 +44,11 @@ function teamButtonClicked(e){
           otherButton.classList.remove("btn-primary");
           e.target.classList.add("btn-success");
           otherButton.classList.add("btn-danger");
-          // Give the predicted team a win
-          // and the other team a loss
-          winningTeam.score[0]++;
-          losingTeam.score[1]++;
+          changeType = "selection";
      }
-     
+
+     series.adjustScores(teamNum, changeType);
+
      tournaments[currentTourney].sortTeams();
      // Redraw the future standings' table
      let futureStandingsTable = document.querySelector("#futureStandings");

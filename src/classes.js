@@ -1,17 +1,83 @@
 class Team {
-     constructor(name, abbrev, score){
+     constructor(name, abbrev, wins, losses, tieBreakerWins){
           this.place = 0;
           this.name = name;
           this.abbrev = abbrev;
-          this.score = score;
+          this.wins = wins;
+          this.losses = losses;
+          this.tieBreakerWins = tieBreakerWins;
+          this.isTied = false;
      }
 }
 
 class Series {
-     constructor(date, team1, team2){
+     constructor(date, team1, team2, isTieBreaker){
+          this.number = 0;
           this.date = date;
           this.team1 = team1;
           this.team2 = team2;
+          this.isTieBreaker = isTieBreaker;
+     }
+
+     adjustScores(winnerNum, changeType) {
+          // Assigns the winning and losing team of the series
+          // based on the passed in winning number
+          let winningTeam = null;
+          let losingTeam = null;
+          if(winnerNum == 1){
+               winningTeam = this.team1;
+               losingTeam = this.team2;
+          }
+          else if (winnerNum == 2) {
+               winningTeam = this.team2;
+               losingTeam = this.team1;
+          }
+          else 
+               return;
+
+          // Changes scores of each team 
+          switch(changeType) {
+               case "selection": 
+                    if(this.isTieBreaker)
+                         // Gives the winning team a tiebreaker win
+                         winningTeam.tieBreakerWins++;
+                    else {
+                         // Give the predicted team a win
+                         // and the other team a loss
+                         winningTeam.wins++;
+                         losingTeam.losses++;
+                    }
+                    break;
+               case "flip":
+                    if(this.isTieBreaker) {
+                         // Switches the tiebreaker win from the previously predicted team 
+                         // to the newly predicted team
+                         winningTeam.tieBreakerWins++;
+                         losingTeam.tieBreakerWins--;
+                    }
+                    else {
+                         // Remove the loss from the now predicted team
+                         // and remove the other team's win
+                         winningTeam.losses--;
+                         losingTeam.wins--;
+                         // Give the predicted team a win
+                         // and the other team a loss
+                         winningTeam.wins++;
+                         losingTeam.losses++;
+                    }
+                    break;
+               case "deselection": 
+                    if(this.isTieBreaker)
+                         // Removes a tiebreaker win from the winning team
+                         winningTeam.tieBreakerWins--;
+                    else {
+                         // Removes the win and loss from the previously 
+                         // predicted winner and loser, respectively
+                         winningTeam.wins--;
+                         losingTeam.losses--;
+                    }
+                    break;
+          }
      }
 }
 
@@ -39,13 +105,9 @@ class Tournament {
      }
 
      displayTournament(){
-          // Change header name
-          let headerName = document.querySelector("#tournamentName");
-          headerName.innerHTML = this.name;
-          
-          // Change source link
-          let sourceText = document.querySelector("#source");
-          sourceText.href = this.link;
+          // Change tournament header and link href
+          document.querySelector("#tournamentName").innerHTML = this.name;
+          document.querySelector("#source").href = this.link;
 
           // Draw the current standings' table
           let currentStandingsTable = document.querySelector("#currentStandings");
@@ -94,7 +156,10 @@ class Tournament {
                tableRow.appendChild(teamName);
                // Get the team's score
                let teamScore = document.createElement("td");
-               teamScore.innerHTML = this.teams[i].score[0] + "-" + this.teams[i].score[1];
+               if(this.teams[i].isTied)
+                    teamScore.innerHTML = this.teams[i].wins + "-" + this.teams[i].losses + " (" + this.teams[i].tieBreakerWins + ")";
+               else 
+                    teamScore.innerHTML = this.teams[i].wins + "-" + this.teams[i].losses;
                // Color row
                this.colorRow(i, place);
                // Add the score to the table row 
@@ -142,30 +207,47 @@ class Tournament {
                // Create list item element
                let matchup = document.createElement("li");
                matchup.classList.add("matchup");
-               // Create a button for team 1
+               // Calculate and update the series number
                let seriesNum = i + 1;
-               let buttonTeam1 = document.createElement("button");
-               buttonTeam1.innerHTML = this.remainingSeries[i].team1.name;
-               buttonTeam1.classList.add("btn");
-               buttonTeam1.classList.add("btn-primary");
+               this.remainingSeries[i].number = seriesNum;
+               // Create a button for team 1
+               let buttonTeam1 = this.createTeamButton(this.remainingSeries[i].team1);
+               buttonTeam1.classList.add("team1");
                buttonTeam1.id = "series" + seriesNum + "team1";
-               buttonTeam1.onclick = teamButtonClicked;
                matchup.appendChild(buttonTeam1);
                // "vs" in between text
                let versusText = document.createElement("p");
                versusText.innerHTML = "vs";
                matchup.appendChild(versusText);
                // Create a button for team 2
-               let buttonTeam2 = document.createElement("button");
-               buttonTeam2.classList.add("btn");
-               buttonTeam2.classList.add("btn-primary");
+               let buttonTeam2 = this.createTeamButton(this.remainingSeries[i].team2);
+               buttonTeam2.classList.add("team2");
                buttonTeam2.id = "series" + seriesNum + "team2";
-               buttonTeam2.innerHTML = this.remainingSeries[i].team2.name;
-               buttonTeam2.onclick = teamButtonClicked;
                matchup.appendChild(buttonTeam2);
+               // Add "TB" next to the series if it is a tiebreaker
+               if(this.remainingSeries[i].isTieBreaker) {
+                    let tbText = document.createElement("p");
+                    tbText.innerHTML = "(TB)";
+                    matchup.appendChild(tbText);
+               }
                // Append the list item to the list
                gamesList.appendChild(matchup);
           }
+          // Displays a message if there are no remaining games
+          if(gamesList.childElementCount == 0){
+               let message = document.createElement("p");
+               message.innerHTML = "No games remaining."
+               gamesList.appendChild(message);
+          }
+     }
+
+     createTeamButton(team) {
+          let button = document.createElement("button");
+          button.innerHTML = team.name;
+          button.classList.add("btn");
+          button.classList.add("btn-primary");
+          button.onclick = teamButtonClicked;
+          return button;
      }
 
      sortTeams(){
@@ -173,25 +255,42 @@ class Tournament {
           do{
                changes = 0;
                for(let i = 0; i < this.teams.length; i++){
+                    this.teams[i].isTied = false;
                     // If the team is the first team, then return 1 (nothing to compare to)
                     if(i == 0)
                          continue;
 
                     // If the current team has more wins than the previous team, then they are flipped
-                    if(this.teams[i].score[0] > this.teams[i - 1].score[0]){
+                    if(this.teams[i].wins > this.teams[i - 1].wins){
                          let temp = this.teams[i - 1];
                          this.teams[i - 1] = this.teams[i];
                          this.teams[i] = temp;
                          changes++;
                     }
                     // If the teams have the same wins, then the losses are checked
-                    else if(this.teams[i].score[0] == this.teams[i - 1].score[0]){
+                    else if(this.teams[i].wins == this.teams[i - 1].wins){
                          // If the current team has less losses than the previous team, then they are flipped
-                         if(this.teams[i].score[1] < this.teams[i - 1].score[1]){
+                         if(this.teams[i].losses < this.teams[i - 1].losses){
                               let temp = this.teams[i - 1];
                               this.teams[i - 1] = this.teams[i];
                               this.teams[i] = temp;
                               changes++;
+                         }
+                         // If the teams have the same losses, then the tiebreaker wins are checked
+                         else if(this.teams[i].losses == this.teams[i - 1].losses) {
+                              // If the current team has more tiebreaker wins than the previous team, then they are flipped
+                              if(this.teams[i].tieBreakerWins > this.teams[i - 1].tieBreakerWins){
+                                   let temp = this.teams[i - 1];
+                                   this.teams[i - 1] = this.teams[i];
+                                   this.teams[i] = temp;
+                                   changes++;
+                              } else {
+                                   // If the wins, losses, and tiebreaker wins are the same, 
+                                   // then both the current team and the previous team
+                                   // are set to be tied
+                                   this.teams[i].isTied = true;
+                                   this.teams[i - 1].isTied = true;
+                              } 
                          }
                     }
                }
@@ -207,7 +306,7 @@ class Tournament {
                     continue;
                }
                // If the currnet team has less wins than the previous team
-               if(this.teams[i].score[0] < this.teams[i - 1].score[0]){
+               if(this.teams[i].wins < this.teams[i - 1].wins){
                     let duplicates = 1;
                     for(let j = i - 1; j >= 0; j--){
                          if(this.teams[j].name != this.teams[i - 1].name
@@ -221,9 +320,9 @@ class Tournament {
                     continue;
                }
                // If the teams have the same wins, then the losses are checked
-               else if(this.teams[i].score[0] == this.teams[i - 1].score[0]){
+               else if(this.teams[i].wins == this.teams[i - 1].wins){
                     // If the current team has more losses, it is placed beneath the previous team
-                    if(this.teams[i].score[1] > this.teams[i - 1].score[1]){
+                    if(this.teams[i].losses > this.teams[i - 1].losses){
                          let duplicates = 1;
                          for(let j = i - 1; j >= 0; j--){
                               if(this.teams[j].name != this.teams[i - 1].name
@@ -237,9 +336,23 @@ class Tournament {
                          continue;
                     }
                     // If the losses are the same
-                    else if (this.teams[i].score[1] == this.teams[i - 1].score[1]){
-                         this.teams[i].place = this.teams[i - 1].place;
-                         continue;
+                    else if (this.teams[i].losses == this.teams[i - 1].losses){
+                         // If the current team has more tiebreaker wins than the previous team, then they are flipped
+                         if(this.teams[i].tieBreakerWins == this.teams[i - 1].tieBreakerWins){
+                              this.teams[i].place = this.teams[i - 1].place;
+                         } else if (this.teams[i].tieBreakerWins < this.teams[i - 1].tieBreakerWins){
+                              let duplicates = 1;
+                              for(let j = i - 1; j >= 0; j--){
+                                   if(this.teams[j].name != this.teams[i - 1].name
+                                   && this.teams[j].place == this.teams[i - 1].place)
+                                        duplicates++;
+                              }
+                              if(duplicates > 1)
+                                   this.teams[i].place = this.teams[i - 1].place + duplicates;
+                              else
+                                   this.teams[i].place = this.teams[i - 1].place + 1;
+                              continue;
+                         }
                     }
                }
           }
