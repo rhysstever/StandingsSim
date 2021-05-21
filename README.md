@@ -3,6 +3,12 @@ A simulator to see the standings for tournaments after predicting remaining game
 
 ## Current Tournaments
 - [DPC S2 WEU Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division)
+- [WePlay AniMajor Wild Card](https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card)*
+- [WePlay AniMajor Group Stage](https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage)*
+
+*placeholders for right now, since not all teams have been determined
+
+## Previous Tournaments
 - [DPC S2 NA Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division)
 
 ## Demos
