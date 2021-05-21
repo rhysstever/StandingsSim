@@ -2,7 +2,7 @@ function createTournaments(){
      // Create tournament
      dpcWestEUS2UppDiv = new Tournament(
           "DPC Season 2 Western Europe Upper Division", 
-          "WEU", "Upper", [], [], 
+          "WEU Upper Div", "WEU", "Division", "Upper",
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division");
      // Add games to tournament
      dpcWestEUS2UppDiv.addTeam(new Team("Alliance", "[A]", 6, 1, 0));           
@@ -29,25 +29,42 @@ function createTournaments(){
      tournaments.push(dpcWestEUS2UppDiv);
      
      // Create tournament
-     dpcNAS2UppDiv = new Tournament(
-          "DPC Season 2 North America Upper Division", 
-          "NA", "Upper", [], [], 
-          "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division");
-     // Add games to tournament
-     dpcNAS2UppDiv.addTeam(new Team("Quincy Crew", "QC", 7, 0, 0));                  
-     dpcNAS2UppDiv.addTeam(new Team("Evil Geniuses", "EG", 6, 1, 0));         
-     dpcNAS2UppDiv.addTeam(new Team("Undying", "UND", 5, 2, 0));           
-     dpcNAS2UppDiv.addTeam(new Team("4 Zoomers", "4Z", 4, 3, 0));
-     dpcNAS2UppDiv.addTeam(new Team("simply TOOBASED", "sT", 3, 4, 0));       
-     dpcNAS2UppDiv.addTeam(new Team("Black N Yellow", "BNY", 2, 5, 0));            
-     dpcNAS2UppDiv.addTeam(new Team("S A D B O Y S", "S A D", 1, 6, 0));
-     dpcNAS2UppDiv.addTeam(new Team("The Cut", "Cut", 0, 7, 0));
+     animajorWC = new Tournament(
+          "WePlay AniMajor: Wild Card", 
+          "AniMajor WC", "Global", "Major", "Wild Card",
+          "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card");
+     // Add games to tournament      
+     animajorWC.addTeam(new Team("Team Nigma", "Nigma", 0, 0, 0));
+     animajorWC.addTeam(new Team("Team Secret", "Secret", 0, 0, 0));
+     animajorWC.addTeam(new Team("CHINA_3", "CHINA_3", 0, 0, 0));
+     animajorWC.addTeam(new Team("Invictus Gaming", "iG", 0, 0, 0));
+     animajorWC.addTeam(new Team("SEA_3", "SEA_3", 0, 0, 0));
+     animajorWC.addTeam(new Team("AS Monaco Gambit", "Gambit", 0, 0, 0));
      // Calculate team place values
-     dpcNAS2UppDiv.sortTeams();
+     animajorWC.sortTeams();
      // Add remaining games
-     // --- no games remain ---
      // Add tournament to tournament list
-     tournaments.push(dpcNAS2UppDiv);
+     tournaments.push(animajorWC);
+
+     // Create tournament
+     animajorGroupStage = new Tournament(
+          "WePlay AniMajor: Group Stage", 
+          "AniMajor GS", "Global", "Major", "Group Stage",
+          "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage");
+     // Add games to tournament         
+     animajorGroupStage.addTeam(new Team("Team Liquid", "TL", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("CHINA_2", "CHINA_2", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("SEA_2", "SEA_2", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("Team Spirit", "Team Spirit", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("Evil Geniuses", "EG", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("SA_2", "SA_2", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("WildCard_1", "WildCard_1", 0, 0, 0));
+     animajorGroupStage.addTeam(new Team("WildCard_2", "WildCard_2", 0, 0, 0));
+     // Calculate team place values
+     animajorGroupStage.sortTeams();
+     // Add remaining games
+     // Add tournament to tournament list
+     tournaments.push(animajorGroupStage);
 
      // Add each tournament to the dropdown
      addTournamentOptions();
@@ -63,7 +80,7 @@ function addTournamentOptions(){
           tourneyButton.classList.add("dropdown-item");
           tourneyButton.type = "button";
           tourneyButton.onclick = tournamentButtonClicked;
-          tourneyButton.innerHTML = tournaments[i].region + " " + tournaments[i].division + " Div";
+          tourneyButton.innerHTML = tournaments[i].tabName;
           // Append the button to the list item and the list item to the parent dropdown
           listItem.appendChild(tourneyButton);
           dropDownParent.appendChild(listItem);

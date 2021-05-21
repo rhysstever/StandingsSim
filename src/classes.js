@@ -82,17 +82,43 @@ class Series {
 }
 
 class Tournament {
-     constructor(name, region, division, teams, remainingSeries, link){
+     constructor(name, tabName, region, type, subType, link){
           this.name = name;
+          this.tabName = tabName;
           this.region = region;
-          if(division.toLowerCase() == "upper")
-               this.division = "Upper";
-          else if(division.toLowerCase() == "lower")
-               this.division = "Lower";
+
+          if(type.toLowerCase() == "division"
+               || type.toLowerCase() == "div")
+               this.type = "Division";
+          else if(type.toLowerCase() == "major")
+               this.type = "Major";
           else 
-               this.division = "None";
-          this.teams = teams;
-          this.remainingSeries = remainingSeries;
+               this.type = "None";
+          
+          switch(this.type){
+               case "Division":
+                    if(subType.toLowerCase() == "upper")
+                         this.subType = "Upper";
+                    else if(subType.toLowerCase() == "lower")
+                         this.subType = "Lower";
+                    break;
+               case "Major":
+                    if(subType.toLowerCase() == "wild card"
+                         || subType.toLowerCase() == "wildcard"
+                         || subType.toLowerCase() == "wc")
+                         this.subType = "Wild Card";
+                    else if(subType.toLowerCase() == "group stage"
+                         || subType.toLowerCase() == "groupstage"
+                         || subType.toLowerCase() == "GS")
+                         this.subType = "Group Stage";
+                    break;
+               default:
+                    this.subType = "None";
+                    break;
+          }
+
+          this.teams = [];
+          this.remainingSeries = [];
           this.link = link;
      }
 
@@ -172,25 +198,78 @@ class Tournament {
      colorRow(index, place){
           // Color the row depending on the place
           let teamPlace = index + 1;
-          if(teamPlace == 1)
-               place.classList.add("table-primary");
-          else if(teamPlace == 2)
-               place.classList.add("table-info");
-          else if(teamPlace == 3 &&
-               (this.region == "WEU"
-               || this.region == "China"
-               || this.region == "EEU"
-               || this.region == "SEA"))
-               place.classList.add("table-success");
-          else if(teamPlace == 4 &&
-               (this.region == "WEU"
-               || this.region == "China"))
-               place.classList.add("table-success");
-          else if(teamPlace == 7 || 
-               teamPlace == 8)
-               place.classList.add("table-danger");
-          else
-               place.classList.add("table-warning");
+
+          switch(this.type){
+               case "Division":
+                    // Upper Division
+                    if(this.subType == "Upper"){
+                         // #1 blue
+                         if(teamPlace == 1)
+                              place.classList.add("table-primary");
+                         // #2 light blue
+                         else if(teamPlace == 2)
+                              place.classList.add("table-info");
+                         // Bottom 2 red, 
+                         else if (teamPlace == this.teams.length || teamPlace == this.teams.length - 1)
+                              place.classList.add("table-danger");
+                         // Rest dependent on region
+                         else {
+                              // Both EUs, China, and SEA's 3rd place are green
+                              if(teamPlace == 3 &&
+                                   (this.region == "WEU"
+                                   || this.region == "China"
+                                   || this.region == "EEU"
+                                   || this.region == "SEA"))
+                                   place.classList.add("table-success");
+                              // WEU & China's 4th place are green
+                              else if(teamPlace == 4 &&
+                                   (this.region == "WEU"
+                                   || this.region == "China"))
+                                   place.classList.add("table-success");
+                              // Rest are yellow
+                              else 
+                                   place.classList.add("table-warning");
+                         }
+                    }
+                    // Lower Division
+                    else if(this.subType == "Lower"){
+                         // Top 2 green
+                         if(teamPlace == 1 || teamPlace == 2)
+                              place.classList.add("table-success");
+                         // Bottom 2 red
+                         else if (teamPlace == this.teams.length || teamPlace == this.teams.length - 1)
+                              place.classList.add("table-danger");
+                         // Rest yellow
+                         else 
+                              place.classList.add("table-warning");
+                    }
+                    break;
+               case "Major":
+                    // Major Wild Card
+                    if(this.subType == "Wild Card") {
+                         // Top 2 green
+                         if(teamPlace == 1 || teamPlace == 2)
+                              place.classList.add("table-success");
+                         // Rest red
+                         else 
+                              place.classList.add("table-danger");
+                    }
+                    // Major Group Stage
+                    else if(this.subType == "Group Stage") {
+                         // Top 2 green
+                         if(teamPlace == 1 || teamPlace == 2)
+                              place.classList.add("table-success");
+                         // Bottom 2 red
+                         else if (teamPlace == this.teams.length || teamPlace == this.teams.length - 1)
+                              place.classList.add("table-danger");
+                         // Rest yellow
+                         else 
+                              place.classList.add("table-warning");
+                    }
+                    break;
+               default:
+                    break;
+          }
      }
 
      setupGameButtons(){
