@@ -34,9 +34,9 @@ function createTournaments(){
           "NA", "Upper", [], [], 
           "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division");
      // Add games to tournament
-     dpcNAS2UppDiv.addTeam(new Team("Quincy Crew", "QC", 6, 0, 0));                  
+     dpcNAS2UppDiv.addTeam(new Team("Quincy Crew", "QC", 7, 0, 0));                  
      dpcNAS2UppDiv.addTeam(new Team("Evil Geniuses", "EG", 6, 1, 0));         
-     dpcNAS2UppDiv.addTeam(new Team("Undying", "UND", 5, 1, 0));           
+     dpcNAS2UppDiv.addTeam(new Team("Undying", "UND", 5, 2, 0));           
      dpcNAS2UppDiv.addTeam(new Team("4 Zoomers", "4Z", 4, 3, 0));
      dpcNAS2UppDiv.addTeam(new Team("simply TOOBASED", "sT", 3, 4, 0));       
      dpcNAS2UppDiv.addTeam(new Team("Black N Yellow", "BNY", 2, 5, 0));            
@@ -45,9 +45,7 @@ function createTournaments(){
      // Calculate team place values
      dpcNAS2UppDiv.sortTeams();
      // Add remaining games
-     dpcNAS2UppDiv.addSeries(new Series("May 20th", 
-          dpcNAS2UppDiv.findTeamByName("QC"), 
-          dpcNAS2UppDiv.findTeamByName("Undying"), false));
+     // --- no games remain ---
      // Add tournament to tournament list
      tournaments.push(dpcNAS2UppDiv);
 
