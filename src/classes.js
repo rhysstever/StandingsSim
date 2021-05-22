@@ -82,7 +82,7 @@ class Series {
 }
 
 class Tournament {
-     constructor(name, tabName, region, type, subType, link){
+     constructor(name, tabName, region, type, subType, link, subTournaments){
           this.name = name;
           this.tabName = tabName;
           this.region = region;
