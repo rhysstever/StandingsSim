@@ -1,3 +1,13 @@
+const regions = {
+     WEU: "Western Europe",
+     CN: "China",
+     EEU: "Eastern Europe",
+     SEA: "Southeast Asia",
+     NA: "North America",
+     SA: "South America",
+     GLOBAL: "Global",
+};
+
 class Team {
      constructor(name, abbrev, wins, losses, tieBreakerWins){
           this.place = 0;
@@ -8,6 +18,12 @@ class Team {
           this.tieBreakerWins = tieBreakerWins;
           this.isTied = false;
      }
+
+     resetScore(){
+          this.wins = 0;
+          this.losses = 0;
+          this.tieBreakerWins = 0;
+     }
 }
 
 class Series {
@@ -16,10 +32,11 @@ class Series {
           this.date = date;
           this.team1 = team1;
           this.team2 = team2;
+          this.prediction = 0;
           this.isTieBreaker = isTieBreaker;
      }
 
-     adjustScores(winnerNum, changeType) {
+     adjustScores(winnerNum) {
           // Assigns the winning and losing team of the series
           // based on the passed in winning number
           let winningTeam = null;
@@ -35,54 +52,56 @@ class Series {
           else 
                return;
 
-          // Changes scores of each team 
-          switch(changeType) {
-               case "selection": 
-                    if(this.isTieBreaker)
-                         // Gives the winning team a tiebreaker win
-                         winningTeam.tieBreakerWins++;
-                    else {
-                         // Give the predicted team a win
-                         // and the other team a loss
-                         winningTeam.wins++;
-                         losingTeam.losses++;
-                    }
-                    break;
-               case "flip":
-                    if(this.isTieBreaker) {
-                         // Switches the tiebreaker win from the previously predicted team 
-                         // to the newly predicted team
-                         winningTeam.tieBreakerWins++;
-                         losingTeam.tieBreakerWins--;
-                    }
-                    else {
-                         // Remove the loss from the now predicted team
-                         // and remove the other team's win
-                         winningTeam.losses--;
-                         losingTeam.wins--;
-                         // Give the predicted team a win
-                         // and the other team a loss
-                         winningTeam.wins++;
-                         losingTeam.losses++;
-                    }
-                    break;
-               case "deselection": 
-                    if(this.isTieBreaker)
-                         // Removes a tiebreaker win from the winning team
-                         winningTeam.tieBreakerWins--;
-                    else {
-                         // Removes the win and loss from the previously 
-                         // predicted winner and loser, respectively
-                         winningTeam.wins--;
-                         losingTeam.losses--;
-                    }
-                    break;
+          // First prediction (selection)
+          if(this.prediction == 0) {
+               // If TB, gives the winning team a tiebreaker win
+               if(this.isTieBreaker)
+                    winningTeam.tieBreakerWins++;
+               // Give the predicted team a win, and the other a loss
+               else {
+                    winningTeam.wins++;
+                    losingTeam.losses++;
+               }
+               this.prediction = winnerNum;
+          } 
+          // Remove prediction (deselection)
+          else if(this.prediction == winnerNum) {
+               // If TB, removes a tiebreaker win from the winning team
+               if(this.isTieBreaker)
+                    winningTeam.tieBreakerWins--;
+               else {
+                    // Removes the win and loss from the previously 
+                    // predicted winner and loser, respectively
+                    winningTeam.wins--;
+                    losingTeam.losses--;
+               }
+               this.prediction = 0;
+          } 
+          // Change prediction (flip)
+          else {
+               if(this.isTieBreaker) {
+                    // Switches the tiebreaker win from the previously predicted team 
+                    // to the newly predicted team
+                    winningTeam.tieBreakerWins++;
+                    losingTeam.tieBreakerWins--;
+               }
+               else {
+                    // Remove the loss from the now predicted team
+                    // and remove the other team's win
+                    winningTeam.losses--;
+                    losingTeam.wins--;
+                    // Give the predicted team a win
+                    // and the other team a loss
+                    winningTeam.wins++;
+                    losingTeam.losses++;
+               }
+               this.prediction = winnerNum;
           }
      }
 }
 
 class Tournament {
-     constructor(name, tabName, region, type, subType, link, subTournaments){
+     constructor(name, tabName, region, type, subType, link, isComplete) {
           this.name = name;
           this.tabName = tabName;
           this.region = region;
@@ -120,6 +139,7 @@ class Tournament {
           this.teams = [];
           this.remainingSeries = [];
           this.link = link;
+          this.isComplete = isComplete;
      }
 
      addTeam(team){
@@ -128,6 +148,12 @@ class Tournament {
 
      addSeries(game){
           this.remainingSeries.push(game);
+     }
+
+     resetAllTeams(){
+          for(let i = 0; i < this.teams.length; i++){
+               this.teams[i].resetScore();
+          }
      }
 
      displayTournament(){
@@ -216,15 +242,15 @@ class Tournament {
                          else {
                               // Both EUs, China, and SEA's 3rd place are green
                               if(teamPlace == 3 &&
-                                   (this.region == "WEU"
-                                   || this.region == "China"
-                                   || this.region == "EEU"
-                                   || this.region == "SEA"))
+                                   (this.region == regions.WEU
+                                   || this.region == regions.China
+                                   || this.region == regions.EEU
+                                   || this.region == regions.SEA))
                                    place.classList.add("table-success");
                               // WEU & China's 4th place are green
                               else if(teamPlace == 4 &&
-                                   (this.region == "WEU"
-                                   || this.region == "China"))
+                                   (this.region == regions.WEU
+                                        || this.region == regions.China))
                                    place.classList.add("table-success");
                               // Rest are yellow
                               else 
@@ -292,7 +318,7 @@ class Tournament {
                // Create a button for team 1
                let buttonTeam1 = this.createTeamButton(this.remainingSeries[i].team1);
                buttonTeam1.classList.add("team1");
-               buttonTeam1.id = "series" + seriesNum + "team1";
+               buttonTeam1.id = "team1series" + seriesNum;
                matchup.appendChild(buttonTeam1);
                // "vs" in between text
                let versusText = document.createElement("p");
@@ -301,7 +327,7 @@ class Tournament {
                // Create a button for team 2
                let buttonTeam2 = this.createTeamButton(this.remainingSeries[i].team2);
                buttonTeam2.classList.add("team2");
-               buttonTeam2.id = "series" + seriesNum + "team2";
+               buttonTeam2.id = "team2series" + seriesNum;
                matchup.appendChild(buttonTeam2);
                // Add "TB" next to the series if it is a tiebreaker
                if(this.remainingSeries[i].isTieBreaker) {
@@ -315,7 +341,10 @@ class Tournament {
           // Displays a message if there are no remaining games
           if(gamesList.childElementCount == 0){
                let message = document.createElement("p");
-               message.innerHTML = "No games remaining."
+               if(this.isComplete)
+                    message.innerHTML = "Tournament Complete."
+               else 
+                    message.innerHTML = "No games to display."
                gamesList.appendChild(message);
           }
      }
@@ -435,5 +464,82 @@ class Tournament {
                     }
                }
           }
+     }
+}
+
+class Division extends Tournament {
+     constructor(name, tabName, region, subType, link, isComplete) {
+          super(name, tabName, region, "Division", subType, link, isComplete);
+     }
+}
+
+class Major {
+     constructor(name, tabName, link) {
+          this.name = name;
+          this.tabName = tabName;
+          this.link = link;
+          this.type = "Major";
+          this.qualifiers = {};
+          this.wildCard = null;
+          this.groupStage = null;
+     }
+
+     addQualifier(region, tournament){
+          // Checks if the given region exists, if so, the tournament 
+          // is added as the value of that region key
+          for(let key in regions) {
+               if(regions[key] == region)
+                    this.qualifiers[key] = tournament;
+          }
+     }
+
+     addQualifiedTeams(){
+          // Loops through each region
+          for(let region in regions) {
+               // Gets the qualifying tournament of each region
+               let qualifierTourney = this.qualifiers[region];
+               // If the tournament exists, the qualifying team is found and 
+               // a copy of it is made and added to the major wild card
+               if(qualifierTourney != null) {
+                    switch(qualifierTourney.region) {
+                         // The 4th placed teams of the Western Europe and 
+                         // China regions qualify to the major wild card
+                         case regions.WEU:
+                         case regions.CN:
+                              let thirdPlaceTeam = qualifierTourney.teams[3];
+                              this.wildCard.addTeam(new Team(thirdPlaceTeam.name, thirdPlaceTeam.abbrev, 0, 0, 0));
+                         // The 3rd placed teams of the Western Europe, China, 
+                         // Eastern Europe, and SE Asia regions qualify to the major wild card
+                         case regions.EEU:
+                         case regions.SEA:
+                              let fourthPlaceTeam = qualifierTourney.teams[2];
+                              this.wildCard.addTeam(new Team(fourthPlaceTeam.name, fourthPlaceTeam.abbrev, 0, 0, 0));
+                         case regions.NA:
+                         case regions.SA:
+                              let secondPlaceTeam = qualifierTourney.teams[1];
+                              this.groupStage.addTeam(new Team(secondPlaceTeam.name, secondPlaceTeam.abbrev, 0, 0, 0));
+                              break;
+                         default:
+                              break;
+                    }
+               }
+          }
+     }
+}
+
+class WildCard extends Tournament {
+     constructor(major, isComplete) {
+          let name = major.name + ": Wild Card";
+          let tabName = major.tabName + " WC";
+          super(name, tabName, regions.GLOBAL, "Major", "Wild Card", major.link, isComplete)
+     }
+}
+
+class GroupStage extends Tournament {
+     constructor(major, link, isComplete) {
+          let name = major.name + ": Group Stage";
+          let tabName = major.tabName + " GS";
+          super(name, tabName, regions.GLOBAL, "Major", "Group Stage", link, isComplete)
+          this.wildcard = null;
      }
 }
