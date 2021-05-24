@@ -1,15 +1,22 @@
-let tournaments = [];
-let currentTourney = null;
+import * as tournaments from "./tournaments.js";
+
+let tournamentsList = [];
+let currentTournament = null;
 
 function init(){
      // Get tournaments
-     createTournaments();
-     currentTourney = tournaments[2].wildCard;
+     tournaments.createTournaments();
+     displayCurrentTournament();
+}
+
+function displayCurrentTournament(){
+     // Display initial tournament
+     currentTournament = tournamentsList[0];
      // The tournament is only drawn if it exists
-     if(currentTourney == null)
+     if(currentTournament == null)
           return;
      else
-          currentTourney.displayTournament();
+          currentTournament.displayTournament();
 }
 
 function teamButtonClicked(e){
@@ -20,7 +27,7 @@ function teamButtonClicked(e){
      
      // Find series from getting the series number from the button
      let seriesNum = e.target.id.substring(11) - 1;
-     let series = currentTourney.remainingSeries[seriesNum];
+     let series = currentTournament.remainingSeries[seriesNum];
 
      // Change buttons' colors
      // First prediction (selection)
@@ -47,35 +54,32 @@ function teamButtonClicked(e){
 
      series.adjustScores(winnerTeamNum);
 
-     currentTourney.sortTeams();
+     currentTournament.sortTeams();
      // Redraw the future standings' table
      let futureStandingsTable = document.querySelector("#futureStandings");
-     currentTourney.displayTable(futureStandingsTable);
+     currentTournament.displayTable(futureStandingsTable);
 }
 
 function tournamentButtonClicked(e){     
      if(e.target.id.substring(1, 6) == "major"){
           // Gets the major
-          let major = tournaments[e.target.id.substring(0, 1)];
+          let major = tournamentsList[e.target.id.substring(0, 1)];
           // Displays the wild card or group stage 
           let type = e.target.id.substring(6);
           if(type == "wc"){
                if(major.wildCard != null)
-                    currentTourney = major.wildCard;
+                    currentTournament = major.wildCard;
           }
           else if(type = "gs"){
                if(major.groupStage != null)
-                    currentTourney = major.groupStage;
+                    currentTournament = major.groupStage;
           }
      } else {
           // Displays the new tournament via id
-          currentTourney = tournaments[e.target.id];
+          currentTournament = tournamentsList[e.target.id];
      }
 
-     currentTourney.displayTournament();
+     currentTournament.displayTournament();
 }
 
-// runs init only after the page is done loaded
-window.onload = () => {
-	init();
-}
+export {tournamentsList, currentTournament, init, teamButtonClicked, tournamentButtonClicked};

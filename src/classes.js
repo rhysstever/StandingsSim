@@ -1,3 +1,5 @@
+import * as main from "./main.js";
+
 const regions = {
      WEU: "Western Europe",
      CN: "China",
@@ -206,14 +208,17 @@ class Tournament {
                let teamName = document.createElement("td");
                teamName.innerHTML = this.teams[i].name;
                tableRow.appendChild(teamName);
+
                // Get the team's score
                let teamScore = document.createElement("td");
                if(this.teams[i].isTied)
                     teamScore.innerHTML = this.teams[i].wins + "-" + this.teams[i].losses + " (" + this.teams[i].tieBreakerWins + ")";
                else 
                     teamScore.innerHTML = this.teams[i].wins + "-" + this.teams[i].losses;
-               // Color row
+               
+               // Color table element
                this.colorRow(i, place);
+
                // Add the score to the table row 
                // and the table row to the table
                tableRow.appendChild(teamScore);
@@ -236,7 +241,8 @@ class Tournament {
                          else if(teamPlace == 2)
                               place.classList.add("table-info");
                          // Bottom 2 red, 
-                         else if (teamPlace == this.teams.length || teamPlace == this.teams.length - 1)
+                         else if (teamPlace == this.teams.length 
+                              || teamPlace == this.teams.length - 1)
                               place.classList.add("table-danger");
                          // Rest dependent on region
                          else {
@@ -259,15 +265,7 @@ class Tournament {
                     }
                     // Lower Division
                     else if(this.subType == "Lower"){
-                         // Top 2 green
-                         if(teamPlace == 1 || teamPlace == 2)
-                              place.classList.add("table-success");
-                         // Bottom 2 red
-                         else if (teamPlace == this.teams.length || teamPlace == this.teams.length - 1)
-                              place.classList.add("table-danger");
-                         // Rest yellow
-                         else 
-                              place.classList.add("table-warning");
+                         this.top2Bottom2(teamPlace, place);
                     }
                     break;
                case "Major":
@@ -282,20 +280,25 @@ class Tournament {
                     }
                     // Major Group Stage
                     else if(this.subType == "Group Stage") {
-                         // Top 2 green
-                         if(teamPlace == 1 || teamPlace == 2)
-                              place.classList.add("table-success");
-                         // Bottom 2 red
-                         else if (teamPlace == this.teams.length || teamPlace == this.teams.length - 1)
-                              place.classList.add("table-danger");
-                         // Rest yellow
-                         else 
-                              place.classList.add("table-warning");
+                         this.top2Bottom2(teamPlace, place);
                     }
                     break;
                default:
                     break;
           }
+     }
+
+     top2Bottom2(teamPlace, place) {
+          // Top 2 green
+          if(teamPlace == 1 || teamPlace == 2)
+               place.classList.add("table-success");
+          // Bottom 2 red
+          else if (teamPlace == this.teams.length 
+               || teamPlace == this.teams.length - 1)
+               place.classList.add("table-danger");
+          // Rest yellow
+          else 
+               place.classList.add("table-warning");
      }
 
      setupGameButtons(){
@@ -354,7 +357,7 @@ class Tournament {
           button.innerHTML = team.name;
           button.classList.add("btn");
           button.classList.add("btn-primary");
-          button.onclick = teamButtonClicked;
+          button.onclick = main.teamButtonClicked;
           return button;
      }
 
@@ -543,3 +546,5 @@ class GroupStage extends Tournament {
           this.wildcard = null;
      }
 }
+
+export {regions, Team, Series, Tournament, Division, Major, WildCard, GroupStage}
