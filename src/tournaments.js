@@ -111,20 +111,20 @@ function addTournamentOptions(){
      for(let i = 0; i < main.tournamentsList.length; i++){
           if(main.tournamentsList[i].type == "Major") {
                let tournamentOptionGS = createTournamentDropdown(
-                    main.tournamentsList[i].wildCard.tabName, i + "majorwc");
+                    i + "majorwc", main.tournamentsList[i].wildCard.tabName, main.tournamentsList[i].wildCard.isComplete);
                dropDownParent.appendChild(tournamentOptionGS);
                let tournamentOptionWC = createTournamentDropdown(
-                    main.tournamentsList[i].groupStage.tabName, i + "majorgs");
+                    i + "majorgs", main.tournamentsList[i].groupStage.tabName, main.tournamentsList[i].groupStage.isComplete);
                dropDownParent.appendChild(tournamentOptionWC);
           }
           else {
-               let tournamentOption = createTournamentDropdown(main.tournamentsList[i].tabName, i);
+               let tournamentOption = createTournamentDropdown(i, main.tournamentsList[i].tabName, main.tournamentsList[i].isComplete);
                dropDownParent.appendChild(tournamentOption);
           }
      }
 }
 
-function createTournamentDropdown(tabName, id) {
+function createTournamentDropdown(id, tabName, isComplete) {
      // Creates the list item and button
      let listItem = document.createElement("li");
      let tourneyButton = document.createElement("button");
@@ -134,6 +134,8 @@ function createTournamentDropdown(tabName, id) {
      tourneyButton.type = "button";
      tourneyButton.onclick = main.tournamentButtonClicked;
      tourneyButton.innerHTML = tabName;
+     if(isComplete)
+          tourneyButton.innerHTML += " (C)";
      // Append the button to the listItem and return the list item
      listItem.appendChild(tourneyButton);
      return listItem;

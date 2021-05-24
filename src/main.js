@@ -10,8 +10,29 @@ function init(){
 }
 
 function displayCurrentTournament(){
-     // Display initial tournament
-     currentTournament = tournamentsList[0];
+     // Display the first incomplete tournament
+     for(let i = 0; i < tournamentsList.length; i++){
+          if(tournamentsList[i].type == "Major"){
+               if(!tournamentsList[i].wildCard.isComplete){
+                    currentTournament = tournamentsList[i].wildCard;
+                    break;
+               } else if(!tournamentsList[i].groupStage.isComplete){
+                    currentTournament = tournamentsList[i].groupStage;
+                    break;
+               }
+          } else {
+               if(!tournamentsList[i].isComplete) {
+                    currentTournament = tournamentsList[i];
+                    break;
+               }
+          }
+     }
+
+     if(currentTournament == null)
+          currentTournament = tournamentsList[0];
+
+     document.querySelector("title").innerHTML = currentTournament.name;
+     
      // The tournament is only drawn if it exists
      if(currentTournament == null)
           return;
