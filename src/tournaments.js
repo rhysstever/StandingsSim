@@ -51,7 +51,7 @@ function createTournaments(){
           "https://liquipedia.net/dota2/WePlay/AniMajor/2021");
      
      // Create tournament
-     let animajorWildCard = new classes.WildCard(animajor,  false);
+     let animajorWildCard = new classes.WildCard(animajor, "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card", false);
      animajor.wildCard = animajorWildCard;
      // Add teams to tournament
      animajorWildCard.addTeam(new classes.Team("Vici Gaming", "Vici", 0, 0, 0));
@@ -64,7 +64,7 @@ function createTournaments(){
      //      animajorWildCard.findTeamByName("Team2"), false));
 
      // Create tournament
-     let animajorGroupStage = new classes.GroupStage(animajor, false);
+     let animajorGroupStage = new classes.GroupStage(animajor, "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage", false);
      animajor.groupStage = animajorGroupStage;
      // Add teams to tournament         
      animajorGroupStage.addTeam(new classes.Team("PSG.LGD", "PSG.LGD", 0, 0, 0));
@@ -89,7 +89,7 @@ function createTournaments(){
      // creates a match between each team
      for(let i = 0; i < animajorWildCard.teams.length - 1; i++){
           for(let j = i + 1; j < animajorWildCard.teams.length; j++){
-               animajorWildCard.addSeries(new classes.Series("Looped while waiting for schedule to release:", 
+               animajorWildCard.addSeries(new classes.Series("Exact schedule not released yet:", 
                     animajorWildCard.teams[i], 
                     animajorWildCard.teams[j], false));
           }

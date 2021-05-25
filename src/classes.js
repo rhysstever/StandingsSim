@@ -152,12 +152,6 @@ class Tournament {
           this.remainingSeries.push(game);
      }
 
-     resetAllTeams(){
-          for(let i = 0; i < this.teams.length; i++){
-               this.teams[i].resetScore();
-          }
-     }
-
      displayTournament(){
           // Change tournament header and link href
           document.querySelector("#tournamentName").innerHTML = this.name;
@@ -199,11 +193,16 @@ class Tournament {
           for(let i = 0; i < this.teams.length; i++) {
                // Create a new table row for the team
                let tableRow = document.createElement("tr");
-               // Get the place the team is in (1-8)
+
+               // Get the place the team is in (1-#, # = num of teams)
                let place = document.createElement("td");
+               let boldElement = document.createElement("strong");
+               place.classList.add("text-light");
                let index = this.teams[i].place;
-               place.innerHTML = index;
+               boldElement.innerHTML = index;
+               place.appendChild(boldElement);
                tableRow.appendChild(place);
+
                // Get the team's name
                let teamName = document.createElement("td");
                teamName.innerHTML = this.teams[i].name;
@@ -236,14 +235,14 @@ class Tournament {
                     if(this.subType == "Upper"){
                          // #1 blue
                          if(teamPlace == 1)
-                              place.classList.add("table-primary");
+                              place.classList.add("bg-primary");
                          // #2 light blue
                          else if(teamPlace == 2)
-                              place.classList.add("table-info");
+                              place.classList.add("bg-info");
                          // Bottom 2 red, 
                          else if (teamPlace == this.teams.length 
                               || teamPlace == this.teams.length - 1)
-                              place.classList.add("table-danger");
+                              place.classList.add("bg-danger");
                          // Rest dependent on region
                          else {
                               // Both EUs, China, and SEA's 3rd place are green
@@ -252,15 +251,15 @@ class Tournament {
                                    || this.region == regions.China
                                    || this.region == regions.EEU
                                    || this.region == regions.SEA))
-                                   place.classList.add("table-success");
+                                   place.classList.add("bg-success");
                               // WEU & China's 4th place are green
                               else if(teamPlace == 4 &&
                                    (this.region == regions.WEU
                                         || this.region == regions.China))
-                                   place.classList.add("table-success");
+                                   place.classList.add("bg-success");
                               // Rest are yellow
                               else 
-                                   place.classList.add("table-warning");
+                                   place.classList.add("bg-warning");
                          }
                     }
                     // Lower Division
@@ -273,10 +272,10 @@ class Tournament {
                     if(this.subType == "Wild Card") {
                          // Top 2 green
                          if(teamPlace == 1 || teamPlace == 2)
-                              place.classList.add("table-success");
+                              place.classList.add("bg-success");
                          // Rest red
                          else 
-                              place.classList.add("table-danger");
+                              place.classList.add("bg-danger");
                     }
                     // Major Group Stage
                     else if(this.subType == "Group Stage") {
@@ -291,14 +290,14 @@ class Tournament {
      top2Bottom2(teamPlace, place) {
           // Top 2 green
           if(teamPlace == 1 || teamPlace == 2)
-               place.classList.add("table-success");
+               place.classList.add("bg-success");
           // Bottom 2 red
           else if (teamPlace == this.teams.length 
                || teamPlace == this.teams.length - 1)
-               place.classList.add("table-danger");
+               place.classList.add("bg-danger");
           // Rest yellow
           else 
-               place.classList.add("table-warning");
+               place.classList.add("bg-warning");
      }
 
      setupGameButtons(){
@@ -531,10 +530,10 @@ class Major {
 }
 
 class WildCard extends Tournament {
-     constructor(major, isComplete) {
+     constructor(major, link, isComplete) {
           let name = major.name + ": Wild Card";
           let tabName = major.tabName + " WC";
-          super(name, tabName, regions.GLOBAL, "Major", "Wild Card", major.link, isComplete)
+          super(name, tabName, regions.GLOBAL, "Major", "Wild Card", link, isComplete)
      }
 }
 

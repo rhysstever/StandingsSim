@@ -3,10 +3,39 @@ import * as tournaments from "./tournaments.js";
 let tournamentsList = [];
 let currentTournament = null;
 
+const fps = 20;
+
 function init(){
      // Get tournaments
      tournaments.createTournaments();
      displayCurrentTournament();
+     setupDropdownOnClicks();
+}
+
+function loop(){
+     // Update dropdown button chevrons
+     let dropdownButtons = document.getElementsByClassName("dropdownBtn");
+     for(let i = 0; i < dropdownButtons.length; i++){
+          if(dropdownButtons[i].classList.contains("collapsed")){
+               let children = dropdownButtons[i].childNodes.length;
+               for(let j = 0; j < children.length; j++){
+                    if(dropdownButtons[i].childNodes[j].classList.contains("fa-chevron-up")) {
+                         dropdownButtons[i].childNodes[j].classList.remove("fa-chevron-up");
+                         dropdownButtons[i].childNodes[j].classList.add("fa-chevron-down");
+                    }
+               }
+          } else {
+               let children = dropdownButtons[i].childNodes.length;
+               for(let j = 0; j < children.length; j++){
+                    if(dropdownButtons[i].childNodes[j].classList.contains("fa-chevron-down")) {
+                         dropdownButtons[i].childNodes[j].classList.remove("fa-chevron-down");
+                         dropdownButtons[i].childNodes[j].classList.add("fa-chevron-up");
+                    }
+               }
+          }
+     }
+
+     requestAnimationFrame(loop, 1000/fps);
 }
 
 function displayCurrentTournament(){
@@ -101,6 +130,26 @@ function tournamentButtonClicked(e){
      }
 
      currentTournament.displayTournament();
+}
+
+function setupDropdownOnClicks(){
+     // Loop through each dropdown button in the document and add the onclick to toggle the icon
+     let dropdownButtons = document.getElementsByClassName("dropdownBtn");
+     for(let i = 0; i < dropdownButtons.length; i++){
+          dropdownButtons[i].onclick = changeDropdownIcon;
+     }
+}
+
+function changeDropdownIcon(e){
+     // Remove the current innerHTML and add the correct chevron icon
+     // if the games are collapsed, show chevron-down
+     // if the games are shown, show chevron-up
+     e.target.innerHTML = '';
+     if(e.target.classList.contains("collapsed")){
+          e.target.innerHTML = '<i class="fas fa-chevron-down"></i>';
+     } else {
+          e.target.innerHTML = '<i class="fas fa-chevron-up"></i>';
+     }
 }
 
 export {tournamentsList, currentTournament, init, teamButtonClicked, tournamentButtonClicked};
