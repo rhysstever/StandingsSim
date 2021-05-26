@@ -24,25 +24,21 @@
 <body>
      <header>
           <div class="dropdown">
-               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+               <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="tournamentDropdownMenu" data-mdb-toggle="dropdown" aria-expanded="false">
                     Tournaments
                </button>
-               <ul id="tournamentDropDown" class="dropdown-menu" aria-labelledby="dropdownMenu2">
+               <ul id="tournamentDropDown" class="dropdown-menu" aria-labelledby="tournamentDropdownMenu">
                     <!-- Dropdown options to be added for each tournament -->
                     <!-- Created in addTournamentOptions() -->
                </ul>
           </div>
-          <div id="links">
-               <!-- GitHub Link -->
-               <a class="btn btn-primary btn-floating" style="background-color: #333333;" href="https://github.com/rhysstever/StandingsSimulator" role="button"><i class="fab fa-github"></i></a>
-               <!-- Reddit Link -->
-               <a class="btn btn-primary btn-floating" style="background-color: #ff4500;" href="https://www.reddit.com/r/DotA2/comments/nba1zt/dpc_standings_simulator/" role="button"><i class="fab fa-reddit-alien"></i></a>
-          </div>
      </header>
      <main>
-          <h1>Standings Simulator</h1>
-          <p>Click on which team(s) you think will win, and see how it affects the standings!</p>
-          <h2 id="tournamentName">Tournament Name</h2>
+          <div id="heading">
+               <h1>Standings Simulator</h1>
+               <p>Click on which team(s) you think will win, and see how it affects the standings!</p>
+               <h2 id="tournamentName">Tournament Name</h2>
+          </div>
           <div id="sections">
                <div class="section">
                     <h3>Current Standings</h3>
@@ -67,7 +63,7 @@
                          </button>
                     </div>
                     <!-- A list of the remaining games and their dates, or a message saying "No games remaining" -->
-                    <ul id="remainingGamesList" class="collapse show"></ul>
+                    <div id="remainingGamesList" class="collapse show"></div>
                </div>
                <div class="section">
                     <h3>Predicted Standings</h3>
@@ -82,8 +78,17 @@
                          <tbody id="futureStandings">
                          </tbody>
                     </table>
+                    <div id="links">
+                         <!-- GitHub Link -->
+                         <a class="btn btn-primary btn-floating" style="background-color: #333333;" href="https://github.com/rhysstever/StandingsSimulator" role="button"><i class="fab fa-github"></i></a>
+                         <!-- Reddit Link -->
+                         <a class="btn btn-primary btn-floating" style="background-color: #ff4500;" href="https://www.reddit.com/r/DotA2/comments/nba1zt/dpc_standings_simulator/" role="button"><i class="fab fa-reddit-alien"></i></a>
+                    </div>
                </div>
           </div>
      </main>
+     <footer>
+          <!-- Nothing in footer yet -->
+     </footer>
 </body>
 </html>

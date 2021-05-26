@@ -312,7 +312,7 @@ class Tournament {
                     gamesList.appendChild(date);
                }
                // Create list item element
-               let matchup = document.createElement("li");
+               let matchup = document.createElement("div");
                matchup.classList.add("matchup");
                // Calculate and update the series number
                let seriesNum = i + 1;
