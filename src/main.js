@@ -3,11 +3,30 @@ import * as tournaments from "./tournaments.js";
 let tournamentsList = [];
 let currentTournament = null;
 
+let fps = 20;
+let prevLarge = true;
+
 function init(){
      // Get tournaments
      tournaments.createTournaments();
      displayCurrentTournament();
      setupDropdownOnClicks();
+     loop();
+}
+
+function loop() {
+     // If the window was large and is now 425px or smaller
+     if(prevLarge && window.innerWidth <= 425){
+          prevLarge = false;
+          // Redisplays the tournament with the abbreviations of each team
+          displayCurrentTournament();
+     } else if(!prevLarge && window.innerWidth > 425){
+          prevLarge = true;
+          // Redisplays the tournament with the full name of each team
+          displayCurrentTournament();
+     }
+
+     requestAnimationFrame(loop, 1000/fps);
 }
 
 function displayCurrentTournament(){

@@ -56,7 +56,7 @@ function createTournaments(){
      // Add teams to tournament
      animajorWildCard.addTeam(new classes.Team("Vici Gaming", "Vici", 0, 0, 0));
      animajorWildCard.addTeam(new classes.Team("Invictus Gaming", "iG", 0, 0, 0));
-     animajorWildCard.addTeam(new classes.Team("Execration", "Execration", 0, 0, 0));
+     animajorWildCard.addTeam(new classes.Team("Execration", "XctN", 0, 0, 0));
      animajorWildCard.addTeam(new classes.Team("AS Monaco Gambit", "Gambit", 0, 0, 0));
      // Add remaining games
      // animajorWildCard.addSeries(new Series("June 2nd", 
@@ -73,27 +73,62 @@ function createTournaments(){
      animajorGroupStage.addTeam(new classes.Team("beastcoast", "beastcoast", 0, 0, 0));
      animajorGroupStage.addTeam(new classes.Team("WildCard_1", "TBD", 0, 0, 0));
      animajorGroupStage.addTeam(new classes.Team("WildCard_2", "TBD", 0, 0, 0));
-     // Add remaining games
-     // animajorGroupStage.addSeries(new Series("June 4th", 
-     //      animajorGroupStage.findTeamByName("Team1"), 
-     //      animajorGroupStage.findTeamByName("Team2"), false));
-     // Add tournament to tournament list
-     
+
      // Add qualifying tournaments to major
      animajor.addQualifier(classes.regions.WEU, dpcWestEUS2UppDiv);
      animajor.addQualifier(classes.regions.NA, dpcNAS2UppDiv);
      // Add teams to major based on qualifying tournaments
      animajor.addQualifiedTeams();
      
-     // (Before schedule released) Loops through and 
-     // creates a match between each team
-     for(let i = 0; i < animajorWildCard.teams.length - 1; i++){
-          for(let j = i + 1; j < animajorWildCard.teams.length; j++){
-               animajorWildCard.addSeries(new classes.Series("Exact schedule not released yet:", 
-                    animajorWildCard.teams[i], 
-                    animajorWildCard.teams[j], false));
-          }
-     }
+     // Add Wild Card matches
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-A", 
+          animajor.wildCard.findTeamByName("Secret"), 
+          animajor.wildCard.findTeamByName("Gambit"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-A", 
+          animajor.wildCard.findTeamByName("XctN"), 
+          animajor.wildCard.findTeamByName("iG"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-A", 
+          animajor.wildCard.findTeamByName("Vici"), 
+          animajor.wildCard.findTeamByName("Secret"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-A", 
+          animajor.wildCard.findTeamByName("Nigma"), 
+          animajor.wildCard.findTeamByName("iG"), false));
+
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-B", 
+          animajor.wildCard.findTeamByName("Vici"), 
+          animajor.wildCard.findTeamByName("Nigma"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-B", 
+          animajor.wildCard.findTeamByName("Nigma"), 
+          animajor.wildCard.findTeamByName("Gambit"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-B", 
+          animajor.wildCard.findTeamByName("Gambit"), 
+          animajor.wildCard.findTeamByName("XctN"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 2nd-B", 
+          animajor.wildCard.findTeamByName("XctN"), 
+          animajor.wildCard.findTeamByName("Vici"), false));
+
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-A", 
+          animajor.wildCard.findTeamByName("Vici"), 
+          animajor.wildCard.findTeamByName("Gambit"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-A", 
+          animajor.wildCard.findTeamByName("XctN"), 
+          animajor.wildCard.findTeamByName("Nigma"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-A", 
+          animajor.wildCard.findTeamByName("Nigma"), 
+          animajor.wildCard.findTeamByName("Secret"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-A", 
+          animajor.wildCard.findTeamByName("iG"), 
+          animajor.wildCard.findTeamByName("Secret"), false));
+
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-B", 
+          animajor.wildCard.findTeamByName("XctN"), 
+          animajor.wildCard.findTeamByName("Secret"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-B", 
+          animajor.wildCard.findTeamByName("iG"), 
+          animajor.wildCard.findTeamByName("Vici"), false));
+     animajor.wildCard.addSeries(new classes.Series("June 3rd-B", 
+          animajor.wildCard.findTeamByName("iG"), 
+          animajor.wildCard.findTeamByName("Gambit"), false));
 
      // Sort both wild card and group stage
      animajor.wildCard.sortTeams();

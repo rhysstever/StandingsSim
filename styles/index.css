@@ -46,10 +46,6 @@ h4 {
      font-size: 1.25rem;
 }
 
-th, td {
-     padding: 0.5rem;
-}
-
 .matchup > button {
      margin: 0.5rem;
      padding: 0.5rem 1rem;
@@ -69,8 +65,16 @@ th, td {
      margin: 1rem 0.5rem;
 }
 
+.matchup > .btn {
+     font-size: 0.9rem;
+}
+
 .dropdownBtn {
      margin: .75rem 1rem;
+}
+
+.table {
+     font-size: 1rem;
 }
 
 #sections {
@@ -97,13 +101,13 @@ th, td {
      margin: 0.5rem;
 }
 
-@media screen and (max-width: 1650px){ 
+@media screen and (max-width: 1730px){ 
 	main{
           margin: 0rem;
      }
 }
 
-@media screen and (max-width: 1200px){ 
+@media screen and (max-width: 1250px){ 
 	#sections {
           flex-direction: column;
      }

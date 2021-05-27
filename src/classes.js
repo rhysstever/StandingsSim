@@ -205,7 +205,10 @@ class Tournament {
 
                // Get the team's name
                let teamName = document.createElement("td");
-               teamName.innerHTML = this.teams[i].name;
+               if(window.innerWidth > 425)
+                    teamName.innerHTML = this.teams[i].name;
+               else 
+                    teamName.innerHTML = this.teams[i].abbrev;
                tableRow.appendChild(teamName);
 
                // Get the team's score
@@ -353,7 +356,12 @@ class Tournament {
 
      createTeamButton(team) {
           let button = document.createElement("button");
-          button.innerHTML = team.name;
+          
+          if(window.innerWidth > 425)
+               button.innerHTML = team.name;
+          else 
+               button.innerHTML = team.abbrev;
+
           button.classList.add("btn");
           button.classList.add("btn-primary");
           button.onclick = main.teamButtonClicked;
