@@ -27,11 +27,6 @@ main {
      margin: 0rem 15rem;
 }
 
-footer{
-     display: flex;
-     justify-content: flex-end;
-}
-
 #heading {
      text-align: center;
 }

@@ -6,20 +6,18 @@ function createTournaments(){
      let dpcWestEUS2UppDiv = new classes.Division(
           "DPC Season 2 Western Europe Upper Division",  
           "WEU Upper Div", classes.regions.WEU, "Upper",
-          "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division", true);
+          "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division", false, true);
      // Add teams to tournament
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Alliance", "[A]", 6, 1, 0));           
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Team Liquid", "TL", 5, 2, 0));         
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Team Nigma", "Nigma", 4, 3, 0));       
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Team Secret", "Secret", 4, 3, 0));
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Tundra Esports", "Tundra", 3, 4, 2));
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("OG", "OG", 3, 4, 1));                  
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Brame", "Brame", 3, 4, 0));            
-     dpcWestEUS2UppDiv.addTeam(new classes.Team("Hellbear Smashers", "SMASH", 0, 7, 0));
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Alliance", "[A]", 6, 0, 1, 0));           
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Team Liquid", "TL", 5, 0, 2, 0));         
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Team Nigma", "Nigma", 4, 0, 3, 0));       
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Team Secret", "Secret", 4, 0, 3, 0));
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Tundra Esports", "Tundra", 3, 0, 4, 2));
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("OG", "OG", 3, 0, 4, 1));                  
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Brame", "Brame", 3, 0, 4, 0));            
+     dpcWestEUS2UppDiv.addTeam(new classes.Team("Hellbear Smashers", "SMASH", 0, 0, 7, 0));
      // Calculate team place values
-     dpcWestEUS2UppDiv.sortTeams();
-     // Add remaining games
-     // No games left
+     dpcWestEUS2UppDiv.sortTeams(false);
      // Add tournament to tournament list
      main.tournamentsList.push(dpcWestEUS2UppDiv);
 
@@ -27,20 +25,18 @@ function createTournaments(){
      let dpcNAS2UppDiv = new classes.Division(
           "DPC Season 2 North America Upper Division", 
           "NA Upper Div", classes.regions.NA, "Upper",
-          "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division", true);
+          "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division", false, true);
      // Add teams to tournament
-     dpcNAS2UppDiv.addTeam(new classes.Team("Quincy Crew", "QC", 7, 0, 0));                  
-     dpcNAS2UppDiv.addTeam(new classes.Team("Evil Geniuses", "EG", 6, 1, 0));         
-     dpcNAS2UppDiv.addTeam(new classes.Team("Undying", "UND", 5, 2, 0));           
-     dpcNAS2UppDiv.addTeam(new classes.Team("4 Zoomers", "4Z", 4, 3, 0));
-     dpcNAS2UppDiv.addTeam(new classes.Team("simply TOOBASED", "sT", 3, 4, 0));       
-     dpcNAS2UppDiv.addTeam(new classes.Team("Black N Yellow", "BNY", 2, 5, 0));            
-     dpcNAS2UppDiv.addTeam(new classes.Team("S A D B O Y S", "S A D", 1, 6, 0));
-     dpcNAS2UppDiv.addTeam(new classes.Team("The Cut", "Cut", 0, 7, 0));
+     dpcNAS2UppDiv.addTeam(new classes.Team("Quincy Crew", "QC", 7, 0, 0, 0));                  
+     dpcNAS2UppDiv.addTeam(new classes.Team("Evil Geniuses", "EG", 6, 0, 1, 0));         
+     dpcNAS2UppDiv.addTeam(new classes.Team("Undying", "UND", 5, 0, 2, 0));           
+     dpcNAS2UppDiv.addTeam(new classes.Team("4 Zoomers", "4Z", 4, 0, 3, 0));
+     dpcNAS2UppDiv.addTeam(new classes.Team("simply TOOBASED", "sT", 3, 0, 4, 0));       
+     dpcNAS2UppDiv.addTeam(new classes.Team("Black N Yellow", "BNY", 2, 0, 5, 0));            
+     dpcNAS2UppDiv.addTeam(new classes.Team("S A D B O Y S", "S A D", 1, 0, 6, 0));
+     dpcNAS2UppDiv.addTeam(new classes.Team("The Cut", "Cut", 0, 0, 7, 0));
      // Calculate team place values
-     dpcNAS2UppDiv.sortTeams();
-     // Add remaining games
-     // No games left
+     dpcNAS2UppDiv.sortTeams(false);
      // Add tournament to tournament list
      main.tournamentsList.push(dpcNAS2UppDiv);
 
@@ -51,28 +47,24 @@ function createTournaments(){
           "https://liquipedia.net/dota2/WePlay/AniMajor/2021");
      
      // Create tournament
-     let animajorWildCard = new classes.WildCard(animajor, "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card", false);
+     let animajorWildCard = new classes.WildCard(animajor, "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card", true, false);
      animajor.wildCard = animajorWildCard;
      // Add teams to tournament
-     animajorWildCard.addTeam(new classes.Team("Vici Gaming", "Vici", 0, 0, 0));
-     animajorWildCard.addTeam(new classes.Team("Invictus Gaming", "iG", 0, 0, 0));
-     animajorWildCard.addTeam(new classes.Team("Execration", "XctN", 0, 0, 0));
-     animajorWildCard.addTeam(new classes.Team("AS Monaco Gambit", "Gambit", 0, 0, 0));
-     // Add remaining games
-     // animajorWildCard.addSeries(new Series("June 2nd", 
-     //      animajorWildCard.findTeamByName("Team1"), 
-     //      animajorWildCard.findTeamByName("Team2"), false));
+     animajorWildCard.addTeam(new classes.Team("Vici Gaming", "Vici", 0, 0, 0, 0));
+     animajorWildCard.addTeam(new classes.Team("Invictus Gaming", "iG", 0, 0, 0, 0));
+     animajorWildCard.addTeam(new classes.Team("Execration", "XctN", 0, 0, 0, 0));
+     animajorWildCard.addTeam(new classes.Team("AS Monaco Gambit", "Gambit", 0, 0, 0, 0));
 
      // Create tournament
-     let animajorGroupStage = new classes.GroupStage(animajor, "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage", false);
+     let animajorGroupStage = new classes.GroupStage(animajor, "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage", true, false);
      animajor.groupStage = animajorGroupStage;
      // Add teams to tournament         
-     animajorGroupStage.addTeam(new classes.Team("PSG.LGD", "PSG.LGD", 0, 0, 0));
-     animajorGroupStage.addTeam(new classes.Team("TNC Predator", "TNC", 0, 0, 0));
-     animajorGroupStage.addTeam(new classes.Team("Team Spirit", "Team Spirit", 0, 0, 0));
-     animajorGroupStage.addTeam(new classes.Team("beastcoast", "beastcoast", 0, 0, 0));
-     animajorGroupStage.addTeam(new classes.Team("WildCard_1", "TBD", 0, 0, 0));
-     animajorGroupStage.addTeam(new classes.Team("WildCard_2", "TBD", 0, 0, 0));
+     animajorGroupStage.addTeam(new classes.Team("PSG.LGD", "PSG.LGD", 0, 0, 0, 0));
+     animajorGroupStage.addTeam(new classes.Team("TNC Predator", "TNC", 0, 0, 0, 0));
+     animajorGroupStage.addTeam(new classes.Team("Team Spirit", "Team Spirit", 0, 0, 0, 0));
+     animajorGroupStage.addTeam(new classes.Team("beastcoast", "beastcoast", 0, 0, 0, 0));
+     animajorGroupStage.addTeam(new classes.Team("WildCard_1", "TBD", 0, 0, 0, 0));
+     animajorGroupStage.addTeam(new classes.Team("WildCard_2", "TBD", 0, 0, 0, 0));
 
      // Add qualifying tournaments to major
      animajor.addQualifier(classes.regions.WEU, dpcWestEUS2UppDiv);
@@ -131,8 +123,8 @@ function createTournaments(){
           animajor.wildCard.findTeamByName("Gambit"), false));
 
      // Sort both wild card and group stage
-     animajor.wildCard.sortTeams();
-     animajor.groupStage.sortTeams();
+     animajor.wildCard.sortTeams(true);
+     animajor.groupStage.sortTeams(true);
      main.tournamentsList.push(animajor);
 
      // ===== End of major =====

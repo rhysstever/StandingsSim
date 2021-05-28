@@ -51,61 +51,103 @@ function displayCurrentTournament(){
      if(currentTournament == null)
           currentTournament = tournamentsList[0];
 
+     // Change the page title and display the current tournament
      document.querySelector("title").innerHTML = currentTournament.name;
-     
-     // The tournament is only drawn if it exists
-     if(currentTournament == null)
-          return;
-     else
-          currentTournament.displayTournament();
+     currentTournament.displayTournament();
 }
 
-function teamButtonClicked(e){
-     // Get predicted losing team
+function predictionButtonClicked(e){
+     // Get the winning team's number (1 or 2)
      let winnerTeamNum = e.target.id.substring(4, 5);
-     let loserId = e.target.id.substring(0, 4) + (3 - winnerTeamNum) + e.target.id.substring(5);
-     let otherButton = document.querySelector("#" + loserId);
-     
+
      // Find series from getting the series number from the button
      let seriesNum = e.target.id.substring(11) - 1;
      let series = currentTournament.remainingSeries[seriesNum];
 
-     // Change buttons' colors
-     // First prediction (selection)
-     if(series.prediction == 0) {
-          e.target.classList.remove("btn-primary");
-          otherButton.classList.remove("btn-primary");
-          e.target.classList.add("btn-success");
-          otherButton.classList.add("btn-danger");
-     } 
-     // Remove prediction (deselection)
-     else if(series.prediction == winnerTeamNum) {
-          e.target.classList.remove("btn-success");
-          otherButton.classList.remove("btn-danger");
-          e.target.classList.add("btn-primary");
-          otherButton.classList.add("btn-primary");
-     } 
-     // Change prediction (flip)
-     else {
-          e.target.classList.remove("btn-danger");
-          otherButton.classList.remove("btn-success");
-          e.target.classList.add("btn-success");
-          otherButton.classList.add("btn-danger");
+     // If the teams have tied
+     if(winnerTeamNum == 0) {
+          // Get both team buttons
+          let team1Button = document.querySelector("#team1series" + series.number);
+          let team2Button = document.querySelector("#team2series" + series.number);
+
+          // First prediction (selection)
+          if(series.prediction == -1) {
+               team1Button.classList.remove("btn-primary");
+               team2Button.classList.remove("btn-primary");
+               team1Button.classList.add("btn-warning");
+               team2Button.classList.add("btn-warning");
+          } 
+          // Remove tie prediction (deselection)
+          else if(series.prediction == winnerTeamNum) {
+               team1Button.classList.remove("btn-warning");
+               team2Button.classList.remove("btn-warning");
+               team1Button.classList.add("btn-primary");
+               team2Button.classList.add("btn-primary");
+          } 
+          // Change prediction
+          else {
+               if(team1Button.classList.contains("btn-success")){
+                    team1Button.classList.remove("btn-success");
+                    team2Button.classList.remove("btn-danger");
+               } else {
+                    team1Button.classList.remove("btn-danger");
+                    team2Button.classList.remove("btn-success");
+               }
+
+               team1Button.classList.add("btn-warning");
+               team2Button.classList.add("btn-warning");
+          }
+
+     } else {
+          // Find the loser's button based on the winning team's number
+          let loserId = e.target.id.substring(0, 4) + (3 - winnerTeamNum) + e.target.id.substring(5);
+          let otherButton = document.querySelector("#" + loserId);
+          
+          // Change buttons' colors
+          // First prediction (selection)
+          if(series.prediction == -1) {
+               e.target.classList.remove("btn-primary");
+               otherButton.classList.remove("btn-primary");
+               e.target.classList.add("btn-success");
+               otherButton.classList.add("btn-danger");
+          } 
+          // Remove prediction (deselection)
+          else if(series.prediction == winnerTeamNum) {
+               e.target.classList.remove("btn-success");
+               otherButton.classList.remove("btn-danger");
+               e.target.classList.add("btn-primary");
+               otherButton.classList.add("btn-primary");
+          }
+          // Change prediction (flip)
+          else {
+               // If the series prediction WAS a tie
+               if(series.prediction == 0) {
+                    e.target.classList.remove("btn-warning");
+                    otherButton.classList.remove("btn-warning");
+               } else {
+                    e.target.classList.remove("btn-danger");
+                    otherButton.classList.remove("btn-success");
+               }
+
+               e.target.classList.add("btn-success");
+               otherButton.classList.add("btn-danger");
+          }
      }
 
      series.adjustScores(winnerTeamNum);
-
-     currentTournament.sortTeams();
+     
+     currentTournament.sortTeams(true);
      // Redraw the future standings' table
      let futureStandingsTable = document.querySelector("#futureStandings");
      currentTournament.displayTable(futureStandingsTable);
 }
 
 function tournamentButtonClicked(e){
+     // If the tournament clicked is a major
      if(e.target.id.substring(1, 6) == "major"){
           // Gets the major
           let major = tournamentsList[e.target.id.substring(0, 1)];
-          // Displays the wild card or group stage 
+          // Figures out if the new tournament is the wild card or group stage 
           let type = e.target.id.substring(6);
           if(type == "wc"){
                if(major.wildCard != null)
@@ -116,10 +158,11 @@ function tournamentButtonClicked(e){
                     currentTournament = major.groupStage;
           }
      } else {
-          // Displays the new tournament via id
+          // Assigns the new current tournament via id
           currentTournament = tournamentsList[e.target.id];
      }
-
+     
+     // Displays the new current tournament
      currentTournament.displayTournament();
 }
 
@@ -148,4 +191,4 @@ function changeDropdownIcon(e){
      }
 }
 
-export {tournamentsList, currentTournament, init, teamButtonClicked, tournamentButtonClicked};
+export {tournamentsList, currentTournament, init, predictionButtonClicked, tournamentButtonClicked};
