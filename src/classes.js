@@ -15,16 +15,22 @@ class Team {
           this.place = 0;
           this.name = name;
           this.abbrev = abbrev;
+
           this.wins = wins;
           this.losses = losses;
           this.tieBreakerWins = tieBreakerWins;
+
+          this.predictedWins = 0;
+          this.predictedLosses = 0;
+          this.predictedTieBreakerWins = 0;
+
           this.isTied = false;
      }
 
-     resetScore(){
-          this.wins = 0;
-          this.losses = 0;
-          this.tieBreakerWins = 0;
+     resetPredictions(){
+          this.predictedWins = 0;
+          this.predictedLosses = 0;
+          this.predictedTieBreakerWins = 0;
      }
 }
 
@@ -159,14 +165,14 @@ class Tournament {
 
           // Draw the current standings' table
           let currentStandingsTable = document.querySelector("#currentStandings");
-          this.displayTable(currentStandingsTable);
+          this.displayTable(currentStandingsTable, "current");
      
           // Create game buttons
           this.setupGameButtons();
           
           // Draw the future standing's table
           let futureStandingsTable = document.querySelector("#futureStandings");
-          this.displayTable(futureStandingsTable);
+          this.displayTable(futureStandingsTable, "predictions");
      }
 
      findTeamByName(teamName){
@@ -187,7 +193,7 @@ class Tournament {
           return -1; 
      }
 
-     displayTable(table){
+     displayTable(table, typeOfTable){
           // Clear the table
           table.innerHTML = '';
           for(let i = 0; i < this.teams.length; i++) {
@@ -213,6 +219,17 @@ class Tournament {
 
                // Get the team's score
                let teamScore = document.createElement("td");
+
+               // let wins = this.teams[i].wins;
+               // let losses = this.teams[i].losses;
+               // let tieWins = this.teams[i].tieBreakerWins;
+
+               // if(typeOfTable == "predictions"){
+               //      wins += this.teams[i].predictedWins;
+               //      losses += this.teams[i].predictedLosses;
+               //      tieWins += this.teams[i].predictedTieBreakerWins;
+               // }
+
                if(this.teams[i].isTied)
                     teamScore.innerHTML = this.teams[i].wins + "-" + this.teams[i].losses + " (" + this.teams[i].tieBreakerWins + ")";
                else 
@@ -334,6 +351,23 @@ class Tournament {
                buttonTeam2.classList.add("team2");
                buttonTeam2.id = "team2series" + seriesNum;
                matchup.appendChild(buttonTeam2);
+
+               switch(this.remainingSeries[i].prediction) {
+                    case 1:
+                         buttonTeam1.classList.add("btn-success");
+                         buttonTeam2.classList.add("btn-danger");
+                         break;
+                    case 2:
+                         buttonTeam1.classList.add("btn-danger");
+                         buttonTeam2.classList.add("btn-success");
+                         break;
+                    case 0:
+                    default:
+                         buttonTeam1.classList.add("btn-primary");
+                         buttonTeam2.classList.add("btn-primary");
+                         break;
+               }
+
                // Add "TB" next to the series if it is a tiebreaker
                if(this.remainingSeries[i].isTieBreaker) {
                     let tbText = document.createElement("p");
@@ -363,7 +397,6 @@ class Tournament {
                button.innerHTML = team.abbrev;
 
           button.classList.add("btn");
-          button.classList.add("btn-primary");
           button.onclick = main.teamButtonClicked;
           return button;
      }

@@ -101,7 +101,7 @@ function teamButtonClicked(e){
      currentTournament.displayTable(futureStandingsTable);
 }
 
-function tournamentButtonClicked(e){     
+function tournamentButtonClicked(e){
      if(e.target.id.substring(1, 6) == "major"){
           // Gets the major
           let major = tournamentsList[e.target.id.substring(0, 1)];
