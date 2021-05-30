@@ -268,7 +268,6 @@ class Tournament {
       this.remainingSeries[i].prediction = -1;
     }
     this.setupGameButtons(true);
-    this.sortTeams(true);
   }
 
   displayTournament() {

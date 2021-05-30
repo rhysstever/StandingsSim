@@ -192,6 +192,7 @@ function changeDropdownIcon(e) {
 }
 
 function resetAllPredictions() {
+  // Reset each team's predictions and sort them
   currentTournament.resetTeamPredictions();
   currentTournament.sortTeams(true);
   // Redraw the future standings' table
