@@ -725,10 +725,9 @@ class Major {
 class WildCard extends Tournament {
   constructor(major, link, hasTieMatches, isComplete) {
     let name = major.name + ": Wild Card";
-    let tabName = major.tabName + " WC";
     super(
       name,
-      tabName,
+      "Wild Card",
       regions.GLOBAL,
       "Major",
       "Wild Card",
@@ -742,10 +741,9 @@ class WildCard extends Tournament {
 class GroupStage extends Tournament {
   constructor(major, link, hasTieMatches, isComplete) {
     let name = major.name + ": Group Stage";
-    let tabName = major.tabName + " GS";
     super(
       name,
-      tabName,
+      "Group Stage",
       regions.GLOBAL,
       "Major",
       "Group Stage",
