@@ -9,7 +9,7 @@ let prevLarge = true;
 function init() {
   // Get tournaments
   tournaments.createTournaments();
-  displayCurrentTournament();
+  displayNextIncompleteTournament();
   setupOnclicks();
   loop();
 }
@@ -19,17 +19,17 @@ function loop() {
   if (prevLarge && window.innerWidth <= 425) {
     prevLarge = false;
     // Redisplays the tournament with the abbreviations of each team
-    displayCurrentTournament();
+    currentTournament.displayTournament();
   } else if (!prevLarge && window.innerWidth > 425) {
     prevLarge = true;
     // Redisplays the tournament with the full name of each team
-    displayCurrentTournament();
+    currentTournament.displayTournament();
   }
-
+  // Call loop() again
   requestAnimationFrame(loop, 1000 / fps);
 }
 
-function displayCurrentTournament() {
+function displayNextIncompleteTournament() {
   // Display the first incomplete tournament
   for (let i = 0; i < tournamentsList.length; i++) {
     if (tournamentsList[i].type == "Major") {
@@ -48,10 +48,10 @@ function displayCurrentTournament() {
     }
   }
 
-  if (currentTournament == null) currentTournament = tournamentsList[0];
+  if (currentTournament == null) 
+    currentTournament = tournamentsList[0];
 
-  // Change the page title and display the current tournament
-  document.querySelector("title").innerHTML = currentTournament.name;
+  // display the current tournament
   currentTournament.displayTournament();
 }
 

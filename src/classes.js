@@ -272,6 +272,7 @@ class Tournament {
 
   displayTournament() {
     // Change tournament header and link href
+    document.querySelector("title").innerHTML = this.name;
     document.querySelector("#tournamentName").innerHTML = this.name;
     document.querySelector("#source").href = this.link;
 
@@ -281,14 +282,28 @@ class Tournament {
     let currentStandingsTable = document.querySelector("#currentStandings");
     this.displayTable(currentStandingsTable);
 
-    // Create game buttons
-    this.setupGameButtons();
-
-    // Sort teams with predictions factored in
-    this.sortTeams(true);
-    // Draw the future standing's table
-    let futureStandingsTable = document.querySelector("#futureStandings");
-    this.displayTable(futureStandingsTable);
+    if(this.isComplete) {
+      // Changes text of currnt standings table and
+      // hides the games list and prediction table
+      document.querySelector("#currentStandingsHeader").innerHTML = "Final Standings";
+      document.querySelector("#predictionTable").style.display = "none";
+      document.querySelector("#remainingGamesSection").style.display = "none";
+    } else {
+      // Create game buttons
+      this.setupGameButtons();
+      
+      // Resets current standings table header and
+      // makes sure the games and prediction table section are displayed
+      document.querySelector("#currentStandingsHeader").innerHTML = "Current Standings";
+      document.querySelector("#remainingGamesSection").style.display = "block";
+      document.querySelector("#predictionTable").style.display = "table";
+  
+      // Sort teams with predictions factored in
+      this.sortTeams(true);
+      // Draw the future standing's table
+      let futureStandingsTable = document.querySelector("#futureStandings");
+      this.displayTable(futureStandingsTable);
+    }
   }
 
   findTeamByName(teamName) {
@@ -307,9 +322,10 @@ class Tournament {
     return -1;
   }
 
-  displayTable(table) {
+  displayTable(table) {    
     // Clear the table
     table.innerHTML = "";
+    // Loops through each team and displays their score
     for (let i = 0; i < this.teams.length; i++) {
       // Create a new table row for the team
       let tableRow = document.createElement("tr");
@@ -498,8 +514,7 @@ class Tournament {
     // Displays a message if there are no remaining games
     if (gamesList.childElementCount == 0) {
       let message = document.createElement("p");
-      if (this.isComplete) message.innerHTML = "Tournament Complete.";
-      else message.innerHTML = "No games to display.";
+      message.innerHTML = "No games to display.";
       gamesList.appendChild(message);
     }
   }
