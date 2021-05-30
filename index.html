@@ -58,7 +58,7 @@
                <div class="section">
                     <div id="gamesHeader">
                          <h3>Remaining Games</h3>
-                         <button class="btn btn-light dropdownBtn" type="button" onclick="changeDropdownIcon(event)" data-bs-toggle="collapse" data-bs-target="#remainingGamesList" aria-expanded="true" aria-controls="remainingGamesList">
+                         <button class="btn btn-light dropdownBtn" type="button" data-bs-toggle="collapse" data-bs-target="#remainingGamesList" aria-expanded="true" aria-controls="remainingGamesList">
                               <i class="fas fa-chevron-up"></i>
                          </button>
                     </div>
@@ -78,17 +78,38 @@
                          <tbody id="futureStandings">
                          </tbody>
                     </table>
-                    <div id="links">
-                         <!-- GitHub Link -->
-                         <a class="btn btn-primary btn-floating" style="background-color: #333333;" href="https://github.com/rhysstever/StandingsSimulator" role="button"><i class="fab fa-github"></i></a>
-                         <!-- Reddit Link -->
-                         <a class="btn btn-primary btn-floating" style="background-color: #ff4500;" href="https://www.reddit.com/r/DotA2/comments/nba1zt/dpc_standings_simulator/" role="button"><i class="fab fa-reddit-alien"></i></a>
-                    </div>
+                    <button id="resetPredictionsButton" class="btn btn-outline-secondary" type="button" >Reset Predictions</button>
                </div>
           </div>
      </main>
      <footer>
-          <p id="foot"></p>
-     </footer>
+          <!-- Reddit -->
+          <a class="btn btn-primary btn-floating"
+               style="background-color: #ff4500;" 
+               href="https://www.reddit.com/r/DotA2/comments/nba1zt/dpc_standings_simulator/"
+               role="button">
+               <i class="fab fa-reddit fa-2x"></i></a>
+          
+          <!-- Twitter -->
+          <a class="btn btn-primary btn-floating" 
+               style="background-color: #55acee;" 
+               href="https://twitter.com/rhys_stever" 
+               role="button">
+               <i class="fab fa-twitter fa-lg"></i></a>
+
+          <!-- Github -->
+          <a class="btn btn-primary btn-floating"
+               style="background-color: #333333;"
+               href="https://github.com/rhysstever"
+               role="button">
+               <i class="fab fa-github fa-2x"></i></a>
+        
+          <!-- Website -->
+          <a class="btn btn-primary btn-floating"
+               style="background-color: #999999;"
+               href="http://rhysstever.me/"
+               role="button">
+               <i class="fas fa-globe fa-2x"></i></a>
+        </footer>
 </body>
 </html>
