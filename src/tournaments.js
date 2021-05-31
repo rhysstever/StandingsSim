@@ -250,28 +250,61 @@ function createTournaments() {
 }
 
 function addTournamentOptions() {
-  let dropDownParent = document.querySelector("#tournamentDropDown");
+  let dropdownParent = document.querySelector("#tournamentDropDown");
   for (let i = 0; i < main.tournamentsList.length; i++) {
     if (main.tournamentsList[i].type == "Major") {
+      // Creates a divider to divide the major options from the other
+      // Only if the major is not the first dropdown option
+      if(i > 0) {
+        let dividerContainer = document.createElement("li");
+        let divider = document.createElement("hr");
+        divider.classList.add("dropdown-divider");
+        dividerContainer.appendChild(divider);
+        dropdownParent.appendChild(dividerContainer);
+      }
+      // Add disabled option as a header of the major
+      let headerContainer = document.createElement("li");
+      let header = document.createElement("h5");
+      header.classList.add("dropdownHeader");
+      header.innerHTML = main.tournamentsList[i].tabName;
+      headerContainer.appendChild(header)
+      dropdownParent.appendChild(headerContainer);
+      // Add Wild Card option
       let tournamentOptionGS = createTournamentDropdown(
         i + "majorwc",
         main.tournamentsList[i].wildCard.tabName,
-        main.tournamentsList[i].wildCard.isComplete
-      );
-      dropDownParent.appendChild(tournamentOptionGS);
+        main.tournamentsList[i].wildCard.isComplete);
+      dropdownParent.appendChild(tournamentOptionGS);
+      // Add Group Stage option
       let tournamentOptionWC = createTournamentDropdown(
         i + "majorgs",
         main.tournamentsList[i].groupStage.tabName,
-        main.tournamentsList[i].groupStage.isComplete
-      );
-      dropDownParent.appendChild(tournamentOptionWC);
+        main.tournamentsList[i].groupStage.isComplete);
+      dropdownParent.appendChild(tournamentOptionWC);
+      // Creates a divider to divide the rest of the options from the major options
+      // Only if the major is not the last dropdown option
+      if(i < main.tournamentsList.length - 1) {
+        let dividerContainer = document.createElement("li");
+        let divider = document.createElement("hr");
+        divider.classList.add("dropdown-divider");
+        dividerContainer.appendChild(divider);
+        dropdownParent.appendChild(dividerContainer);
+      }
     } else {
+      // Hard-coded header for section of upper division tournaments
+      if(i == 0) {
+        let headerContainer = document.createElement("li");
+        let header = document.createElement("h5");
+        header.classList.add("dropdownHeader");
+        header.innerHTML = "Season 2";
+        headerContainer.appendChild(header);
+        dropdownParent.appendChild(headerContainer);
+      }
       let tournamentOption = createTournamentDropdown(
         i,
         main.tournamentsList[i].tabName,
-        main.tournamentsList[i].isComplete
-      );
-      dropDownParent.appendChild(tournamentOption);
+        main.tournamentsList[i].isComplete);
+      dropdownParent.appendChild(tournamentOption);
     }
   }
 }

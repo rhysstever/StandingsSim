@@ -41,7 +41,7 @@
           </div>
           <div id="sections">
                <div class="section">
-                    <h3>Current Standings</h3>
+                    <h3 id="currentStandingsHeader">Current Standings</h3>
                     <table class="table table-hover table-bordered">
                          <thead>
                               <tr>
@@ -55,7 +55,7 @@
                     </table>
                     <a class="btn btn-outline-secondary" id="source" href="#">Source</a>
                </div>
-               <div class="section">
+               <div class="section" id="remainingGamesSection">
                     <div id="gamesHeader">
                          <h3>Remaining Games</h3>
                          <button class="btn btn-light dropdownBtn" type="button" data-bs-toggle="collapse" data-bs-target="#remainingGamesList" aria-expanded="true" aria-controls="remainingGamesList">
@@ -65,7 +65,7 @@
                     <!-- A list of the remaining games and their dates, or a message saying "No games remaining" -->
                     <div id="remainingGamesList" class="collapse show"></div>
                </div>
-               <div class="section">
+               <div class="section" id="predictionTable">
                     <h3>Predicted Standings</h3>
                     <table class="table table-hover table-bordered">
                          <thead>
