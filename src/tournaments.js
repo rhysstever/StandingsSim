@@ -134,62 +134,69 @@ function createTournaments() {
   // Add teams to major based on qualifying tournaments
   animajor.addQualifiedTeams();
 
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("iG"), 1, 1, 0, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Nigma"), 1, 1, 1, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("XctN"), 0, 3, 0, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Vici"), 0, 3, 0, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Gambit"), 0, 2, 1, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Secret"), 0, 2, 0, 0);
+
   // Add Wild Card matches
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-A",
-      animajor.wildCard.findTeamByName("Secret"),
-      animajor.wildCard.findTeamByName("Gambit"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-A",
+  //     animajor.wildCard.findTeamByName("Secret"),
+  //     animajor.wildCard.findTeamByName("Gambit"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-A",
-      animajor.wildCard.findTeamByName("XctN"),
-      animajor.wildCard.findTeamByName("iG"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-A",
+  //     animajor.wildCard.findTeamByName("XctN"),
+  //     animajor.wildCard.findTeamByName("iG"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-A",
-      animajor.wildCard.findTeamByName("Vici"),
-      animajor.wildCard.findTeamByName("Secret"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-A",
+  //     animajor.wildCard.findTeamByName("Vici"),
+  //     animajor.wildCard.findTeamByName("Secret"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-A",
-      animajor.wildCard.findTeamByName("Nigma"),
-      animajor.wildCard.findTeamByName("iG"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-A",
+  //     animajor.wildCard.findTeamByName("Nigma"),
+  //     animajor.wildCard.findTeamByName("iG"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-B",
-      animajor.wildCard.findTeamByName("Vici"),
-      animajor.wildCard.findTeamByName("Nigma"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-B",
+  //     animajor.wildCard.findTeamByName("Vici"),
+  //     animajor.wildCard.findTeamByName("Nigma"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-B",
-      animajor.wildCard.findTeamByName("Nigma"),
-      animajor.wildCard.findTeamByName("Gambit"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-B",
+  //     animajor.wildCard.findTeamByName("Nigma"),
+  //     animajor.wildCard.findTeamByName("Gambit"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-B",
-      animajor.wildCard.findTeamByName("Gambit"),
-      animajor.wildCard.findTeamByName("XctN"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-B",
+  //     animajor.wildCard.findTeamByName("Gambit"),
+  //     animajor.wildCard.findTeamByName("XctN"),
+  //     false));
 
-  animajor.wildCard.addSeries(
-    new classes.Series(
-      "June 2nd-B",
-      animajor.wildCard.findTeamByName("XctN"),
-      animajor.wildCard.findTeamByName("Vici"),
-      false));
+  // animajor.wildCard.addSeries(
+  //   new classes.Series(
+  //     "June 2nd-B",
+  //     animajor.wildCard.findTeamByName("XctN"),
+  //     animajor.wildCard.findTeamByName("Vici"),
+  //     false));
 
   animajor.wildCard.addSeries(
     new classes.Series(

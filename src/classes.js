@@ -660,6 +660,17 @@ class Tournament {
     }
     this.teams[index].place = this.teams[index - 1].place + duplicates;
   }
+
+  addScoreToTeam(team, wins, ties, losses, tieBreakerWins) {
+    for(let i = 0; i < this.teams.length; i++) {
+      if(this.teams[i] == team) {
+        this.teams[i].wins += wins;
+        this.teams[i].ties += ties;
+        this.teams[i].losses += losses;
+        this.teams[i].tieBreakerWins += tieBreakerWins;
+      }
+    }
+  }
 }
 
 class Division extends Tournament {
