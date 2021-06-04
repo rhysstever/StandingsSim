@@ -25,4 +25,4 @@ Predicting tiebreaker results:<br/>
   - Creating tournaments/finding teams/getting remaining games can be created and updated automatically
 - Color table rows based on each team's current score and how many games are left to be played
 - For DPC Tournaments, display an overall DPC standings based on points
-- Optimize sorting (currently uses bubble sort because the number of teams has been low)
+- Optimize sorting (currently uses selection sort because the number of teams has been low)
