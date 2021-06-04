@@ -142,21 +142,15 @@ function createTournaments() {
   // Add wild card teams that qualified to the group stage
   animajor.addWildCardWinnersToGroupStage();
 
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("EG"), 1, 1, 0, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("PSG.LGD"), 1, 0, 0, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("bc"), 0, 1, 1, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TL"), 0, 1, 0, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TSpirit"), 0, 1, 0, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TNC"), 0, 0, 1, 0);
+
   // Add Group Stage matches
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 4th-A",
-      animajor.groupStage.findTeamByName("EG"),
-      animajor.groupStage.findTeamByName("TNC"),
-      false));
-    
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 4th-A",
-      animajor.groupStage.findTeamByName("PSG.LGD"),
-      animajor.groupStage.findTeamByName("bc"),
-      false));
-    
+  // June 4th Stream A    
   animajor.groupStage.addSeries(
     new classes.Series(
       "June 4th-A",
@@ -171,20 +165,7 @@ function createTournaments() {
       animajor.groupStage.findTeamByName("TNC"),
       false));
     
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 4th-B",
-      animajor.groupStage.findTeamByName("TL"),
-      animajor.groupStage.findTeamByName("bc"),
-      false));
-    
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 4th-B",
-      animajor.groupStage.findTeamByName("TSpirit"),
-      animajor.groupStage.findTeamByName("EG"),
-      false));
-      
+  // June 4th Stream B   
   animajor.groupStage.addSeries(
     new classes.Series(
       "June 4th-B",
@@ -196,6 +177,78 @@ function createTournaments() {
     new classes.Series(
       "June 4th-B",
       animajor.groupStage.findTeamByName("TSpirit"),
+      animajor.groupStage.findTeamByName("Nigma"),
+      false));
+   
+  // June 5th Stream A
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 5th-A",
+      animajor.groupStage.findTeamByName("TSpirit"),
+      animajor.groupStage.findTeamByName("PSG.LGD"),
+      false));
+      
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 5th-A",
+      animajor.groupStage.findTeamByName("TL"),
+      animajor.groupStage.findTeamByName("Nigma"),
+      false));
+
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 5th-A",
+      animajor.groupStage.findTeamByName("Nigma"),
+      animajor.groupStage.findTeamByName("TNC"),
+      false));
+
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 5th-A",
+      animajor.groupStage.findTeamByName("Vici"),
+      animajor.groupStage.findTeamByName("TSpirit"),
+      false));
+
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 5th-A",
+      animajor.groupStage.findTeamByName("TNC"),
+      animajor.groupStage.findTeamByName("PSG.LGD"),
+      false));
+
+  // June 5th Stream B
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("Vici"),
+      animajor.groupStage.findTeamByName("EG"),
+      false));
+      
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("bc"),
+      animajor.groupStage.findTeamByName("TNC"),
+      false));
+          
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("PSG.LGD"),
+      animajor.groupStage.findTeamByName("TL"),
+      false));
+          
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("EG"),
+      animajor.groupStage.findTeamByName("bc"),
+      false));
+          
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("EG"),
       animajor.groupStage.findTeamByName("Nigma"),
       false));
 
