@@ -11,8 +11,6 @@ A simulator to see the standings for tournaments after predicting remaining game
 - [WePlay AniMajor Wild Card](https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card)
 - [WePlay AniMajor Group Stage](https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage)
 
-*placeholders for right now, since not all teams have been determined
-
 ## Demos
 Predicting a match result and displaying ties:<br/>
 <br/>
