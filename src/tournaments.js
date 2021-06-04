@@ -112,17 +112,13 @@ function createTournaments() {
 
   // Create Wildcard and add it to the major as its wildcard
   let animajorWildCard = new classes.WildCard(animajor, 
-    "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card", true, false);
+    "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card", true, true);
   animajor.wildCard = animajorWildCard;
 
   // Create Groupstage and add it to the major as its groupstage
   let animajorGroupStage = new classes.GroupStage(animajor,
     "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage", true, false);
   animajor.groupStage = animajorGroupStage;
-
-  // Add teams to tournament
-  animajorGroupStage.addTeam(new classes.Team("WildCard_1", "TBD", 0, 0, 0, 0));
-  animajorGroupStage.addTeam(new classes.Team("WildCard_2", "TBD", 0, 0, 0, 0));
 
   // Add qualifying tournaments to major
   animajor.addQualifier(classes.regions.CN, dpcChinaS2UppDiv);
@@ -131,120 +127,76 @@ function createTournaments() {
   animajor.addQualifier(classes.regions.SEA, dpcSEAS2UppDiv);
   animajor.addQualifier(classes.regions.NA, dpcNAS2UppDiv);
   animajor.addQualifier(classes.regions.SA, dpcSAS2UppDiv);
+
   // Add teams to major based on qualifying tournaments
   animajor.addQualifiedTeams();
 
-  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("iG"), 1, 1, 0, 0);
-  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Nigma"), 1, 1, 1, 0);
-  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("XctN"), 0, 3, 0, 0);
-  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Vici"), 0, 3, 0, 0);
-  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Gambit"), 0, 2, 1, 0);
-  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Secret"), 0, 2, 0, 0);
+  // Fill in scores of wild card teams
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Vici"), 2, 3, 0, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Nigma"), 2, 2, 1, 1);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("iG"), 2, 2, 1, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Secret"), 0, 4, 1, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("XctN"), 0, 4, 1, 0);
+  animajor.wildCard.addScoreToTeam(animajor.wildCard.findTeamByName("Gambit"), 0, 3, 2, 0);
 
-  // Add Wild Card matches
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-A",
-  //     animajor.wildCard.findTeamByName("Secret"),
-  //     animajor.wildCard.findTeamByName("Gambit"),
-  //     false));
+  // Add wild card teams that qualified to the group stage
+  animajor.addWildCardWinnersToGroupStage();
 
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-A",
-  //     animajor.wildCard.findTeamByName("XctN"),
-  //     animajor.wildCard.findTeamByName("iG"),
-  //     false));
-
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-A",
-  //     animajor.wildCard.findTeamByName("Vici"),
-  //     animajor.wildCard.findTeamByName("Secret"),
-  //     false));
-
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-A",
-  //     animajor.wildCard.findTeamByName("Nigma"),
-  //     animajor.wildCard.findTeamByName("iG"),
-  //     false));
-
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-B",
-  //     animajor.wildCard.findTeamByName("Vici"),
-  //     animajor.wildCard.findTeamByName("Nigma"),
-  //     false));
-
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-B",
-  //     animajor.wildCard.findTeamByName("Nigma"),
-  //     animajor.wildCard.findTeamByName("Gambit"),
-  //     false));
-
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-B",
-  //     animajor.wildCard.findTeamByName("Gambit"),
-  //     animajor.wildCard.findTeamByName("XctN"),
-  //     false));
-
-  // animajor.wildCard.addSeries(
-  //   new classes.Series(
-  //     "June 2nd-B",
-  //     animajor.wildCard.findTeamByName("XctN"),
-  //     animajor.wildCard.findTeamByName("Vici"),
-  //     false));
-
-  animajor.wildCard.addSeries(
+  // Add Group Stage matches
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-A",
-      animajor.wildCard.findTeamByName("Vici"),
-      animajor.wildCard.findTeamByName("Gambit"),
+      "June 4th-A",
+      animajor.groupStage.findTeamByName("EG"),
+      animajor.groupStage.findTeamByName("TNC"),
       false));
-
-  animajor.wildCard.addSeries(
+    
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-A",
-      animajor.wildCard.findTeamByName("XctN"),
-      animajor.wildCard.findTeamByName("Nigma"),
+      "June 4th-A",
+      animajor.groupStage.findTeamByName("PSG.LGD"),
+      animajor.groupStage.findTeamByName("bc"),
       false));
-
-  animajor.wildCard.addSeries(
+    
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-A",
-      animajor.wildCard.findTeamByName("Nigma"),
-      animajor.wildCard.findTeamByName("Secret"),
+      "June 4th-A",
+      animajor.groupStage.findTeamByName("Vici"),
+      animajor.groupStage.findTeamByName("TL"),
       false));
-
-  animajor.wildCard.addSeries(
+    
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-A",
-      animajor.wildCard.findTeamByName("iG"),
-      animajor.wildCard.findTeamByName("Secret"),
+      "June 4th-A",
+      animajor.groupStage.findTeamByName("Vici"),
+      animajor.groupStage.findTeamByName("TNC"),
       false));
-
-  animajor.wildCard.addSeries(
+    
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-B",
-      animajor.wildCard.findTeamByName("XctN"),
-      animajor.wildCard.findTeamByName("Secret"),
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("TL"),
+      animajor.groupStage.findTeamByName("bc"),
       false));
-
-  animajor.wildCard.addSeries(
+    
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-B",
-      animajor.wildCard.findTeamByName("iG"),
-      animajor.wildCard.findTeamByName("Vici"),
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("TSpirit"),
+      animajor.groupStage.findTeamByName("EG"),
       false));
-
-  animajor.wildCard.addSeries(
+      
+  animajor.groupStage.addSeries(
     new classes.Series(
-      "June 3rd-B",
-      animajor.wildCard.findTeamByName("iG"),
-      animajor.wildCard.findTeamByName("Gambit"),
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("Nigma"),
+      animajor.groupStage.findTeamByName("PSG.LGD"),
+      false));
+      
+  animajor.groupStage.addSeries(
+    new classes.Series(
+      "June 4th-B",
+      animajor.groupStage.findTeamByName("TSpirit"),
+      animajor.groupStage.findTeamByName("Nigma"),
       false));
 
   // Add major to tournament list

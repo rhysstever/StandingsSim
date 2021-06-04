@@ -47,6 +47,39 @@ class Team {
       this.tieBreakerWins + this.predictedTieBreakerWins;
   }
 
+  getGameScore(withPredictions, hasTies) {
+    if(withPredictions) {
+      this.calculateTotals();
+      if(hasTies)
+        return (this.totalWins * 2) + this.totalTies;
+      else 
+        return this.totalWins;
+    } else {
+      if(hasTies)
+        return (this.wins * 2) + this.ties;
+      else 
+        return this.wins;
+    }
+  }
+
+  getLosses(withPredictions) {
+    if(withPredictions) {
+      this.calculateTotals();
+      return this.totalLosses;
+    }
+    else 
+      return this.losses;
+  }
+
+  getTBWins(withPredictions) {
+    if(withPredictions) {
+      this.calculateTotals();
+      return this.totalTieBreakerWins;
+    }
+    else 
+      return this.tieBreakerWins;
+  }
+
   displayScore(isWithPredictions, hasTies) {
     let score = "";
     // Standings with predictions
@@ -348,7 +381,7 @@ class Tournament {
       // Get the team's score
       let teamScore = document.createElement("td");
 
-      let includesPredictions = table.id == "futureStandings";
+      let includesPredictions = (table.id == "futureStandings");
       teamScore.innerHTML = this.teams[i].displayScore(includesPredictions, this.hasTieMatches);
 
       // Color table element
@@ -533,76 +566,54 @@ class Tournament {
   }
 
   sortTeams(withPredictions) {
-    let changes = 0;
+    let sortedTeams = [];
     do {
-      changes = 0;
+      let highestTeamIndex = -1;
       for (let i = 0; i < this.teams.length; i++) {
-        // If the team is the first team, then continue (nothing to compare to)
-        if (i == 0) continue;
-
-        // Get current and previous team scores, depending on if predictions are included
-        let currentTeamScores = [];
-        let previousTeamScores = [];
-        if(withPredictions) {
-          this.teams[i].isTiedWithPredictions = false;
-          currentTeamScores = [this.teams[i].totalWins, this.teams[i].totalTies, this.teams[i].totalLosses, this.teams[i].totalTieBreakerWins];
-          previousTeamScores = [this.teams[i - 1].totalWins, this.teams[i - 1].totalTies, this.teams[i - 1].totalLosses, this.teams[i - 1].totalTieBreakerWins];
+        // If the current team has already been selected, it is skipped
+        if(sortedTeams.includes(this.teams[i]))
+          continue;
+        // If a highest team has not been assigned, make it be the current team
+        if(highestTeamIndex == -1){
+          highestTeamIndex = i;
         }
         else {
-          this.teams[i].isTied = false;
-          currentTeamScores = [this.teams[i].wins, this.teams[i].ties, this.teams[i].losses, this.teams[i].tieBreakerWins];
-          previousTeamScores = [this.teams[i - 1].wins, this.teams[i - 1].ties, this.teams[i - 1].losses, this.teams[i - 1].tieBreakerWins];
-        }
-
-        // If the current team has more wins than the previous team, then they are flipped
-        if (currentTeamScores[0] > previousTeamScores[0]) {
-          let temp = this.teams[i - 1];
-          this.teams[i - 1] = this.teams[i];
-          this.teams[i] = temp;
-          changes++;
-        }
-        // If the teams have the same wins, then the ties are checked
-        else if (currentTeamScores[0] == previousTeamScores[0]) {
-          // If the current team has more ties than the previous team, then they are flipped
-          if (currentTeamScores[1] > previousTeamScores[1]) {
-            let temp = this.teams[i - 1];
-            this.teams[i - 1] = this.teams[i];
-            this.teams[i] = temp;
-            changes++;
-            // If the teams have the same ties, then the losses are checked
-          } else if (currentTeamScores[1] == previousTeamScores[1]) {
-            // If the current team has less losses than the previous team, then they are flipped
-            if (currentTeamScores[2] < previousTeamScores[2]) {
-              let temp = this.teams[i - 1];
-              this.teams[i - 1] = this.teams[i];
-              this.teams[i] = temp;
-              changes++;
-            }
-            // If the teams have the same losses, then the tiebreaker wins are checked
-            else if (currentTeamScores[2] == previousTeamScores[2]) {
-              // If the current team has more tiebreaker wins than the previous team, then they are flipped
-              if (currentTeamScores[3] > previousTeamScores[3]) {
-                let temp = this.teams[i - 1];
-                this.teams[i - 1] = this.teams[i];
-                this.teams[i] = temp;
-                changes++;
-              } else {
-                // If the wins, ties, losses, and tiebreaker wins are the same,
-                // then both the current team and the previous team
-                // are set to be tied
-                if(withPredictions) {
-                  this.teams[i].isTiedWithPredictions = true;
-                  this.teams[i - 1].isTiedWithPredictions = true;
-                } else {
-                  this.teams[i].isTied = true;
-                  this.teams[i - 1].isTied = true;
+          // Checks if the current team has a higher score than the highest team, 
+          // replacing it if it does
+          if(this.teams[i].getGameScore(withPredictions, this.hasTieMatches) 
+            > this.teams[highestTeamIndex].getGameScore(withPredictions, this.hasTieMatches)) {
+              highestTeamIndex = i;
+            } else if(this.teams[i].getGameScore(withPredictions, this.hasTieMatches) 
+            == this.teams[highestTeamIndex].getGameScore(withPredictions, this.hasTieMatches)) {
+            // If scores are equal, checks losses
+            if(this.teams[i].getLosses(withPredictions) 
+              < this.teams[highestTeamIndex].getLosses(withPredictions)) {
+                highestTeamIndex = i;
+              } else if(this.teams[i].getLosses(withPredictions) 
+                == this.teams[highestTeamIndex].getLosses(withPredictions)) {
+                // If losses are equal, tieBreaker wins are checked
+                if(this.teams[i].getTBWins(withPredictions) 
+                  > this.teams[highestTeamIndex].getTBWins(withPredictions)) {
+                    highestTeamIndex = i;
+                  } else if(this.teams[i].getLosses(withPredictions) 
+                  == this.teams[highestTeamIndex].getLosses(withPredictions)) {
+                  // If everything is tied, these 2 teams are set to tied
+                  if(withPredictions){
+                    this.teams[i].isTiedWithPredictions = true;
+                    this.teams[highestTeamIndex].isTiedWithPredictions = true;
+                  } else {
+                    this.teams[i].isTied = true;
+                    this.teams[highestTeamIndex].isTied = true;
+                  }
                 }
               }
-            }
           }
         }
       }
-    } while (changes > 0);
+      sortedTeams.push(this.teams[highestTeamIndex]);
+    } while (sortedTeams.length != this.teams.length);
+
+    this.teams = sortedTeams;
     this.calculateTeamPlaces(withPredictions);
   }
 
@@ -668,6 +679,7 @@ class Tournament {
         this.teams[i].ties += ties;
         this.teams[i].losses += losses;
         this.teams[i].tieBreakerWins += tieBreakerWins;
+        this.teams[i].calculateTotals();
       }
     }
   }
@@ -723,27 +735,36 @@ class Major {
           case regions.CN:
             let thirdPlaceTeam = qualifierTourney.teams[3];
             this.wildCard.addTeam(
-              new Team(thirdPlaceTeam.name, thirdPlaceTeam.abbrev, 0, 0, 0, 0)
-            );
+              new Team(thirdPlaceTeam.name, thirdPlaceTeam.abbrev, 0, 0, 0, 0));
           // The 3rd placed teams of the Western Europe, China,
           // Eastern Europe, and SE Asia regions qualify to the major wild card
           case regions.EEU:
           case regions.SEA:
             let fourthPlaceTeam = qualifierTourney.teams[2];
             this.wildCard.addTeam(
-              new Team(fourthPlaceTeam.name, fourthPlaceTeam.abbrev, 0, 0, 0, 0)
-            );
+              new Team(fourthPlaceTeam.name, fourthPlaceTeam.abbrev, 0, 0, 0, 0));
           case regions.NA:
           case regions.SA:
             let secondPlaceTeam = qualifierTourney.teams[1];
             this.groupStage.addTeam(
-              new Team(secondPlaceTeam.name, secondPlaceTeam.abbrev, 0, 0, 0, 0)
-            );
+              new Team(secondPlaceTeam.name, secondPlaceTeam.abbrev, 0, 0, 0, 0));
             break;
           default:
             break;
         }
       }
+    }
+  }
+
+  addWildCardWinnersToGroupStage() {
+    // Makes sure the wild card is sorted
+    this.wildCard.sortTeams();
+    // There are no more series left in the wild card
+    if(this.wildCard.remainingSeries.length == 0) {
+      this.groupStage.addTeam(
+        new Team(this.wildCard.teams[0].name, this.wildCard.teams[0].abbrev, 0, 0, 0, 0));
+      this.groupStage.addTeam(
+        new Team(this.wildCard.teams[1].name, this.wildCard.teams[1].abbrev, 0, 0, 0, 0));
     }
   }
 }
