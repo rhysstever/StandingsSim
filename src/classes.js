@@ -593,7 +593,12 @@ class Tournament {
           } else if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
                 == this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
             // Compares specifically wins
-            
+            if(this.teams[i].getStat("wins", withPredictions, false) 
+              > this.teams[highestTeamIndex].getStat("wins", withPredictions, false)) {
+                // Even if the scores are equal, if the current team has more wins, it is displayed higher
+                highestTeamIndex = i;
+                continue;
+            }
 
             // Compares losses
             if(this.teams[i].getStat("losses", withPredictions, false) 
