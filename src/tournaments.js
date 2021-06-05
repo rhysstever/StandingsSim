@@ -170,14 +170,14 @@ function createTournaments() {
 
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 5th-B",
+      "June 5th-A",
       animajor.groupStage.findTeamByName("EG"),
       animajor.groupStage.findTeamByName("Vici"),
       false));
           
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 5th-B",
+      "June 5th-A",
       animajor.groupStage.findTeamByName("PSG.LGD"),
       animajor.groupStage.findTeamByName("TL"),
       false));
@@ -199,14 +199,14 @@ function createTournaments() {
 
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 5th-A",
+      "June 5th-B",
       animajor.groupStage.findTeamByName("TSpirit"),
       animajor.groupStage.findTeamByName("PSG.LGD"),
       false));
 
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 5th-A",
+      "June 5th-B",
       animajor.groupStage.findTeamByName("TNC"),
       animajor.groupStage.findTeamByName("Nigma"),
       false));
@@ -214,28 +214,28 @@ function createTournaments() {
   // June 6th Stream A
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 5th-A",
+      "June 6th-A",
       animajor.groupStage.findTeamByName("PSG.LGD"),
       animajor.groupStage.findTeamByName("TNC"),
       false));
 
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 7th",
+      "June 6th-A",
       animajor.groupStage.findTeamByName("PSG.LGD"),
       animajor.groupStage.findTeamByName("EG"),
       false));
           
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 6th",
+      "June 6th-A",
       animajor.groupStage.findTeamByName("TL"),
       animajor.groupStage.findTeamByName("TNC"),
       false));
           
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 5th-B",
+      "June 6TH-A",
       animajor.groupStage.findTeamByName("Nigma"),
       animajor.groupStage.findTeamByName("EG"),
       false));
@@ -243,28 +243,28 @@ function createTournaments() {
   // June 6th Stream B
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 6th",
+      "June 6th-B",
       animajor.groupStage.findTeamByName("Vici"),
       animajor.groupStage.findTeamByName("bc"),
       false));
           
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 6th",
+      "June 6th-B",
       animajor.groupStage.findTeamByName("Nigma"),
       animajor.groupStage.findTeamByName("Vici"),
       false));
           
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 6th",
+      "June 6th-B",
       animajor.groupStage.findTeamByName("TSpirit"),
       animajor.groupStage.findTeamByName("bc"),
       false));
 
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 6th",
+      "June 6th-B",
       animajor.groupStage.findTeamByName("TSpirit"),
       animajor.groupStage.findTeamByName("TL"),
       false));
