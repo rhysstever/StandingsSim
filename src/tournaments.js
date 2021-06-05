@@ -235,7 +235,7 @@ function createTournaments() {
           
   animajor.groupStage.addSeries(
     new classes.Series(
-      "June 6TH-A",
+      "June 6th-A",
       animajor.groupStage.findTeamByName("Nigma"),
       animajor.groupStage.findTeamByName("EG"),
       false));
