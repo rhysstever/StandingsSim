@@ -47,37 +47,42 @@ class Team {
       this.tieBreakerWins + this.predictedTieBreakerWins;
   }
 
-  getGameScore(withPredictions, hasTies) {
-    if(withPredictions) {
-      this.calculateTotals();
-      if(hasTies)
-        return (this.totalWins * 2) + this.totalTies;
-      else 
-        return this.totalWins;
-    } else {
-      if(hasTies)
-        return (this.wins * 2) + this.ties;
-      else 
-        return this.wins;
-    }
-  }
+  getStat(stat, withPreditions, hasTies) {
+    if(stat.toLowerCase() != "score")
+      hasTies = false;
 
-  getLosses(withPredictions) {
-    if(withPredictions) {
+    // Update total values
+    if(withPreditions)
       this.calculateTotals();
-      return this.totalLosses;
-    }
-    else 
-      return this.losses;
-  }
 
-  getTBWins(withPredictions) {
-    if(withPredictions) {
-      this.calculateTotals();
-      return this.totalTieBreakerWins;
+    switch(stat.toLowerCase()) {
+      case "score":
+        if(hasTies)
+          return (this.getStat("wins", withPreditions, false) * 2) + this.getStat("ties", withPreditions, false);
+        else
+          return this.getStat("wins", withPreditions, false);
+      case "wins":
+        if(withPreditions)
+          return this.totalWins;
+        else
+          return this.wins;
+      case "ties":
+        if(withPreditions)
+          return this.totalTies;
+        else
+          return this.ties;
+      case "losses":
+        if(withPreditions)
+          return this.totalLosses;
+        else
+          return this.losses;
+      case "tiebreakerwins":
+      case "tbwins":
+        if(withPreditions)
+          return this.totalTieBreakerWins;
+        else
+          return this.tieBreakerWins;
     }
-    else 
-      return this.tieBreakerWins;
   }
 
   displayScore(isWithPredictions, hasTies) {
@@ -576,26 +581,37 @@ class Tournament {
         // If a highest team has not been assigned, make it be the current team
         if(highestTeamIndex == -1){
           highestTeamIndex = i;
+          continue;
         } else {
-          // Checks if the current team has a higher score than the highest team, 
-          // replacing it if it does
-          if(this.teams[i].getGameScore(withPredictions, this.hasTieMatches) 
-            > this.teams[highestTeamIndex].getGameScore(withPredictions, this.hasTieMatches)) {
+          // Compares the current team's score with the (so far) highest score
+          if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
+            > this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
+              // Reassigns highest team if the current team's score is higher
               highestTeamIndex = i;
-          } else if(this.teams[i].getGameScore(withPredictions, this.hasTieMatches) 
-                == this.teams[highestTeamIndex].getGameScore(withPredictions, this.hasTieMatches)) {
-            // If scores are equal, checks losses
-            if(this.teams[i].getLosses(withPredictions) 
-              < this.teams[highestTeamIndex].getLosses(withPredictions)) {
+              continue;
+          // If the scores are equal
+          } else if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
+                == this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
+            // Compares specifically wins
+            
+
+            // Compares losses
+            if(this.teams[i].getStat("losses", withPredictions, false) 
+              < this.teams[highestTeamIndex].getStat("losses", withPredictions, false)) {
+                // Reassigns highest team if the current team has less losses
                 highestTeamIndex = i;
-            } else if(this.teams[i].getLosses(withPredictions) 
-                == this.teams[highestTeamIndex].getLosses(withPredictions)) {
-                // If losses are equal, tieBreaker wins are checked
-                if(this.teams[i].getTBWins(withPredictions) 
-                  > this.teams[highestTeamIndex].getTBWins(withPredictions)) {
-                    highestTeamIndex = i;
-                } else if(this.teams[i].getLosses(withPredictions) 
-                    == this.teams[highestTeamIndex].getLosses(withPredictions)) {
+                continue;
+            // If losses are equal
+            } else if(this.teams[i].getStat("losses", withPredictions, false) 
+                == this.teams[highestTeamIndex].getStat("losses", withPredictions, false)) {
+                // Compares tieBreaker wins
+                if(this.teams[i].getStat("TBWins", withPredictions, false) 
+                  > this.teams[highestTeamIndex].getStat("TBWins", withPredictions, false)) {
+                  // Reassigns highest team if the current team has more tieBreaer wins
+                  highestTeamIndex = i;
+                  continue;
+                } else if(this.teams[i].getStat("losses", withPredictions, false) 
+                    == this.teams[highestTeamIndex].getStat("losses", withPredictions, false)) {
                     // If everything is tied, these 2 teams are set to tied
                     if(withPredictions){
                       this.teams[i].isTiedWithPredictions = true;
@@ -638,13 +654,13 @@ class Tournament {
 
       // Get current and previous team scores
       let currentTeamFullScore = [
-        this.teams[i].getGameScore(withPredictions, this.hasTieMatches), 
-        this.teams[i].getLosses(withPredictions), 
-        this.teams[i].getTBWins(withPredictions)];
+        this.teams[i].getStat("score", withPredictions, this.hasTieMatches), 
+        this.teams[i].getStat("losses", withPredictions, false), 
+        this.teams[i].getStat("TBWins", withPredictions, false)];
       let previousTeamFullScore = [
-        this.teams[i - 1].getGameScore(withPredictions, this.hasTieMatches), 
-        this.teams[i - 1].getLosses(withPredictions), 
-        this.teams[i - 1].getTBWins(withPredictions)];
+        this.teams[i - 1].getStat("score", withPredictions, this.hasTieMatches), 
+        this.teams[i - 1].getStat("losses", withPredictions, false), 
+        this.teams[i - 1].getStat("TBWins", withPredictions, false)];
 
       // Loops through both arrays of scores, counting
       // any differences between the teams' scores
