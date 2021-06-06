@@ -310,7 +310,6 @@ class Tournament {
 
   displayTournament() {
     // Change tournament header and link href
-    document.querySelector("title").innerHTML = this.name;
     document.querySelector("#tournamentName").innerHTML = this.name;
     document.querySelector("#source").href = this.link;
 
@@ -657,43 +656,15 @@ class Tournament {
         continue;
       }
 
-      // Get current and previous team scores
-      let currentTeamFullScore = [
-        this.teams[i].getStat("score", withPredictions, this.hasTieMatches), 
-        this.teams[i].getStat("losses", withPredictions, false), 
-        this.teams[i].getStat("TBWins", withPredictions, false)];
-      let previousTeamFullScore = [
-        this.teams[i - 1].getStat("score", withPredictions, this.hasTieMatches), 
-        this.teams[i - 1].getStat("losses", withPredictions, false), 
-        this.teams[i - 1].getStat("TBWins", withPredictions, false)];
+      // Get the current and previous teams' score and tieBreaker wins
+      let currentTeamScore = this.teams[i].getStat("score", withPredictions, this.hasTieMatches);
+      let prevTeamScore = this.teams[i - 1].getStat("score", withPredictions, this.hasTieMatches);
+      let currentTeamTBWins = this.teams[i].getStat("TBWins", withPredictions, this.hasTieMatches);
+      let prevTeamTBWins = this.teams[i - 1].getStat("TBWins", withPredictions, this.hasTieMatches);
 
-      // Loops through both arrays of scores, counting
-      // any differences between the teams' scores
-      let isSame = true;
-      for(let j = 0; j < currentTeamFullScore.length; j++) {
-        // If tie breaker wins are being compared, the teams 
-        // are tied (were forced to play tie breakers)
-        if(j == 2) {
-          // Marks both teams as tied
-          if(withPredictions) {
-            this.teams[i].isTiedWithPredictions = true;
-            this.teams[i - 1].isTiedWithPredictions = true;
-          } else {
-            this.teams[i].isTied = true;
-            this.teams[i - 1].isTied = true;
-          }
-        }
-
-        // Compares each type of each team's score (wins*, then losses, then tie breaker wins)
-        // if the tournament has tie-able matches, this value is = wins + ties
-        if(currentTeamFullScore[j] != previousTeamFullScore[j]) {
-          isSame = false;
-          break;
-        }
-      }
-
-      // If both team scores are the same
-      if(isSame) {
+      // If both team scores and tieBreaker wins are the same, the teams are tied
+      if((currentTeamScore == prevTeamScore) && 
+        (currentTeamTBWins == prevTeamTBWins)) {
         this.teams[i].place = this.teams[i - 1].place;
         // Marks both teams as tied
         if(withPredictions) {
