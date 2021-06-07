@@ -2,14 +2,9 @@
 A simulator to see the standings for tournaments after predicting remaining games' outcomes.
 
 ## Current Tournaments
-- [DPC S2 WEU Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Europe/Upper_Division)
-- [DPC S2 China Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/China/Upper_Division)
-- [DPC S2 EEU Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/CIS/Upper_Division)
-- [DPC S2 SEA Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/Southeast_Asia/Upper_Division)
-- [DPC S2 NA Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/North_America/Upper_Division)
-- [DPC S2 SA Upper Division](https://liquipedia.net/dota2/Dota_Pro_Circuit/2021/2/South_America/Upper_Division)
-- [WePlay AniMajor Wild Card](https://liquipedia.net/dota2/WePlay/AniMajor/2021#Wild_Card)
-- [WePlay AniMajor Group Stage](https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage)
+- DPC Season 2 
+  - All 6 regions' Upper Division
+  - WePlay AniMajor Wild Card & Group Stage
 
 ## Demos
 Predicting a match result and displaying ties:<br/>
