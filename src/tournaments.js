@@ -117,7 +117,7 @@ function createTournaments() {
 
   // Create Groupstage and add it to the major as its groupstage
   let animajorGroupStage = new classes.GroupStage(animajor,
-    "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage", true, false);
+    "https://liquipedia.net/dota2/WePlay/AniMajor/2021#Group_Stage", true, true);
   animajor.groupStage = animajorGroupStage;
 
   // Add qualifying tournaments to major

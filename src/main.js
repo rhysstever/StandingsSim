@@ -49,8 +49,14 @@ function displayNextIncompleteTournament() {
     }
   }
 
-  if (currentTournament == null) 
-    currentTournament = tournamentsList[0];
+  // Displays the last tournament if all tournaments are complete
+  if (currentTournament == null) {
+    if(tournamentsList[tournamentsList.length - 1].type == "Major") {
+      // If the last tournament is a major, it displays its group stage
+      currentTournament = tournamentsList[tournamentsList.length - 1].groupStage;
+    } else
+      currentTournament = tournamentsList[tournamentsList.length - 1];
+  }
 
   // display the current tournament
   currentTournament.displayTournament();

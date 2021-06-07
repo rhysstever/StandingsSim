@@ -591,40 +591,21 @@ class Tournament {
           // If the scores are equal
           } else if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
                 == this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
-            // Compares specifically wins
-            if(this.teams[i].getStat("wins", withPredictions, false) 
-              > this.teams[highestTeamIndex].getStat("wins", withPredictions, false)) {
-                // Even if the scores are equal, if the current team has more wins, it is displayed higher
-                highestTeamIndex = i;
-                continue;
+            // If the scores are the same, these 2 teams are set to tied
+            if(withPredictions){
+              this.teams[i].isTiedWithPredictions = true;
+              this.teams[highestTeamIndex].isTiedWithPredictions = true;
+            } else {
+              this.teams[i].isTied = true;
+              this.teams[highestTeamIndex].isTied = true;
             }
 
-            // Compares losses
-            if(this.teams[i].getStat("losses", withPredictions, false) 
-              < this.teams[highestTeamIndex].getStat("losses", withPredictions, false)) {
-                // Reassigns highest team if the current team has less losses
-                highestTeamIndex = i;
-                continue;
-            // If losses are equal
-            } else if(this.teams[i].getStat("losses", withPredictions, false) 
-                == this.teams[highestTeamIndex].getStat("losses", withPredictions, false)) {
-                // Compares tieBreaker wins
-                if(this.teams[i].getStat("TBWins", withPredictions, false) 
-                  > this.teams[highestTeamIndex].getStat("TBWins", withPredictions, false)) {
-                  // Reassigns highest team if the current team has more tieBreaer wins
-                  highestTeamIndex = i;
-                  continue;
-                } else if(this.teams[i].getStat("losses", withPredictions, false) 
-                    == this.teams[highestTeamIndex].getStat("losses", withPredictions, false)) {
-                    // If everything is tied, these 2 teams are set to tied
-                    if(withPredictions){
-                      this.teams[i].isTiedWithPredictions = true;
-                      this.teams[highestTeamIndex].isTiedWithPredictions = true;
-                    } else {
-                      this.teams[i].isTied = true;
-                      this.teams[highestTeamIndex].isTied = true;
-                    }
-                }
+            // Compares tieBreaker wins
+            if(this.teams[i].getStat("TBWins", withPredictions, false) 
+            > this.teams[highestTeamIndex].getStat("TBWins", withPredictions, false)) {
+              // Reassigns highest team if the current team has more tieBreaer wins
+              highestTeamIndex = i;
+              continue;
             }
           }
         }
@@ -644,11 +625,6 @@ class Tournament {
   calculateTeamPlaces(withPredictions) {
     document.querySelector("#info").innerHTML = "";
     for (let i = 0; i < this.teams.length; i++) {
-      // Marks the current team as tied
-      if(withPredictions)
-        this.teams[i].isTiedWithPredictions = false;
-      else
-        this.teams[i].isTied = false;
 
       // If the team is the first team, then its place is 1
       if (i == 0) {
@@ -656,27 +632,25 @@ class Tournament {
         continue;
       }
 
-      // Get the current and previous teams' score and tieBreaker wins
+      // Get the current and previous teams' score
       let currentTeamScore = this.teams[i].getStat("score", withPredictions, this.hasTieMatches);
       let prevTeamScore = this.teams[i - 1].getStat("score", withPredictions, this.hasTieMatches);
       let currentTeamTBWins = this.teams[i].getStat("TBWins", withPredictions, this.hasTieMatches);
       let prevTeamTBWins = this.teams[i - 1].getStat("TBWins", withPredictions, this.hasTieMatches);
 
-      // If both team scores and tieBreaker wins are the same, the teams are tied
-      if((currentTeamScore == prevTeamScore) && 
-        (currentTeamTBWins == prevTeamTBWins)) {
-        this.teams[i].place = this.teams[i - 1].place;
-        // Marks both teams as tied
-        if(withPredictions) {
-          this.teams[i].isTiedWithPredictions = true;
-          this.teams[i - 1].isTiedWithPredictions = true;
-        } else {
-          this.teams[i].isTied = true;
-          this.teams[i - 1].isTied = true;
-        }
+      // If the teams' scores are tied 
+      if(currentTeamScore == prevTeamScore) {
+        // If the current team has the same number of tie breaker wins, 
+        // both teams are tied and have the same place value
+        if(currentTeamTBWins == prevTeamTBWins)
+          this.teams[i].place = this.teams[i - 1].place;
+        // Otherwise, calculate the current team's place with any possible duplicates before it
+        else 
+          this.calcPlaceWithDups(i);
         continue;
-      } else {
-        // Otherwise, calculate the team's place with any possible duplicates before it
+      } 
+      // Otherwise, calculate the current team's place with any possible duplicates before it
+      else {
         this.calcPlaceWithDups(i);
       }
     }
