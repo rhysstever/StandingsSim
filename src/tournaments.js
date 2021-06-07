@@ -143,30 +143,14 @@ function createTournaments() {
   animajor.addWildCardWinnersToGroupStage();
 
   // Fill in scores of group stage teams
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("bc"), 0, 3, 3, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("EG"), 1, 4, 1, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("Nigma"), 3, 2, 1, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("bc"), 0, 3, 4, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("EG"), 1, 5, 1, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("Nigma"), 4, 2, 1, 0);
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("PSG.LGD"), 4, 3, 0, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TL"), 1, 2, 3, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TL"), 1, 3, 3, 0);
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TNC"), 2, 3, 2, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TSpirit"), 0, 5, 2, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TSpirit"), 0, 5, 2, 1);
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("Vici"), 2, 4, 1, 0);
-
-  // Add Group Stage matches   
-  // June 7th          
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 7th",
-      animajor.groupStage.findTeamByName("Nigma"),
-      animajor.groupStage.findTeamByName("bc"),
-      false));
-          
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 7th",
-      animajor.groupStage.findTeamByName("TL"),
-      animajor.groupStage.findTeamByName("EG"),
-      false));
 
   // Add major to tournament list
   main.tournamentsList.push(animajor);
