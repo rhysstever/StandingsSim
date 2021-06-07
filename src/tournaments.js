@@ -146,28 +146,14 @@ function createTournaments() {
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("bc"), 0, 3, 3, 0);
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("EG"), 1, 4, 1, 0);
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("Nigma"), 3, 2, 1, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("PSG.LGD"), 4, 2, 0, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("PSG.LGD"), 4, 3, 0, 0);
   animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TL"), 1, 2, 3, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TNC"), 2, 2, 2, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TSpirit"), 0, 4, 2, 0);
-  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("Vici"), 2, 3, 1, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TNC"), 2, 3, 2, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("TSpirit"), 0, 5, 2, 0);
+  animajor.groupStage.addScoreToTeam(animajor.groupStage.findTeamByName("Vici"), 2, 4, 1, 0);
 
   // Add Group Stage matches   
   // June 7th          
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 7th",
-      animajor.groupStage.findTeamByName("PSG.LGD"),
-      animajor.groupStage.findTeamByName("Vici"),
-      false));
-      
-  animajor.groupStage.addSeries(
-    new classes.Series(
-      "June 7th",
-      animajor.groupStage.findTeamByName("TSpirit"),
-      animajor.groupStage.findTeamByName("TNC"),
-      false));
-          
   animajor.groupStage.addSeries(
     new classes.Series(
       "June 7th",
