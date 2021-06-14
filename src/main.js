@@ -1,15 +1,11 @@
-import * as tournaments from "./tournaments.js";
-
-let tournamentsList = [];
+let seasons = [];
 let currentTournament = null;
 
 let fps = 20;
 let prevLarge = true;
 
 function init() {
-  // Get tournaments
-  tournaments.createTournaments();
-  displayNextIncompleteTournament();
+  displayNextTournament();
   setupOnclicks();
   resetAllPredictions();
   loop();
@@ -30,33 +26,29 @@ function loop() {
   requestAnimationFrame(loop, 1000 / fps);
 }
 
-function displayNextIncompleteTournament() {
-  // Display the first incomplete tournament
-  for (let i = 0; i < tournamentsList.length; i++) {
-    if (tournamentsList[i].type == "Major") {
-      if (!tournamentsList[i].wildCard.isComplete) {
-        currentTournament = tournamentsList[i].wildCard;
-        break;
-      } else if (!tournamentsList[i].groupStage.isComplete) {
-        currentTournament = tournamentsList[i].groupStage;
-        break;
-      }
-    } else {
-      if (!tournamentsList[i].isComplete) {
-        currentTournament = tournamentsList[i];
+// Displays the next incomplete tournament
+// Shows the last major's group stage if all tournaments are completed
+function displayNextTournament() {
+  // Loop through each season
+  for(let s = 0; s < seasons.length; s++) {
+    // Loop through each seasons' qualifers
+    for(let region in seasons[s].major.qualifiers) {
+      if(!seasons[s].major.qualifiers[region].isComplete) {
+        currentTournament = seasons[s].major.qualifiers[region];
         break;
       }
     }
+
+    // Checks the season's major's wilc card and group stage
+    if(!seasons[s].major.wildCard.isComplete)
+      currentTournament = seasons[s].major.wildCard;
+    else if(!seasons[s].major.groupStage.isComplete)
+      currentTournament = seasons[s].major.groupStage;
   }
 
-  // Displays the last tournament if all tournaments are complete
-  if (currentTournament == null) {
-    if(tournamentsList[tournamentsList.length - 1].type == "Major") {
-      // If the last tournament is a major, it displays its group stage
-      currentTournament = tournamentsList[tournamentsList.length - 1].groupStage;
-    } else
-      currentTournament = tournamentsList[tournamentsList.length - 1];
-  }
+  // Displays the last major's group stage if all tournaments are complete
+  if (currentTournament == null)
+    currentTournament = seasons[seasons.length - 1].major.groupStage;
 
   // display the current tournament
   currentTournament.displayTournament();
@@ -151,23 +143,32 @@ function predictionButtonClicked(e) {
 }
 
 function tournamentButtonClicked(e) {
-  // If the tournament clicked is a major
-  if (e.target.id.substring(1, 6) == "major") {
-    // Gets the major
-    let major = tournamentsList[e.target.id.substring(0, 1)];
-    // Figures out if the new tournament is the wild card or group stage
-    let type = e.target.id.substring(6);
-    if (type == "wc") {
-      if (major.wildCard != null) currentTournament = major.wildCard;
-    } else if ((type = "gs")) {
-      if (major.groupStage != null) currentTournament = major.groupStage;
-    }
-  } else {
-    // Assigns the new current tournament via id
-    currentTournament = tournamentsList[e.target.id];
+  // Get the year and season # of the selected tournament 
+  let year = e.target.id.substring(0, 4);
+  let seasonNum = e.target.id.substring(5, 6);
+
+  for(let i = 0; i < seasons.length; i++) {
+    if(seasons[i].year == year
+      && seasons[i].number == seasonNum) {
+        // If the season is found, gets whether the clicked tournament 
+        // is a wild card or group stage of the major
+        let subType = e.target.id.substring(6);
+
+        document.querySelector("#info").innerHTML = "Year: " + year + " | Season: " + seasonNum + " | SubType: " + subType;
+        if(subType.toLowerCase() == "wildcard")
+          currentTournament = seasons[i].major.wildCard;
+        else if(subType.toLowerCase() == "groupstage")
+          currentTournament = seasons[i].major.groupStage;
+        else {
+          let qualifier = seasons[i].major.getQualifier(subType);
+          if(qualifier == null)
+            return;
+          else 
+            currentTournament = seasons[i].major.getQualifier(subType);
+        }
+      }
   }
 
-  // Displays the new current tournament
   currentTournament.displayTournament();
 }
 
@@ -208,7 +209,7 @@ function resetAllPredictions() {
 }
 
 export {
-  tournamentsList,
+  seasons,
   currentTournament,
   init,
   predictionButtonClicked,

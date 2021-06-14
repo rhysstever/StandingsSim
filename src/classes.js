@@ -1,14 +1,23 @@
 import * as main from "./main.js";
 
 const regions = {
-  WEU: "Western Europe",
   CN: "China",
   EEU: "Eastern Europe",
-  SEA: "Southeast Asia",
   NA: "North America",
   SA: "South America",
+  SEA: "Southeast Asia",
+  WEU: "Western Europe",
   GLOBAL: "Global",
 };
+
+class Season {
+  constructor(year, number, major) {
+    this.year = year;
+    this.number = number;
+    this.isComplete = false;
+    this.major = major;
+  }
+}
 
 class Team {
   constructor(name, abbrev, wins, ties, losses, tieBreakerWins) {
@@ -766,6 +775,18 @@ class Major {
         new Team(this.wildCard.teams[1].name, this.wildCard.teams[1].abbrev, 0, 0, 0, 0));
     }
   }
+
+  getQualifier(region) {
+    // Loops through all the regions of the qualifiers
+    for (let r in this.qualifiers) {
+      if (regions[r] == region) {
+        // Returns the qualifier that has the same region as the given region
+        return this.qualifiers[r];
+      }
+    }
+
+    return null;
+  }
 }
 
 class WildCard extends Tournament {
@@ -803,6 +824,7 @@ class GroupStage extends Tournament {
 
 export {
   regions,
+  Season,
   Team,
   Series,
   Tournament,
