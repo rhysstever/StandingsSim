@@ -44,7 +44,12 @@ h4 {
 }
 
 h5 {
-     font-size: 1rem;
+     margin: 0.5rem 0rem;
+     font-size: 1.0rem;
+}
+
+h6 {
+     font-size: 0.9rem;
 }
 
 .section {

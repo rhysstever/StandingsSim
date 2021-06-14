@@ -152,9 +152,8 @@ function tournamentButtonClicked(e) {
       && seasons[i].number == seasonNum) {
         // If the season is found, gets whether the clicked tournament 
         // is a wild card or group stage of the major
+        // OR is a regional qualifier
         let subType = e.target.id.substring(6);
-
-        document.querySelector("#info").innerHTML = "Year: " + year + " | Season: " + seasonNum + " | SubType: " + subType;
         if(subType.toLowerCase() == "wildcard")
           currentTournament = seasons[i].major.wildCard;
         else if(subType.toLowerCase() == "groupstage")
