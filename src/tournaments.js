@@ -1,30 +1,53 @@
 import * as main from "./main.js"
 import * as helpers from "./tournaments/tournamentHelpers.js"
 
-// Seasons
-import * as dpc2021Season2 from "./tournaments/2021/dpc2021Season2.js"
+// Years
+import * as dpc2021 from "./tournaments/2021/dpc2021.js"
 
 function createTournaments() {
-  // ===== Season creations =====
-  dpc2021Season2.createTournaments();
+  // ===== Create Years ===== 
+  dpc2021.createYear();
+  // ===== End of Create Years section =====
+  let dropdownParent = document.querySelector("#tournamentDropDown");
+  
+  // Loop through each year
+  for(var year in main.years) {
+    // Add a year header for each year
+    let yearHeader = document.createElement("li");
+    let yearHeaderText = document.createElement("h5");
+    yearHeaderText.innerHTML = year;
+    yearHeaderText.classList.add("yearHeader");
+    yearHeader.appendChild(yearHeaderText);
+    dropdownParent.appendChild(yearHeader);  
 
-  // ===== End of season creation =====
+    // Add a dropdown option for each season
+    for(let s = 0; s < main.years[year].seasons.length; s++) {
+      if(s > 0) {
+        // Create a divider between seasons
+        helpers.createDivider(dropdownParent);
+      }
 
-  // Add a dropdown option for each season
-  for(let i = 0; i < main.seasons.length; i++) {
-    let dropdownParent = document.querySelector("#tournamentDropDown");
-
-    if(i > 0) {
-      // Create a divider between the regional qualifiers and the major
-      let dividerContainer = document.createElement("li");
-      let divider = document.createElement("hr");
-      divider.classList.add("dropdown-divider");
-      dividerContainer.appendChild(divider);
-      dropdownParent.appendChild(dividerContainer);
+      helpers.addSeasonToDropdown(main.years[year].seasons[s], dropdownParent);
     }
 
-    helpers.addSeasonToDropdown(main.seasons[i], dropdownParent);
-  }
+    // Add a header for the year's TI
+    let tiHeader = document.createElement("li");
+    let tiHeaderText = document.createElement("h5");
+    let tiNum = year - 2011;
+    tiHeaderText.innerHTML = "TI " + tiNum;
+    tiHeaderText.classList.add("seasonHeader");
+    tiHeader.appendChild(tiHeaderText);
+    dropdownParent.appendChild(tiHeader);  
+    
+    // Add both TI groups' tournaments
+    let tiAID = year + "TIGroupA";
+    let tiA = helpers.createTournamentDropdown(tiAID, main.years[year].tiA.tabName, main.years[year].tiA.isComplete);
+    dropdownParent.appendChild(tiA);
+
+    let tiBID = year + "TIGroupB";
+    let tiB = helpers.createTournamentDropdown(tiBID, main.years[year].tiB.tabName, main.years[year].tiB.isComplete);
+    dropdownParent.appendChild(tiB);
+  }  
 }
 
-export { createTournaments };
+export { createTournaments }

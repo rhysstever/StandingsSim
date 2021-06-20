@@ -139,7 +139,9 @@ function createTournaments() {
   major.groupStage.addScoreToTeam(major.groupStage.findTeamByName("Vici"), 2, 4, 1, 0);
 
   // Add season to list of seasons
-  main.seasons.push(new classes.Season("2021", 2, major));
+  let yearNum = 2021;
+  let season = new classes.Season(yearNum, 2, major);
+  main.years[yearNum].seasons.push(season);
 }
 
 export { createTournaments };

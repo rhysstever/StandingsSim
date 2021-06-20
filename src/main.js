@@ -1,4 +1,4 @@
-let seasons = [];
+let years = {};
 let currentTournament = null;
 
 let fps = 20;
@@ -26,29 +26,44 @@ function loop() {
   requestAnimationFrame(loop, 1000 / fps);
 }
 
-// Displays the next incomplete tournament
-// Shows the last major's group stage if all tournaments are completed
+//  Displays the next incomplete tournament
+//  Shows the last major's group stage if all tournaments are completed
 function displayNextTournament() {
-  // Loop through each season
-  for(let s = 0; s < seasons.length; s++) {
-    // Loop through each seasons' qualifers
-    for(let region in seasons[s].major.qualifiers) {
-      if(!seasons[s].major.qualifiers[region].isComplete) {
-        currentTournament = seasons[s].major.qualifiers[region];
-        break;
+  // Loops through each year
+  for(let year in years) {
+    // Loops through each season of the year
+    for(let s = 0; s < years[year].seasons.length; s++) {
+      // Loops through each qualifier of the season
+      for(let region in years[year].seasons[s].major.qualifiers) {
+        if(!years[year].seasons[s].major.qualifiers[region].isComplete) {
+          currentTournament = years[year].seasons[s].major.qualifiers[region];
+          break;
+        }
       }
+
+      // Checks the wild card and group stage of that season's major
+      if(!years[year].seasons[s].major.wildCard.isComplete) {
+        currentTournament = years[year].seasons[s].major.wildCard;
+        break;
+      } else if(!years[year].seasons[s].major.groupStage.isComplete) {
+        currentTournament = years[year].seasons[s].major.groupStage;
+        break;
+      }  
     }
 
-    // Checks the season's major's wilc card and group stage
-    if(!seasons[s].major.wildCard.isComplete)
-      currentTournament = seasons[s].major.wildCard;
-    else if(!seasons[s].major.groupStage.isComplete)
-      currentTournament = seasons[s].major.groupStage;
-  }
+    // Checks the year's TI groups
+    if(!years[year].tiA.isComplete) {
+      currentTournament = years[year].tiA;
+      break;
+    } else if(!years[year].tiB.isComplete) {
+      currentTournament = years[year].tiB;
+      break;
+    }
 
-  // Displays the last major's group stage if all tournaments are complete
-  if (currentTournament == null)
-    currentTournament = seasons[seasons.length - 1].major.groupStage;
+    // If all tournaments are complete, is displays the Group A of the last TI
+    if (currentTournament == null)
+      currentTournament = years[year].tiA;
+  }
 
   // display the current tournament
   currentTournament.displayTournament();
@@ -143,29 +158,43 @@ function predictionButtonClicked(e) {
 }
 
 function tournamentButtonClicked(e) {
-  // Get the year and season # of the selected tournament 
-  let year = e.target.id.substring(0, 4);
-  let seasonNum = e.target.id.substring(5, 6);
+  // Get the year 
+  let yearNum = e.target.id.substring(0, 4);
 
-  for(let i = 0; i < seasons.length; i++) {
-    if(seasons[i].year == year
-      && seasons[i].number == seasonNum) {
-        // If the season is found, gets whether the clicked tournament 
-        // is a wild card or group stage of the major
-        // OR is a regional qualifier
-        let subType = e.target.id.substring(6);
-        if(subType.toLowerCase() == "wildcard")
-          currentTournament = seasons[i].major.wildCard;
-        else if(subType.toLowerCase() == "groupstage")
-          currentTournament = seasons[i].major.groupStage;
-        else {
-          let qualifier = seasons[i].major.getQualifier(subType);
-          if(qualifier == null)
-            return;
-          else 
-            currentTournament = seasons[i].major.getQualifier(subType);
+  let year = years[yearNum];
+  if(year == null)
+    return;
+  
+  if(e.target.id.substring(4, 6) == "TI") {
+    if(e.target.id.substring(11) == "A") {
+      currentTournament = years[yearNum].tiA;
+    }
+    else if(e.target.id.substring(11) == "B") {
+      currentTournament = years[yearNum].tiB;
+    }
+  } else {
+    // Get the season # of the selected tournament 
+    let seasonNum = e.target.id.substring(5, 6);
+
+    for(let s = 0; s < years[yearNum].seasons.length; s++) {
+      if(years[yearNum].seasons[s].number == seasonNum) {
+          // If the season is found, gets whether the clicked tournament 
+          // is a wild card or group stage of the major
+          // OR is a regional qualifier
+          let subType = e.target.id.substring(6);
+          if(subType.toLowerCase() == "wildcard")
+            currentTournament = years[yearNum].seasons[s].major.wildCard;
+          else if(subType.toLowerCase() == "groupstage")
+            currentTournament = years[yearNum].seasons[s].major.groupStage;
+          else {
+            let qualifier = years[yearNum].seasons[s].major.getQualifier(subType);
+            if(qualifier == null)
+              return;
+            else 
+              currentTournament = years[yearNum].seasons[s].major.getQualifier(subType);
+          }
         }
-      }
+    }
   }
 
   currentTournament.displayTournament();
@@ -207,10 +236,5 @@ function resetAllPredictions() {
   currentTournament.displayTable(futureStandingsTable);
 }
 
-export {
-  seasons,
-  currentTournament,
-  init,
-  predictionButtonClicked,
-  tournamentButtonClicked,
-};
+export { years, currentTournament,
+  init, predictionButtonClicked, tournamentButtonClicked };

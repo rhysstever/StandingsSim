@@ -4,7 +4,8 @@ function addSeasonToDropdown(season, dropdownParent) {
   // Add a header for the season
   let seasonHeader = document.createElement("li");
   let seasonHeaderText = document.createElement("h5");
-  seasonHeaderText.innerHTML = season.year + " Season " + season.number;
+  seasonHeaderText.innerHTML = "Season " + season.number;
+  seasonHeaderText.classList.add("seasonHeader");
   seasonHeader.appendChild(seasonHeaderText);
   dropdownParent.appendChild(seasonHeader);
 
@@ -12,6 +13,7 @@ function addSeasonToDropdown(season, dropdownParent) {
   let qualifiersHeader = document.createElement("li");
   let qualifiersHeaderText = document.createElement("h6");
   qualifiersHeaderText.innerHTML = "Regional Qualifiers";
+  qualifiersHeaderText.classList.add("qualsHeader");
   qualifiersHeader.appendChild(qualifiersHeaderText);
   dropdownParent.appendChild(qualifiersHeader);  
 
@@ -27,6 +29,7 @@ function addSeasonToDropdown(season, dropdownParent) {
   let majorHeader = document.createElement("li");
   let majorHeaderText = document.createElement("h6");
   majorHeaderText.innerHTML = season.major.name;
+  majorHeaderText.classList.add("majorHeader");
   majorHeader.appendChild(majorHeaderText);
   dropdownParent.appendChild(majorHeader);  
   
@@ -56,4 +59,13 @@ function createTournamentDropdown(id, tabName, isComplete) {
   return listItem;
 }
 
-export { addSeasonToDropdown }
+function createDivider(parentElement) {
+  // Create a divider between the regional qualifiers and the major
+  let dividerContainer = document.createElement("li");
+  let divider = document.createElement("hr");
+  divider.classList.add("dropdown-divider");
+  dividerContainer.appendChild(divider);
+  parentElement.appendChild(dividerContainer);  
+}
+
+export { addSeasonToDropdown, createTournamentDropdown, createDivider }

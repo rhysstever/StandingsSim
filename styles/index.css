@@ -87,6 +87,22 @@ h6 {
      font-size: 1rem;
 }
 
+.seasonHeader {
+     margin: 0.5rem 0rem 0.5rem 0.35rem;
+}
+
+.majorHeader, .qualsHeader {
+     margin: 0.5rem 0rem 0.5rem 0.75rem;
+}
+
+.ti-option {
+     padding-left: 0.75rem;
+}
+
+.ti-option > h6 {
+     margin: 0rem;
+}
+
 #sections {
      display: flex;
      flex-direction: row;

@@ -10,6 +10,23 @@ const regions = {
   GLOBAL: "Global",
 };
 
+class Year {
+  constructor(number) {
+    this.number = number;
+    this.seasons = [];
+    this.tiA = {};
+    this.tiB = {};
+  }
+
+  addSeason(season) {
+    this.seasons.push(season);
+  }
+
+  addTI(ti) {
+    this.ti = ti;
+  }
+}
+
 class Season {
   constructor(year, number, major) {
     this.year = year;
@@ -245,25 +262,18 @@ class Series {
 }
 
 class Tournament {
-  constructor(
-    name,
-    tabName,
-    region,
-    type,
-    subType,
-    link,
-    hasTieMatches,
-    isComplete
-  ) {
+  constructor(name, tabName, region, type, subType, link, hasTieMatches, isComplete) {
     this.name = name;
     this.tabName = tabName;
     this.region = region;
 
+    // Type 
     if (type.toLowerCase() == "division" || type.toLowerCase() == "div")
       this.type = "Division";
     else if (type.toLowerCase() == "major") this.type = "Major";
-    else this.type = "None";
+    else this.type = type;
 
+    // Sub-type 
     switch (this.type) {
       case "Division":
         if (subType.toLowerCase() == "upper") this.subType = "Upper";
@@ -464,7 +474,13 @@ class Tournament {
           this.top2Bottom2(teamPlace, place);
         }
         break;
-      default:
+      case "TI":
+          if (teamPlace < 5)
+            place.classList.add("bg-success");
+          else if (teamPlace < 9)
+            place.classList.add("bg-warning");
+          else if (teamPlace == 9)
+            place.classList.add("bg-danger");
         break;
     }
   }
@@ -822,14 +838,6 @@ class GroupStage extends Tournament {
   }
 }
 
-export {
-  regions,
-  Season,
-  Team,
-  Series,
-  Tournament,
-  Division,
-  Major,
-  WildCard,
-  GroupStage,
-};
+export { regions, 
+  Year, Season, Team, Series, 
+  Tournament, Division, Major, WildCard, GroupStage };
