@@ -2,9 +2,13 @@
 A simulator to see the standings for tournaments after predicting remaining games' outcomes.
 
 ## Current Tournaments
-- DPC Season 2 
-  - All 6 regions' Upper Division
-  - WePlay AniMajor Wild Card & Group Stage
+- 2021 DPC
+  - Season 2 
+    - All 6 regions' Upper Division
+    - WePlay AniMajor Wild Card & Group Stage
+  - TI 10 (both groups)*
+
+*Directly invited teams randomly divided between the two group
 
 ## Demos
 Predicting a match result and displaying ties:<br/>
