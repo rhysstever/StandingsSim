@@ -22,7 +22,7 @@
      <script src="./src/loader.js" type="module"></script>
 </head>
 <body>
-     <header>
+     <nav>
           <div class="dropdown">
                <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="tournamentDropdownMenu" data-mdb-toggle="dropdown" aria-expanded="false">
                     Tournaments
@@ -32,13 +32,13 @@
                     <!-- Created in addSeasonToDropdown() -->
                </ul>
           </div>
+     </nav>
+     <header>
+          <h1>Standings Simulator</h1>
+          <p>Click on which team(s) you think will win, and see how it affects the standings!</p>
+          <h2 id="tournamentName">Tournament Name</h2>
      </header>
      <main>
-          <div id="heading">
-               <h1>Standings Simulator</h1>
-               <p>Click on which team(s) you think will win, and see how it affects the standings!</p>
-               <h2 id="tournamentName">Tournament Name</h2>
-          </div>
           <div id="sections">
                <div class="section">
                     <h3 id="currentStandingsHeader">Current Standings</h3>

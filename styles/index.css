@@ -7,10 +7,15 @@ body {
      flex-direction: column;
 }
 
-header {
+nav {
      display: flex;
-     justify-content: space-between;
+     justify-content: start;
      padding: 0.5rem;
+}
+
+header {
+     text-align: center;
+     padding: 0rem 0.5rem;
 }
 
 main {
@@ -27,10 +32,6 @@ footer {
      text-align: center;
      margin: 1rem 0rem 0rem 0rem;
      padding: 1.5rem 0rem;
-}
-
-#heading {
-     text-align: center;
 }
 
 h3 {
@@ -145,5 +146,11 @@ footer > a {
 @media screen and (max-width: 600px){ 
 	#heading {
           margin: 0rem 1rem;
+     }
+}
+
+@media screen and (max-width: 425px){ 
+	nav {
+          justify-content: center;
      }
 }
