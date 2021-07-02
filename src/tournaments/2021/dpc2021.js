@@ -32,8 +32,8 @@ function createTI() {
   tiGroupStageA.addTeam(new classes.Team("Team Secret", "Secret", 0, 0, 0, 0));
   tiGroupStageA.addTeam(new classes.Team("Team Aster", "Aster", 0, 0, 0, 0));
   tiGroupStageA.addTeam(new classes.Team("Alliance", "[A]", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("SA_Qualifier", "SA_Q", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("EEU_Qualifier", "EEU_Q", 0, 0, 0, 0));
+  tiGroupStageA.addTeam(new classes.Team("SG e-sports", "SG", 0, 0, 0, 0));
+  tiGroupStageA.addTeam(new classes.Team("Team Spirit", "TSpirit", 0, 0, 0, 0));
   tiGroupStageA.addTeam(new classes.Team("CN_Qualifier", "CN_Q", 0, 0, 0, 0));
 
   // Group B
