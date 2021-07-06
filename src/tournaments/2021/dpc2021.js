@@ -48,9 +48,9 @@ function createTI() {
   tiGroupStageB.addTeam(new classes.Team("Vici Gaming", "Vici", 0, 0, 0, 0));
   tiGroupStageB.addTeam(new classes.Team("beastcoast", "bc", 0, 0, 0, 0));
   tiGroupStageB.addTeam(new classes.Team("Thunder Predator", "TP", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("NA_Qualifier", "NA_Q", 0, 0, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("Undying", "UND", 0, 0, 0, 0));
   tiGroupStageB.addTeam(new classes.Team("WEU_Qualifier", "WEU_Q", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("SEA_Qualifier", "SEA_Q", 0, 0, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("Fnatic", "Fnatic", 0, 0, 0, 0));
 
 	// Add TI groups to the year
   main.years[YEAR_NUM].tiA = tiGroupStageA;
