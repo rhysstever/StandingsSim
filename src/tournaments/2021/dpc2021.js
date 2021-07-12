@@ -34,7 +34,7 @@ function createTI() {
   tiGroupStageA.addTeam(new classes.Team("Alliance", "[A]", 0, 0, 0, 0));
   tiGroupStageA.addTeam(new classes.Team("SG e-sports", "SG", 0, 0, 0, 0));
   tiGroupStageA.addTeam(new classes.Team("Team Spirit", "TSpirit", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("CN_Qualifier", "CN_Q", 0, 0, 0, 0));
+  tiGroupStageA.addTeam(new classes.Team("Elephant", "Elephant", 0, 0, 0, 0));
 
   // Group B
   let tiGroupStageB = new classes.Tournament(
@@ -49,7 +49,7 @@ function createTI() {
   tiGroupStageB.addTeam(new classes.Team("beastcoast", "bc", 0, 0, 0, 0));
   tiGroupStageB.addTeam(new classes.Team("Thunder Predator", "TP", 0, 0, 0, 0));
   tiGroupStageB.addTeam(new classes.Team("Undying", "UND", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("WEU_Qualifier", "WEU_Q", 0, 0, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("OG", "OG", 0, 0, 0, 0));
   tiGroupStageB.addTeam(new classes.Team("Fnatic", "Fnatic", 0, 0, 0, 0));
 
 	// Add TI groups to the year
