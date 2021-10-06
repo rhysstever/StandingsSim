@@ -14,8 +14,9 @@ function createYear() {
   // Create Seasons
   season2.createTournaments();
 
-  // Create TI
+  // Create TI and add matches to it
   createTI();
+  addMatches();
 }
 
 function createTI() {
@@ -55,6 +56,123 @@ function createTI() {
 	// Add TI groups to the year
   main.years[YEAR_NUM].tiA = tiGroupStageA;
   main.years[YEAR_NUM].tiB = tiGroupStageB;
+}
+
+function addMatches() {
+  const groupA = main.years[YEAR_NUM].tiA;
+  const groupB = main.years[YEAR_NUM].tiB;
+
+  // Series of October 7th
+  // Series A1 
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("Aster"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("iG"), groupA.findTeamByName("T1"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("VP"), groupA.findTeamByName("UND"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("OG"), groupA.findTeamByName("Alliance"), false));
+
+  // Series B1 
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Secret"), groupB.findTeamByName("TSpirit"), false));
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("QC"), false));
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("bc"), false));
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Vici"), groupB.findTeamByName("Fnatic"), false));
+
+  // Series A2 
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("iG"), groupA.findTeamByName("UND"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("OG"), groupA.findTeamByName("TP"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("VP"), groupA.findTeamByName("Alliance"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("T1"), false));
+
+  // Series B2
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("TSpirit"), false));
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("Fnatic"), false));
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Vici"), groupB.findTeamByName("SG"), false));
+  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Secret"), groupB.findTeamByName("bc"), false));
+
+  // Series A3
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("iG"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("VP"), groupA.findTeamByName("OG"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("Aster"), groupA.findTeamByName("UND"), false));
+  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("Alliance"), groupA.findTeamByName("TP"), false));
+
+  // Series of October 8th
+  // Series B3
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("Secret"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("Vici"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("QC"), groupB.findTeamByName("bc"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Fnatic"), groupB.findTeamByName("SG"), false));
+
+  // Series A4
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("OG"), groupA.findTeamByName("Aster"), false));
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("VP"), groupA.findTeamByName("T1"), false));
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("EG"), groupA.findTeamByName("Alliance"), false));
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("iG"), groupA.findTeamByName("TP"), false));
+
+  // Series B4
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("TSpirit"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("Fnatic"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Vici"), groupB.findTeamByName("QC"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Secret"), groupB.findTeamByName("SG"), false));
+
+  // Series A5
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("iG"), groupA.findTeamByName("VP"), false));
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("Aster"), groupA.findTeamByName("Alliance"), false));
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("UND"), groupA.findTeamByName("TP"), false));
+  groupA.addSeries(new classes.Series("October 8th", groupA.findTeamByName("OG"), groupA.findTeamByName("T1"), false));
+
+  // Series B5
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Secret"), groupB.findTeamByName("Elephant"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("Vici"), groupB.findTeamByName("TSpirit"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("bc"), groupB.findTeamByName("SG"), false));
+  groupB.addSeries(new classes.Series("October 8th", groupB.findTeamByName("QC"), groupB.findTeamByName("Fnatic"), false));
+
+  // Series of October 9th
+  // Series A6
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("EG"), groupA.findTeamByName("OG"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("Aster"), groupA.findTeamByName("T1"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("UND"), groupA.findTeamByName("Alliance"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("VP"), groupA.findTeamByName("TP"), false));
+
+  // Series B6
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("Vici"), false));
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("QC"), groupB.findTeamByName("TSpirit"), false));
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("bc"), groupB.findTeamByName("Fnatic"), false));
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("SG"), false));
+
+  // Series A7
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("OG"), groupA.findTeamByName("UND"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("iG"), groupA.findTeamByName("Aster"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("T1"), groupA.findTeamByName("Alliance"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("EG"), groupA.findTeamByName("TP"), false));
+
+  // Series B7
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("Vici"), groupB.findTeamByName("bc"), false));
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("TSpirit"), groupB.findTeamByName("Fnatic"), false));
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("Secret"), groupB.findTeamByName("QC"), false));
+  groupB.addSeries(new classes.Series("October 9th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("SG"), false));
+
+  // Series A8
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("EG"), groupA.findTeamByName("VP"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("iG"), groupA.findTeamByName("Alliance"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("T1"), groupA.findTeamByName("Undying"), false));
+  groupA.addSeries(new classes.Series("October 9th", groupA.findTeamByName("Aster"), groupA.findTeamByName("TP"), false));
+
+  // Series of October 10th
+  // Series B8
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("Elephant"), false));
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("QC"), groupB.findTeamByName("SG"), false));
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("TSpirit"), groupB.findTeamByName("bc"), false));
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("Secret"), groupB.findTeamByName("Fnatic"), false));
+
+  // Series A9
+  groupA.addSeries(new classes.Series("October 10th", groupA.findTeamByName("iG"), groupA.findTeamByName("OG"), false));
+  groupA.addSeries(new classes.Series("October 10th", groupA.findTeamByName("EG"), groupA.findTeamByName("UND"), false));
+  groupA.addSeries(new classes.Series("October 10th", groupA.findTeamByName("VP"), groupA.findTeamByName("Aster"), false));
+  groupA.addSeries(new classes.Series("October 10th", groupA.findTeamByName("T1"), groupA.findTeamByName("TP"), false));
+
+  // Series B9
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("Secret"), groupB.findTeamByName("Vici"), false));
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("bc"), false));
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("QC"), false));
+  groupB.addSeries(new classes.Series("October 10th", groupB.findTeamByName("TSpirit"), groupB.findTeamByName("SG"), false));
 }
 
 export { createYear, createTI }
