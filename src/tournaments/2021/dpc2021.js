@@ -27,15 +27,15 @@ function createTI() {
 		"https://liquipedia.net/dota2/The_International/2021", true, false);
 
 	// Add teams
-  tiGroupStageA.addTeam(new classes.Team("Alliance", "[A]", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("Evil Geniuses", "EG", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("Invictus Gaming", "iG", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("OG", "OG", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("T1", "T1", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("Team Aster", "Aster", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("Undying", "UND", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("Thunder Predator", "TP", 0, 0, 0, 0));
-  tiGroupStageA.addTeam(new classes.Team("Virtus.pro", "VP", 0, 0, 0, 0));
+  tiGroupStageA.addTeam(new classes.Team("Alliance", "[A]", 1, 0, 2, 0));
+  tiGroupStageA.addTeam(new classes.Team("Evil Geniuses", "EG", 2, 0, 1, 0));
+  tiGroupStageA.addTeam(new classes.Team("Invictus Gaming", "iG", 2, 1, 0, 0));
+  tiGroupStageA.addTeam(new classes.Team("OG", "OG", 2, 1, 0, 0));
+  tiGroupStageA.addTeam(new classes.Team("T1", "T1", 0, 0, 2, 0));
+  tiGroupStageA.addTeam(new classes.Team("Team Aster", "Aster", 0, 0, 2, 0));
+  tiGroupStageA.addTeam(new classes.Team("Undying", "UND", 1, 1, 1, 0));
+  tiGroupStageA.addTeam(new classes.Team("Thunder Predator", "TP", 0, 0, 2, 0));
+  tiGroupStageA.addTeam(new classes.Team("Virtus.pro", "VP", 2, 1, 0, 0));
   
   // Group B
   let tiGroupStageB = new classes.Tournament(
@@ -43,15 +43,15 @@ function createTI() {
 		"https://liquipedia.net/dota2/The_International/2021", true, false);
     
   // Add teams
-  tiGroupStageB.addTeam(new classes.Team("Elephant", "Elephant", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("Quincy Crew", "QC", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("Team Spirit", "TSpirit", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("Team Secret", "Secret", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("SG e-sports", "SG", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("PSG.LGD", "PSG.LGD", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("Vici Gaming", "Vici", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("beastcoast", "bc", 0, 0, 0, 0));
-  tiGroupStageB.addTeam(new classes.Team("Fnatic", "Fnatic", 0, 0, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("Elephant", "Elephant", 1, 1, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("Quincy Crew", "QC", 0, 0, 1, 0));
+  tiGroupStageB.addTeam(new classes.Team("Team Spirit", "TSpirit", 0, 0, 2, 0));
+  tiGroupStageB.addTeam(new classes.Team("Team Secret", "Secret", 1, 0, 1, 0));
+  tiGroupStageB.addTeam(new classes.Team("SG e-sports", "SG", 0, 0, 1, 0));
+  tiGroupStageB.addTeam(new classes.Team("PSG.LGD", "PSG.LGD", 2, 0, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("Vici Gaming", "Vici", 1, 1, 0, 0));
+  tiGroupStageB.addTeam(new classes.Team("beastcoast", "bc", 1, 0, 1, 0));
+  tiGroupStageB.addTeam(new classes.Team("Fnatic", "Fnatic", 0, 2, 0, 0));
 
 	// Add TI groups to the year
   main.years[YEAR_NUM].tiA = tiGroupStageA;
@@ -61,37 +61,6 @@ function createTI() {
 function addMatches() {
   const groupA = main.years[YEAR_NUM].tiA;
   const groupB = main.years[YEAR_NUM].tiB;
-
-  // Series of October 7th
-  // Series A1 
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("Aster"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("iG"), groupA.findTeamByName("T1"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("VP"), groupA.findTeamByName("UND"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("OG"), groupA.findTeamByName("Alliance"), false));
-
-  // Series B1 
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Secret"), groupB.findTeamByName("TSpirit"), false));
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("QC"), false));
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("bc"), false));
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Vici"), groupB.findTeamByName("Fnatic"), false));
-
-  // Series A2 
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("iG"), groupA.findTeamByName("UND"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("OG"), groupA.findTeamByName("TP"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("VP"), groupA.findTeamByName("Alliance"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("T1"), false));
-
-  // Series B2
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("PSG.LGD"), groupB.findTeamByName("TSpirit"), false));
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Elephant"), groupB.findTeamByName("Fnatic"), false));
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Vici"), groupB.findTeamByName("SG"), false));
-  groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Secret"), groupB.findTeamByName("bc"), false));
-
-  // Series A3
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("iG"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("VP"), groupA.findTeamByName("OG"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("Aster"), groupA.findTeamByName("UND"), false));
-  groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("Alliance"), groupA.findTeamByName("TP"), false));
 
   // Series of October 8th
   // Series B3
