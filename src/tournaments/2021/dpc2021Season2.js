@@ -1,7 +1,7 @@
 import * as classes from "../../classes.js"
 import * as main from "../../main.js"
 
-function createTournaments() {
+const createTournaments = () => {
   // Create China regional qualifier tournament
   let dpcCNUpperDiv = new classes.Division(
     "DPC 2021 Season 2 China Upper Division", "CN Upper Div", classes.regions.CN, "Upper",

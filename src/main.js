@@ -4,14 +4,14 @@ let currentTournament = null;
 let fps = 20;
 let prevLarge = true;
 
-function init() {
+const init = () => {
   displayNextTournament();
   setupOnclicks();
   resetAllPredictions();
   loop();
 }
 
-function loop() {
+const loop = () => {
   // If the window was large and is now 425px or smaller
   if (prevLarge && window.innerWidth <= 425) {
     prevLarge = false;
@@ -28,7 +28,7 @@ function loop() {
 
 //  Displays the next incomplete tournament
 //  Shows the last major's group stage if all tournaments are completed
-function displayNextTournament() {
+const displayNextTournament = () => {
   // Loops through each year
   for(let year in years) {
     // Loops through each season of the year
@@ -69,7 +69,7 @@ function displayNextTournament() {
   currentTournament.displayTournament();
 }
 
-function predictionButtonClicked(e) {
+const predictionButtonClicked = (e) => {
   // Get the winning team's number (1 or 2)
   let winnerTeamNum = e.target.id.substring(4, 5);
 
@@ -157,7 +157,7 @@ function predictionButtonClicked(e) {
   currentTournament.displayTable(futureStandingsTable);
 }
 
-function tournamentButtonClicked(e) {
+const tournamentButtonClicked = (e) => {
   // Get the year 
   let yearNum = e.target.id.substring(0, 4);
 
@@ -200,7 +200,7 @@ function tournamentButtonClicked(e) {
   currentTournament.displayTournament();
 }
 
-function setupOnclicks() {
+const setupOnclicks = () => {
   // Loop through each dropdown button in the document and add the onclick to toggle the icon
   let dropdownButtons = document.getElementsByClassName("dropdownBtn");
   for (let i = 0; i < dropdownButtons.length; i++) {
@@ -210,7 +210,7 @@ function setupOnclicks() {
   document.querySelector("#resetPredictionsButton").onclick = resetAllPredictions;
 }
 
-function changeDropdownIcon(e) {
+const changeDropdownIcon = (e) => {
   // Checks if the selected item was the button or the button's text
   let dropdownButton = e.target;
   if (!dropdownButton.classList.contains("btn"))
@@ -227,7 +227,7 @@ function changeDropdownIcon(e) {
   }
 }
 
-function resetAllPredictions() {
+const resetAllPredictions = () => {
   // Reset each team's predictions and sort them
   currentTournament.resetTeamPredictions();
   currentTournament.sortTeams(true);
@@ -236,5 +236,10 @@ function resetAllPredictions() {
   currentTournament.displayTable(futureStandingsTable);
 }
 
-export { years, currentTournament,
-  init, predictionButtonClicked, tournamentButtonClicked };
+export { 
+  years, 
+  currentTournament,
+  init, 
+  predictionButtonClicked, 
+  tournamentButtonClicked 
+};

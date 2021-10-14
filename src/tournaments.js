@@ -4,7 +4,7 @@ import * as helpers from "./tournaments/tournamentHelpers.js"
 // Years
 import * as dpc2021 from "./tournaments/2021/dpc2021.js"
 
-function createTournaments() {
+const createTournaments = () => {
   // ===== Create Years ===== 
   dpc2021.createYear();
   // ===== End of Create Years section =====

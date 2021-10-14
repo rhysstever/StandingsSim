@@ -1,6 +1,6 @@
 import * as main from "../main.js"
 
-function addSeasonToDropdown(season, dropdownParent) {
+const addSeasonToDropdown = (season, dropdownParent) => {
   // Add a header for the season
   let seasonHeader = document.createElement("li");
   let seasonHeaderText = document.createElement("h5");
@@ -43,7 +43,7 @@ function addSeasonToDropdown(season, dropdownParent) {
   dropdownParent.appendChild(groupStage);
 }
 
-function createTournamentDropdown(id, tabName, isComplete) {
+const createTournamentDropdown = (id, tabName, isComplete) => {
   // Creates the list item and button
   let listItem = document.createElement("li");
   let tourneyButton = document.createElement("button");
@@ -59,7 +59,7 @@ function createTournamentDropdown(id, tabName, isComplete) {
   return listItem;
 }
 
-function createDivider(parentElement) {
+const createDivider = (parentElement) => {
   // Create a divider between the regional qualifiers and the major
   let dividerContainer = document.createElement("li");
   let divider = document.createElement("hr");
