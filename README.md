@@ -2,11 +2,11 @@
 A simulator to see the standings for tournaments after predicting remaining games' outcomes.
 
 ## Current Tournaments
-- 2021 DPC
+- 2021 Dota Pro Circuit
   - Season 2 
     - All 6 regions' Upper Division
     - WePlay AniMajor Wild Card & Group Stage
-  - TI 10 (both groups)
+  - TI 10 Group Stage (both groups)
 
 ## Demos
 Predicting a match result and displaying ties:<br/>
