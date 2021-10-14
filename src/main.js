@@ -61,9 +61,9 @@ const displayNextTournament = () => {
       break;
     }
 
-    // If all tournaments are complete, is displays the Group A of the last TI
+    // If all tournaments are complete, the first demo tournament is displayed
     if (currentTournament == null)
-      currentTournament = years[year].tiA;
+      currentTournament = demos[0];
   }
 
   // display the current tournament
