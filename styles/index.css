@@ -53,6 +53,10 @@ h6 {
      font-size: 0.9rem;
 }
 
+footer > a {
+     margin: 0.5rem;
+}
+
 .section {
      margin: 0rem 2rem;
 }
@@ -61,6 +65,10 @@ h6 {
      display: flex;
      justify-content: center;
      margin: 0rem 0rem;
+}
+
+.dropdownClass {
+     margin: 0rem 0.5rem 0rem 0rem;
 }
 
 .dropdownBtn {
@@ -121,10 +129,6 @@ h6 {
 #remainingGamesList {
      position: relative;
      padding: 0;
-}
-
-footer > a {
-     margin: 0.5rem;
 }
 
 @media screen and (max-width: 1730px){ 
