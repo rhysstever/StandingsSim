@@ -18,11 +18,11 @@ class Year {
     this.tiB = {};
   }
 
-  addSeason(season) {
+  addSeason = (season) => {
     this.seasons.push(season);
   }
 
-  addTI(ti) {
+  addTI = (ti) => {
     this.ti = ti;
   }
 }
@@ -65,15 +65,15 @@ class Team {
   }
 
   // Updates the total wins, ties, losses, and tiebreaker wins
-  calculateTotals() {
+  calculateTotals = () => {
     this.totalWins = this.wins + this.predictedWins;
     this.totalTies = this.ties + this.predictedTies;
     this.totalLosses = this.losses + this.predictedLosses;
-    this.totalTieBreakerWins =
+    this.totalTieBreakerWins = 
       this.tieBreakerWins + this.predictedTieBreakerWins;
   }
 
-  getStat(stat, withPreditions, hasTies) {
+  getStat = (stat, withPreditions, hasTies) => {
     if(stat.toLowerCase() != "score")
       hasTies = false;
 
@@ -111,7 +111,7 @@ class Team {
     }
   }
 
-  displayScore(isWithPredictions, hasTies) {
+  displayScore = (isWithPredictions, hasTies) => {
     let score = "";
     // Standings with predictions
     if(isWithPredictions) {
@@ -140,7 +140,7 @@ class Team {
   }
 
   // Resets predicted wins, ties, losses, and tiebreaker wins
-  resetPredictions() {
+  resetPredictions = () => {
     this.predictedWins = 0;
     this.predictedTies = 0;
     this.predictedLosses = 0;
@@ -161,7 +161,7 @@ class Series {
     this.isTieBreaker = isTieBreaker;
   }
 
-  adjustScores(winnerNum) {
+  adjustScores = (winnerNum) => {
     // Assigns the winning and losing team of the series
     // based on the passed in winning number
     let winningTeam = null;
@@ -306,15 +306,15 @@ class Tournament {
     this.remainingSeries = [];
   }
 
-  addTeam(team) {
+  addTeam = (team) => {
     this.teams.push(team);
   }
 
-  addSeries(game) {
+  addSeries = (game) => {
     this.remainingSeries.push(game);
   }
 
-  resetTeamPredictions() {
+  resetTeamPredictions = () => {
     // Reset each team's predictions
     for (let i = 0; i < this.teams.length; i++) {
       this.teams[i].resetPredictions();
@@ -327,7 +327,7 @@ class Tournament {
     this.setupGameButtons(true);
   }
 
-  displayTournament() {
+  displayTournament = () => {
     // Change tournament header and link href
     document.querySelector("#tournamentName").innerHTML = this.name;
     document.querySelector("#source").href = this.link;
@@ -362,7 +362,7 @@ class Tournament {
     }
   }
 
-  findTeamByName(teamName) {
+  findTeamByName = (teamName) => {
     for (let i = 0; i < this.teams.length; i++) {
       if (this.teams[i].name == teamName || this.teams[i].abbrev == teamName)
         return this.teams[i];
@@ -370,7 +370,7 @@ class Tournament {
     return undefined;
   }
 
-  findTeamIndexByName(teamName) {
+  findTeamIndexByName = (teamName) => {
     for (let i = 0; i < this.teams.length; i++) {
       if (this.teams[i].name == teamName || this.teams[i].abbrev == teamName)
         return i;
@@ -378,7 +378,7 @@ class Tournament {
     return -1;
   }
 
-  displayTable(table) {    
+  displayTable = (table) => {    
     // Clear the table
     table.innerHTML = "";
     // Loops through each team and displays their score
@@ -416,7 +416,7 @@ class Tournament {
     }
   }
 
-  colorRow(index, place) {
+  colorRow = (index, place) => {
     // Color the row depending on the place
     let teamPlace = index + 1;
 
@@ -487,7 +487,7 @@ class Tournament {
 
   // A helper function for colorRow()
   // that colors the top 2 green, bottom 2 red, and rest yellow
-  top2Bottom2(teamPlace, place) {
+  top2Bottom2 = (teamPlace, place) => {
     // Top 2 green
     if (teamPlace == 1 || teamPlace == 2) place.classList.add("bg-success");
     // Bottom 2 red
@@ -500,7 +500,7 @@ class Tournament {
     else place.classList.add("bg-warning");
   }
 
-  setupGameButtons() {
+  setupGameButtons = () => {
     let gamesList = document.querySelector("#remainingGamesList");
     gamesList.innerHTML = "";
     for (let i = 0; i < this.remainingSeries.length; i++) {
@@ -582,7 +582,7 @@ class Tournament {
 
   // A helper function for setupGameButtons()
   // sets common attributes for the team buttons
-  createTeamButton(team) {
+  createTeamButton = (team) => {
     let button = document.createElement("button");
 
     if (window.innerWidth > 425) button.innerHTML = team.name;
@@ -593,7 +593,7 @@ class Tournament {
     return button;
   }
 
-  sortTeams(withPredictions) {
+  sortTeams = (withPredictions) => {
     let sortedTeams = [];
     do {
       let highestTeamIndex = -1;
@@ -647,7 +647,7 @@ class Tournament {
 
   // Calculates the place # for each team
   // called at the end of sortTeams()
-  calculateTeamPlaces(withPredictions) {
+  calculateTeamPlaces = (withPredictions) => {
     document.querySelector("#info").innerHTML = "";
     for (let i = 0; i < this.teams.length; i++) {
 
@@ -682,7 +682,7 @@ class Tournament {
   }
 
   // Helper func for calculateTeamPlaces()
-  calcPlaceWithDups(index) {
+  calcPlaceWithDups = (index) => {
     let duplicates = 1;
     // Loops "up" the table, if the team directly above the current team is tied 
     // with any teams above them, the "duplicate" is counted
@@ -696,7 +696,7 @@ class Tournament {
     this.teams[index].place = this.teams[index - 1].place + duplicates;
   }
 
-  addScoreToTeam(team, wins, ties, losses, tieBreakerWins) {
+  addScoreToTeam = (team, wins, ties, losses, tieBreakerWins) => {
     for(let i = 0; i < this.teams.length; i++) {
       if(this.teams[i] == team) {
         this.teams[i].wins += wins;
@@ -735,7 +735,7 @@ class Major {
     this.groupStage = null;
   }
 
-  addQualifier(region, tournament) {
+  addQualifier = (region, tournament) => {
     // Checks if the given region exists, if so, the tournament
     // is added as the value of that region key
     for (let key in regions) {
@@ -744,7 +744,7 @@ class Major {
     }
   }
 
-  addQualifiedTeams() {
+  addQualifiedTeams = () => {
     // Loops through each region
     for (let region in regions) {
       // Gets the qualifying tournament of each region
@@ -780,7 +780,7 @@ class Major {
     }
   }
 
-  addWildCardWinnersToGroupStage() {
+  addWildCardWinnersToGroupStage = () => {
     // Makes sure the wild card is sorted
     this.wildCard.sortTeams();
     // There are no more series left in the wild card
@@ -792,7 +792,7 @@ class Major {
     }
   }
 
-  getQualifier(region) {
+  getQualifier = (region) => {
     // Loops through all the regions of the qualifiers
     for (let r in this.qualifiers) {
       if (regions[r] == region) {
@@ -838,6 +838,15 @@ class GroupStage extends Tournament {
   }
 }
 
-export { regions, 
-  Year, Season, Team, Series, 
-  Tournament, Division, Major, WildCard, GroupStage };
+export { 
+  regions, 
+  Year, 
+  Season, 
+  Team, 
+  Series, 
+  Tournament, 
+  Division, 
+  Major, 
+  WildCard, 
+  GroupStage 
+};

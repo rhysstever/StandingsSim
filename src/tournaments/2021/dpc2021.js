@@ -6,7 +6,7 @@ import * as season2 from "./dpc2021Season2.js"
 
 let YEAR_NUM = 2021;
 
-function createYear() {
+const createYear = () => {
   // Create year
   let year = new classes.Year(YEAR_NUM);
   main.years[YEAR_NUM] = year;
@@ -19,7 +19,7 @@ function createYear() {
   addMatches();
 }
 
-function createTI() {
+const createTI = () => {
 	// Create TI group stage groups 
   // Group A
 	let tiGroupStageA = new classes.Tournament(
@@ -58,7 +58,7 @@ function createTI() {
   main.years[YEAR_NUM].tiB = tiGroupStageB;
 }
 
-function addMatches() {
+const addMatches = () => {
   const groupA = main.years[YEAR_NUM].tiA;
   const groupB = main.years[YEAR_NUM].tiB;
 
