@@ -1,6 +1,9 @@
 import * as main from "./main.js"
 import * as helpers from "./tournaments/tournamentHelpers.js"
 
+// Demos 
+import * as demos from "./tournaments/demos/demos.js"
+
 // Years
 import * as dpc2021 from "./tournaments/2021/dpc2021.js"
 
@@ -8,8 +11,14 @@ const createTournaments = () => {
   // ===== Create Years ===== 
   dpc2021.createYear();
   // ===== End of Create Years section =====
-  let dropdownParent = document.querySelector("#tournamentDropDown");
+
+  // Create Demo Tournaments
+  demos.createDemoTournaments();
+
+  let dropdownParent = document.querySelector("#tournamentDropdown");
+  let demoDropdownParent = document.querySelector("#demoDropdown");
   
+  // === Populate the tournament dropdown ===
   // Loop through each year
   for(var year in main.years) {
     // Add a year header for each year
@@ -47,7 +56,15 @@ const createTournaments = () => {
     let tiBID = year + "TIGroupB";
     let tiB = helpers.createTournamentDropdown(tiBID, main.years[year].tiB.tabName, main.years[year].tiB.isComplete);
     dropdownParent.appendChild(tiB);
-  }  
+  }
+
+  // === Populate the demo dropdown ===
+  for(var demoIndex in main.demos) {
+    let id = "DEMO" + demoIndex;
+    let demoTournament = main.demos[demoIndex];
+    let demoTournamentListItem = helpers.createTournamentDropdown(id, demoTournament.tabName, false);
+    demoDropdownParent.appendChild(demoTournamentListItem);
+  }
 }
 
 export { createTournaments }

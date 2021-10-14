@@ -265,10 +265,17 @@ class Tournament {
   constructor(name, tabName, region, type, subType, link, hasTieMatches, isComplete) {
     this.name = name;
     this.tabName = tabName;
-    this.region = region;
+
+    // Region
+    if(region === null) {
+      this.region = regions.GLOBAL;
+    } else {
+      this.region = region;
+    }
 
     // Type 
-    if (type.toLowerCase() == "division" || type.toLowerCase() == "div")
+    if(type == null) this.type = "None";
+    else if (type.toLowerCase() == "division" || type.toLowerCase() == "div")
       this.type = "Division";
     else if (type.toLowerCase() == "major") this.type = "Major";
     else this.type = type;
@@ -421,63 +428,70 @@ class Tournament {
     let teamPlace = index + 1;
 
     switch (this.type) {
+      case "Demo":
+        // Demo tournaments
+        // Top 2 green, rest red
+        if (teamPlace <= 2) place.classList.add("bg-success");
+        else place.classList.add("bg-danger");
+        break;
       case "Division":
         // Upper Division
+        // 1st            - Blue
+        // 2nd            - Light Blue
+        // Middle (rest)  - *Region dependent*
+        // Bottom 2       - Red
         if (this.subType == "Upper") {
-          // #1 blue
           if (teamPlace == 1) place.classList.add("bg-primary");
-          // #2 light blue
           else if (teamPlace == 2) place.classList.add("bg-info");
-          // Bottom 2 red,
-          else if (
-            teamPlace == this.teams.length ||
-            teamPlace == this.teams.length - 1
-          )
+          else if (teamPlace == this.teams.length ||
+            teamPlace == this.teams.length - 1)
             place.classList.add("bg-danger");
-          // Rest dependent on region
           else {
-            // Both EUs, China, and SEA's 3rd place are green
+            // WEU, China, SEA, & EEU's 3rd - Green
             if (
               teamPlace == 3 &&
               (this.region == regions.WEU ||
                 this.region == regions.CN ||
                 this.region == regions.EEU ||
-                this.region == regions.SEA)
-            )
+                this.region == regions.SEA))
               place.classList.add("bg-success");
-            // WEU & China's 4th place are green
-            else if (
-              teamPlace == 4 &&
-              (this.region == regions.WEU || this.region == regions.CN)
-            )
+            // WEU & China's 4th - Green
+            else if (teamPlace == 4 &&
+              (this.region == regions.WEU || this.region == regions.CN))
               place.classList.add("bg-success");
-            // Rest are yellow
+            // Rest - Yellow
             else place.classList.add("bg-warning");
           }
         }
         // Lower Division
-        else if (this.subType == "Lower") {
-          this.top2Bottom2(teamPlace, place);
-        }
+        // Top 2          - Green
+        // Middle (rest)  - Yellow
+        // Bottom 2       - Red
+        else if (this.subType == "Lower") this.top2Bottom2(teamPlace, place);
         break;
       case "Major":
         // Major Wild Card
+        // Top 2  - Green
+        // Rest   - Red
         if (this.subType == "Wild Card") {
-          // Top 2 green
-          if (teamPlace == 1 || teamPlace == 2)
+          if (teamPlace == 1 || teamPlace == 2) 
             place.classList.add("bg-success");
-          // Rest red
           else place.classList.add("bg-danger");
         }
         // Major Group Stage
-        else if (this.subType == "Group Stage") {
-          this.top2Bottom2(teamPlace, place);
-        }
+        // Top 2          - Green
+        // Middle (rest)  - Yellow
+        // Bottom 2       - Red
+        else if (this.subType == "Group Stage") this.top2Bottom2(teamPlace, place);
         break;
       case "TI":
-          if (teamPlace < 5)
+          // TI (Group Stage)
+          // Top 4 - Green
+          // Middle (rest) - Yellow
+          // Bottom 1 - Red
+          if (teamPlace <= 4)
             place.classList.add("bg-success");
-          else if (teamPlace < 9)
+          else if (teamPlace <= 8)
             place.classList.add("bg-warning");
           else if (teamPlace == 9)
             place.classList.add("bg-danger");
@@ -487,6 +501,7 @@ class Tournament {
 
   // A helper function for colorRow()
   // that colors the top 2 green, bottom 2 red, and rest yellow
+  // (it is a common format)
   top2Bottom2 = (teamPlace, place) => {
     // Top 2 green
     if (teamPlace == 1 || teamPlace == 2) place.classList.add("bg-success");

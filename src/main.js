@@ -1,4 +1,5 @@
 let years = {};
+let demos = {};
 let currentTournament = null;
 
 let fps = 20;
@@ -158,42 +159,50 @@ const predictionButtonClicked = (e) => {
 }
 
 const tournamentButtonClicked = (e) => {
-  // Get the year 
-  let yearNum = e.target.id.substring(0, 4);
+  // Check if the tournament selected is a demo (uses other object)
+  if(e.target.id.substring(0, 4) == 'DEMO') {
+    let demoIndex = e.target.id.substring(4);
+    currentTournament = demos[demoIndex];
+  } 
+  // If the tournament selected 
+  else {
+    // Get the year 
+    let yearNum = e.target.id.substring(0, 4);
 
-  let year = years[yearNum];
-  if(year == null)
-    return;
-  
-  if(e.target.id.substring(4, 6) == "TI") {
-    if(e.target.id.substring(11) == "A") {
-      currentTournament = years[yearNum].tiA;
-    }
-    else if(e.target.id.substring(11) == "B") {
-      currentTournament = years[yearNum].tiB;
-    }
-  } else {
-    // Get the season # of the selected tournament 
-    let seasonNum = e.target.id.substring(5, 6);
+    let year = years[yearNum];
+    if(year == null)
+      return;
+    
+    if(e.target.id.substring(4, 6) == "TI") {
+      if(e.target.id.substring(11) == "A") {
+        currentTournament = years[yearNum].tiA;
+      }
+      else if(e.target.id.substring(11) == "B") {
+        currentTournament = years[yearNum].tiB;
+      }
+    } else {
+      // Get the season # of the selected tournament 
+      let seasonNum = e.target.id.substring(5, 6);
 
-    for(let s = 0; s < years[yearNum].seasons.length; s++) {
-      if(years[yearNum].seasons[s].number == seasonNum) {
-          // If the season is found, gets whether the clicked tournament 
-          // is a wild card or group stage of the major
-          // OR is a regional qualifier
-          let subType = e.target.id.substring(6);
-          if(subType.toLowerCase() == "wildcard")
-            currentTournament = years[yearNum].seasons[s].major.wildCard;
-          else if(subType.toLowerCase() == "groupstage")
-            currentTournament = years[yearNum].seasons[s].major.groupStage;
-          else {
-            let qualifier = years[yearNum].seasons[s].major.getQualifier(subType);
-            if(qualifier == null)
-              return;
-            else 
-              currentTournament = years[yearNum].seasons[s].major.getQualifier(subType);
+      for(let s = 0; s < years[yearNum].seasons.length; s++) {
+        if(years[yearNum].seasons[s].number == seasonNum) {
+            // If the season is found, gets whether the clicked tournament 
+            // is a wild card or group stage of the major
+            // OR is a regional qualifier
+            let subType = e.target.id.substring(6);
+            if(subType.toLowerCase() == "wildcard")
+              currentTournament = years[yearNum].seasons[s].major.wildCard;
+            else if(subType.toLowerCase() == "groupstage")
+              currentTournament = years[yearNum].seasons[s].major.groupStage;
+            else {
+              let qualifier = years[yearNum].seasons[s].major.getQualifier(subType);
+              if(qualifier == null)
+                return;
+              else 
+                currentTournament = years[yearNum].seasons[s].major.getQualifier(subType);
+            }
           }
-        }
+      }
     }
   }
 
@@ -238,6 +247,7 @@ const resetAllPredictions = () => {
 
 export { 
   years, 
+  demos,
   currentTournament,
   init, 
   predictionButtonClicked, 
