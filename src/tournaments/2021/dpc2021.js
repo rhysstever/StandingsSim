@@ -59,11 +59,12 @@ const createTI = () => {
 }
 
 const addMatches = () => {
-  const groupA = main.years[YEAR_NUM].tiA;
-  const groupB = main.years[YEAR_NUM].tiB;
+  // const groupA = main.years[YEAR_NUM].tiA;
+  // const groupB = main.years[YEAR_NUM].tiB;
 
   // Example
   // groupA.addSeries(new classes.Series("October 7th", groupA.findTeamByName("EG"), groupA.findTeamByName("Aster"), false));
+  // groupB.addSeries(new classes.Series("October 7th", groupB.findTeamByName("Secret"), groupB.findTeamByName("TSpirit"), false));
 }
 
 export { createYear, createTI }
