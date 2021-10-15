@@ -2,16 +2,20 @@
 A simulator to see the standings for tournaments after predicting remaining games' outcomes.
 
 ## Current Tournaments
-- 2021 Dota Pro Circuit
+- 2021 Dota Pro Circuit (DPC)
   - Season 2 
     - All 6 regions' Upper Division
     - WePlay AniMajor Wild Card & Group Stage
   - TI 10 Group Stage (both groups)
 
 ## Demos
-Predicting a match result and displaying ties:<br/>
+Basic Functionality: (predicting match results, sorting by score, displaying ties, and clearing predictions)<br/>
 <br/>
-<img src="media/tying.gif" width="80%" height="80%"><br/>
+<img src="media/basicFunctions.gif" width="80%" height="80%"><br/>
+<br/>
+Predicting series that could end in a tie (like in a best of 2):<br/>
+<br/>
+<img src="media/predictingTies.gif" width="80%" height="80%"><br/>
 <br/>
 Predicting tiebreaker results:<br/>
 <br/>
