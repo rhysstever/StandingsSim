@@ -1,8 +1,9 @@
-import * as tournaments from "./tournaments.js";
 import * as main from "./main.js";
 
-// runs init only after the page is done loaded
 window.onload = () => {
-  tournaments.createTournaments();
-  main.init();
+	// Assign all tournament buttons an onclick event
+  let tournamentButtons = document.getElementsByClassName("tournamentButton");
+	for(let i = 0; i < tournamentButtons.length; i++) {
+		tournamentButtons[i].onclick = main.tournamentButtonClicked;
+	}
 };

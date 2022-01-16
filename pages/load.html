@@ -17,25 +17,34 @@
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
      <!-- MDB -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+     <!-- Load JS -->
+     <script src="../src/loader.js" type="module"></script>
      <!-- CSS -->
-     <link rel="stylesheet" href="./styles/general.css">
-     <link rel="stylesheet" href="./styles/select.css">
+     <link rel="stylesheet" href="../styles/general.css">
+     <link rel="stylesheet" href="../styles/select.css">
 </head>
 <body>
      <nav>
-          
+          <div>
+               <a href="../"><button class="btn btn-outline-secondary" type="button">Home</button></a>
+          </div>
      </nav>
      <header>
           <h1>Standings Simulator</h1>
+          <h2>Game Select</h2>
+          <p>Choose a tournament you would like view current and predict future standings.</p>
      </header>
      <main>
-          <div id="sections">
-               <div class="section">
-                    <a href="pages/load.html"><button class="btn btn-outline-secondary" type="button">Load a Tournament</button></a>
+          <div id="games">
+               <h3>Dota Pro Curcuit</h3>
+               <div class="tournamentsGroup">
+                    <a href="./tournament.html"><button id="13716" game="Dota 2" class="btn btn-outline-secondary tournamentButton" type="button">DPC China Division 1</button></a>
+                    <a href="./tournament.html"><button id="13709" game="Dota 2" class="btn btn-outline-secondary tournamentButton" type="button">DPC Eastern Europe Division 1</button></a>
+                    <a href="./tournament.html"><button id="13741" game="Dota 2" class="btn btn-outline-secondary tournamentButton" type="button">DPC North America Division 1</button></a>
+                    <a href="./tournament.html"><button id="13712" game="Dota 2" class="btn btn-outline-secondary tournamentButton" type="button">DPC South America Division 1</button></a>
+                    <a href="./tournament.html"><button id="13747" game="Dota 2" class="btn btn-outline-secondary tournamentButton" type="button">DPC Southeast Asia Division 1</button></a>
+                    <a href="./tournament.html"><button id="13738" game="Dota 2" class="btn btn-outline-secondary tournamentButton" type="button">DPC Western Europe Division 1</button></a>
                </div>
-               <!-- <div class="section">
-                    <a href="pages/create.html"><button class="btn btn-outline-secondary" type="button">Create a Tournament</button></a>
-               </div> -->
           </div>
      </main>
      <footer>

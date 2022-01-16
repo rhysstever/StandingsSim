@@ -15,27 +15,31 @@
      <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.css" rel="stylesheet"/>
      <!-- Bootstrap JS -->
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
-     <!-- MDB -->
+	<!-- MDB -->
      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"></script>
+     <!-- Load JS -->
+     <script src="../src/loader.js" type="module"></script>
      <!-- CSS -->
-     <link rel="stylesheet" href="./styles/general.css">
-     <link rel="stylesheet" href="./styles/select.css">
+     <link rel="stylesheet" href="../styles/general.css">
 </head>
 <body>
      <nav>
-          
+          <div>
+               <a href="../"><button class="btn btn-outline-secondary" type="button">Home</button></a>
+          </div>
      </nav>
      <header>
           <h1>Standings Simulator</h1>
+          <h2>Work In Progress</h2>
      </header>
      <main>
           <div id="sections">
                <div class="section">
-                    <a href="pages/load.html"><button class="btn btn-outline-secondary" type="button">Load a Tournament</button></a>
+                    
                </div>
-               <!-- <div class="section">
-                    <a href="pages/create.html"><button class="btn btn-outline-secondary" type="button">Create a Tournament</button></a>
-               </div> -->
+          </div>
+          <div id="info">
+               <!-- Add per tournament info about advancing based on color/place -->
           </div>
      </main>
      <footer>

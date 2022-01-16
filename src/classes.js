@@ -1,41 +1,5 @@
 import * as main from "./main.js";
 
-const regions = {
-  CN: "China",
-  EEU: "Eastern Europe",
-  NA: "North America",
-  SA: "South America",
-  SEA: "Southeast Asia",
-  WEU: "Western Europe",
-  GLOBAL: "Global",
-};
-
-class Year {
-  constructor(number) {
-    this.number = number;
-    this.seasons = [];
-    this.tiA = {};
-    this.tiB = {};
-  }
-
-  addSeason = (season) => {
-    this.seasons.push(season);
-  }
-
-  addTI = (ti) => {
-    this.ti = ti;
-  }
-}
-
-class Season {
-  constructor(year, number, major) {
-    this.year = year;
-    this.number = number;
-    this.isComplete = false;
-    this.major = major;
-  }
-}
-
 class Team {
   constructor(name, abbrev, wins, ties, losses, tieBreakerWins) {
     this.place = 0;
@@ -166,21 +130,21 @@ class Series {
     // based on the passed in winning number
     let winningTeam = null;
     let losingTeam = null;
-    if (winnerNum == 1) {
+    if (winnerNum === 1) {
       winningTeam = this.team1;
       losingTeam = this.team2;
-    } else if (winnerNum == 2) {
+    } else if (winnerNum === 2) {
       winningTeam = this.team2;
       losingTeam = this.team1;
     }
 
     // First prediction (selection)
-    if (this.prediction == -1) {
+    if (this.prediction === -1) {
       // If TB, gives the winning team a tiebreaker win
       if (this.isTieBreaker) winningTeam.predictedTieBreakerWins++;
       else {
         // If the prediction is a tie, then gives both teams a tie
-        if (winnerNum == 0) {
+        if (winnerNum === 0) {
           this.team1.predictedTies++;
           this.team2.predictedTies++;
         } else {
@@ -192,12 +156,12 @@ class Series {
       this.prediction = winnerNum;
     }
     // Remove prediction (deselection)
-    else if (this.prediction == winnerNum) {
+    else if (this.prediction === winnerNum) {
       // If TB, removes a tiebreaker win from the winning team
       if (this.isTieBreaker) winningTeam.predictedTieBreakerWins--;
       else {
         // If the prediction WAS a tie
-        if (this.prediction == 0) {
+        if (this.prediction === 0) {
           // Ties removed from both teams
           this.team1.predictedTies--;
           this.team2.predictedTies--;
@@ -219,7 +183,7 @@ class Series {
         losingTeam.predictedTieBreakerWins--;
       } else {
         // If the prediction WAS a tie
-        if (this.prediction == 0) {
+        if (this.prediction === 0) {
           this.team1.predictedTies--;
           this.team2.predictedTies--;
 
@@ -229,8 +193,8 @@ class Series {
           losingTeam.predictedLosses++;
         }
         // If the prediction IS NOW a tie
-        else if (winnerNum == 0) {
-          if (this.prediction == 1) {
+        else if (winnerNum === 0) {
+          if (this.prediction === 1) {
             this.team1.predictedWins--;
             this.team2.predictedLosses--;
           } else {
@@ -262,55 +226,24 @@ class Series {
 }
 
 class Tournament {
-  constructor(name, tabName, region, type, subType, link, hasTieMatches, isComplete) {
+  constructor(name, link, hasTieMatches, isComplete) {
     this.name = name;
-    this.tabName = tabName;
-
-    // Region
-    if(region === null) {
-      this.region = regions.GLOBAL;
-    } else {
-      this.region = region;
-    }
-
-    // Type 
-    if(type == null) this.type = "None";
-    else if (type.toLowerCase() == "division" || type.toLowerCase() == "div")
-      this.type = "Division";
-    else if (type.toLowerCase() == "major") this.type = "Major";
-    else this.type = type;
-
-    // Sub-type 
-    switch (this.type) {
-      case "Division":
-        if (subType.toLowerCase() == "upper") this.subType = "Upper";
-        else if (subType.toLowerCase() == "lower") this.subType = "Lower";
-        break;
-      case "Major":
-        if (
-          subType.toLowerCase() == "wild card" ||
-          subType.toLowerCase() == "wildcard" ||
-          subType.toLowerCase() == "wc"
-        )
-          this.subType = "Wild Card";
-        else if (
-          subType.toLowerCase() == "group stage" ||
-          subType.toLowerCase() == "groupstage" ||
-          subType.toLowerCase() == "GS"
-        )
-          this.subType = "Group Stage";
-        break;
-      default:
-        this.subType = "None";
-        break;
-    }
 
     this.hasTieMatches = hasTieMatches;
     this.link = link;
     this.isComplete = isComplete;
 
+    this.colorScheme = [];
     this.teams = [];
     this.remainingSeries = [];
+  }
+
+  createColorScheme = () => {
+    if(this.name.includes("Division I")) {
+      this.colorScheme = ["info", "blue", "green", "green", "green", "green", "danger", "danger"];
+    } else {
+
+    }
   }
 
   addTeam = (team) => {
@@ -371,7 +304,7 @@ class Tournament {
 
   findTeamByName = (teamName) => {
     for (let i = 0; i < this.teams.length; i++) {
-      if (this.teams[i].name == teamName || this.teams[i].abbrev == teamName)
+      if (this.teams[i].name === teamName || this.teams[i].abbrev === teamName)
         return this.teams[i];
     }
     return undefined;
@@ -379,7 +312,7 @@ class Tournament {
 
   findTeamIndexByName = (teamName) => {
     for (let i = 0; i < this.teams.length; i++) {
-      if (this.teams[i].name == teamName || this.teams[i].abbrev == teamName)
+      if (this.teams[i].name === teamName || this.teams[i].abbrev === teamName)
         return i;
     }
     return -1;
@@ -410,11 +343,11 @@ class Tournament {
 
       // Display the team's score
       let teamScore = document.createElement("td");
-      let includesPredictions = (table.id == "futureStandings");
+      let includesPredictions = (table.id === "futureStandings");
       teamScore.innerHTML = this.teams[i].displayScore(includesPredictions, this.hasTieMatches);
 
       // Color table element
-      this.colorRow(i, place);
+      place.classList.add(this.colorRow(i));
 
       // Add the score to the table row
       // and the table row to the table
@@ -423,79 +356,28 @@ class Tournament {
     }
   }
 
-  colorRow = (index, place) => {
-    // Color the row depending on the place
-    let teamPlace = index + 1;
+  colorRow = (index) => {
+    // return yellow if there is no color scheme
+    if(this.colorScheme === null)
+      return "bg-warning";
 
-    switch (this.type) {
-      case "Demo":
-        // Demo tournaments
-        // Top 2 green, rest red
-        if (teamPlace <= 2) place.classList.add("bg-success");
-        else place.classList.add("bg-danger");
-        break;
-      case "Division":
-        // Upper Division
-        // 1st            - Blue
-        // 2nd            - Light Blue
-        // Middle (rest)  - *Region dependent*
-        // Bottom 2       - Red
-        if (this.subType == "Upper") {
-          if (teamPlace == 1) place.classList.add("bg-primary");
-          else if (teamPlace == 2) place.classList.add("bg-info");
-          else if (teamPlace == this.teams.length ||
-            teamPlace == this.teams.length - 1)
-            place.classList.add("bg-danger");
-          else {
-            // WEU, China, SEA, & EEU's 3rd - Green
-            if (
-              teamPlace == 3 &&
-              (this.region == regions.WEU ||
-                this.region == regions.CN ||
-                this.region == regions.EEU ||
-                this.region == regions.SEA))
-              place.classList.add("bg-success");
-            // WEU & China's 4th - Green
-            else if (teamPlace == 4 &&
-              (this.region == regions.WEU || this.region == regions.CN))
-              place.classList.add("bg-success");
-            // Rest - Yellow
-            else place.classList.add("bg-warning");
-          }
-        }
-        // Lower Division
-        // Top 2          - Green
-        // Middle (rest)  - Yellow
-        // Bottom 2       - Red
-        else if (this.subType == "Lower") this.top2Bottom2(teamPlace, place);
-        break;
-      case "Major":
-        // Major Wild Card
-        // Top 2  - Green
-        // Rest   - Red
-        if (this.subType == "Wild Card") {
-          if (teamPlace == 1 || teamPlace == 2) 
-            place.classList.add("bg-success");
-          else place.classList.add("bg-danger");
-        }
-        // Major Group Stage
-        // Top 2          - Green
-        // Middle (rest)  - Yellow
-        // Bottom 2       - Red
-        else if (this.subType == "Group Stage") this.top2Bottom2(teamPlace, place);
-        break;
-      case "TI":
-          // TI (Group Stage)
-          // Top 4 - Green
-          // Middle (rest) - Yellow
-          // Bottom 1 - Red
-          if (teamPlace <= 4)
-            place.classList.add("bg-success");
-          else if (teamPlace <= 8)
-            place.classList.add("bg-warning");
-          else if (teamPlace == 9)
-            place.classList.add("bg-danger");
-        break;
+    switch(this.colorScheme[index]) {
+      case "blue":
+        return "bg-primary";
+      case "purple":
+        return "bg-secondary";
+      case "green":
+        return "bg-success";
+      case "red":
+        return "bg-danger";
+      case "yellow":
+        return "bg-warning";
+      case "lightBlue":
+        return "bg-info";
+      case "light":
+        return "bg-light";
+      case "dark":
+        return "bg-dark";      
     }
   }
 
@@ -504,11 +386,11 @@ class Tournament {
   // (it is a common format)
   top2Bottom2 = (teamPlace, place) => {
     // Top 2 green
-    if (teamPlace == 1 || teamPlace == 2) place.classList.add("bg-success");
+    if (teamPlace === 1 || teamPlace === 2) place.classList.add("bg-success");
     // Bottom 2 red
     else if (
-      teamPlace == this.teams.length ||
-      teamPlace == this.teams.length - 1
+      teamPlace === this.teams.length ||
+      teamPlace === this.teams.length - 1
     )
       place.classList.add("bg-danger");
     // Rest yellow
@@ -521,7 +403,7 @@ class Tournament {
     for (let i = 0; i < this.remainingSeries.length; i++) {
       // Create a header for the date if it is different
       if (
-        i == 0 ||
+        i === 0 ||
         this.remainingSeries[i].date != this.remainingSeries[i - 1].date
       ) {
         let date = document.createElement("h4");
@@ -564,13 +446,13 @@ class Tournament {
       matchup.appendChild(buttonTeam2);
 
       // If the series has been predicted already, color the buttons accordingly
-      if(this.remainingSeries[i].prediction == 0) {
+      if(this.remainingSeries[i].prediction === 0) {
         buttonTeam1.classList.add("btn-warning");
         buttonTeam2.classList.add("btn-warning");
-      } else if(this.remainingSeries[i].prediction == 1) {
+      } else if(this.remainingSeries[i].prediction === 1) {
         buttonTeam1.classList.add("btn-success");
         buttonTeam2.classList.add("btn-danger");
-      } else if(this.remainingSeries[i].prediction == 2) {
+      } else if(this.remainingSeries[i].prediction === 2) {
         buttonTeam1.classList.add("btn-danger");
         buttonTeam2.classList.add("btn-success");
       } else {
@@ -588,7 +470,7 @@ class Tournament {
       gamesList.appendChild(matchup);
     }
     // Displays a message if there are no remaining games
-    if (gamesList.childElementCount == 0) {
+    if (gamesList.childElementCount === 0) {
       let message = document.createElement("p");
       message.innerHTML = "No games to display.";
       gamesList.appendChild(message);
@@ -618,7 +500,7 @@ class Tournament {
           continue;
 
         // If a highest team has not been assigned, make it be the current team
-        if(highestTeamIndex == -1){
+        if(highestTeamIndex === -1){
           highestTeamIndex = i;
           continue;
         } else {
@@ -630,7 +512,7 @@ class Tournament {
               continue;
           // If the scores are equal
           } else if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
-                == this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
+                === this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
             // If the scores are the same, these 2 teams are set to tied
             if(withPredictions){
               this.teams[i].isTiedWithPredictions = true;
@@ -667,7 +549,7 @@ class Tournament {
     for (let i = 0; i < this.teams.length; i++) {
 
       // If the team is the first team, then its place is 1
-      if (i == 0) {
+      if (i === 0) {
         this.teams[i].place = 1;
         continue;
       }
@@ -679,10 +561,10 @@ class Tournament {
       let prevTeamTBWins = this.teams[i - 1].getStat("TBWins", withPredictions, this.hasTieMatches);
 
       // If the teams' scores are tied 
-      if(currentTeamScore == prevTeamScore) {
+      if(currentTeamScore === prevTeamScore) {
         // If the current team has the same number of tie breaker wins, 
         // both teams are tied and have the same place value
-        if(currentTeamTBWins == prevTeamTBWins)
+        if(currentTeamTBWins === prevTeamTBWins)
           this.teams[i].place = this.teams[i - 1].place;
         // Otherwise, calculate the current team's place with any possible duplicates before it
         else 
@@ -704,164 +586,16 @@ class Tournament {
     for (let j = index - 1; j >= 0; j--) {
       if (
         this.teams[j].name != this.teams[index - 1].name &&
-        this.teams[j].place == this.teams[index - 1].place
+        this.teams[j].place === this.teams[index - 1].place
       )
         duplicates++;
     }
     this.teams[index].place = this.teams[index - 1].place + duplicates;
   }
-
-  addScoreToTeam = (team, wins, ties, losses, tieBreakerWins) => {
-    for(let i = 0; i < this.teams.length; i++) {
-      if(this.teams[i] == team) {
-        this.teams[i].wins += wins;
-        this.teams[i].ties += ties;
-        this.teams[i].losses += losses;
-        this.teams[i].tieBreakerWins += tieBreakerWins;
-        this.teams[i].calculateTotals();
-      }
-    }
-  }
 }
 
-class Division extends Tournament {
-  constructor(name, tabName, region, subType, link, hasTieMatches, isComplete) {
-    super(
-      name,
-      tabName,
-      region,
-      "Division",
-      subType,
-      link,
-      hasTieMatches,
-      isComplete
-    );
-  }
-}
-
-class Major {
-  constructor(name, tabName, link) {
-    this.name = name;
-    this.tabName = tabName;
-    this.link = link;
-    this.type = "Major";
-    this.qualifiers = {};
-    this.wildCard = null;
-    this.groupStage = null;
-  }
-
-  addQualifier = (region, tournament) => {
-    // Checks if the given region exists, if so, the tournament
-    // is added as the value of that region key
-    for (let key in regions) {
-      if (regions[key] == region) 
-        this.qualifiers[key] = tournament;
-    }
-  }
-
-  addQualifiedTeams = () => {
-    // Loops through each region
-    for (let region in regions) {
-      // Gets the qualifying tournament of each region
-      let qualifierTourney = this.qualifiers[region];
-      // If the tournament exists, the qualifying team is found and
-      // a copy of it is made and added to the major wild card
-      if (qualifierTourney != null) {
-        switch (qualifierTourney.region) {
-          // The 4th placed teams of the Western Europe and
-          // China regions qualify to the major wild card
-          case regions.WEU:
-          case regions.CN:
-            let thirdPlaceTeam = qualifierTourney.teams[3];
-            this.wildCard.addTeam(
-              new Team(thirdPlaceTeam.name, thirdPlaceTeam.abbrev, 0, 0, 0, 0));
-          // The 3rd placed teams of the Western Europe, China,
-          // Eastern Europe, and SE Asia regions qualify to the major wild card
-          case regions.EEU:
-          case regions.SEA:
-            let fourthPlaceTeam = qualifierTourney.teams[2];
-            this.wildCard.addTeam(
-              new Team(fourthPlaceTeam.name, fourthPlaceTeam.abbrev, 0, 0, 0, 0));
-          case regions.NA:
-          case regions.SA:
-            let secondPlaceTeam = qualifierTourney.teams[1];
-            this.groupStage.addTeam(
-              new Team(secondPlaceTeam.name, secondPlaceTeam.abbrev, 0, 0, 0, 0));
-            break;
-          default:
-            break;
-        }
-      }
-    }
-  }
-
-  addWildCardWinnersToGroupStage = () => {
-    // Makes sure the wild card is sorted
-    this.wildCard.sortTeams();
-    // There are no more series left in the wild card
-    if(this.wildCard.remainingSeries.length == 0) {
-      this.groupStage.addTeam(
-        new Team(this.wildCard.teams[0].name, this.wildCard.teams[0].abbrev, 0, 0, 0, 0));
-      this.groupStage.addTeam(
-        new Team(this.wildCard.teams[1].name, this.wildCard.teams[1].abbrev, 0, 0, 0, 0));
-    }
-  }
-
-  getQualifier = (region) => {
-    // Loops through all the regions of the qualifiers
-    for (let r in this.qualifiers) {
-      if (regions[r] == region) {
-        // Returns the qualifier that has the same region as the given region
-        return this.qualifiers[r];
-      }
-    }
-
-    return null;
-  }
-}
-
-class WildCard extends Tournament {
-  constructor(major, link, hasTieMatches, isComplete) {
-    let name = major.name + ": Wild Card";
-    super(
-      name,
-      "Wild Card",
-      regions.GLOBAL,
-      "Major",
-      "Wild Card",
-      link,
-      hasTieMatches,
-      isComplete
-    );
-  }
-}
-
-class GroupStage extends Tournament {
-  constructor(major, link, hasTieMatches, isComplete) {
-    let name = major.name + ": Group Stage";
-    super(
-      name,
-      "Group Stage",
-      regions.GLOBAL,
-      "Major",
-      "Group Stage",
-      link,
-      hasTieMatches,
-      isComplete
-    );
-    this.wildcard = null;
-  }
-}
-
-export { 
-  regions, 
-  Year, 
-  Season, 
+export {  
   Team, 
   Series, 
-  Tournament, 
-  Division, 
-  Major, 
-  WildCard, 
-  GroupStage 
+  Tournament
 };
