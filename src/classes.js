@@ -1,40 +1,5 @@
 import * as main from "./main.js";
-
-const regions = {
-  CN: "China",
-  EEU: "Eastern Europe",
-  NA: "North America",
-  SA: "South America",
-  SEA: "Southeast Asia",
-  WEU: "Western Europe",
-  GLOBAL: "Global",
-};
-
-class Year {
-  constructor(number) {
-    this.number = number;
-    this.seasons = [];
-    this.tiA = {};
-    this.tiB = {};
-  }
-
-  addSeason = (season) => {
-    this.seasons.push(season);
-  }
-
-  addTI = (ti) => {
-    this.ti = ti;
-  }
-}
-
-class Season {
-  constructor(year, number, major) {
-    this.year = year;
-    this.number = number;
-    this.isComplete = false;
-    this.major = major;
-  }
-}
+import * as helpers from "./tournamentHelpers.js"
 
 class Team {
   constructor(name, abbrev, wins, ties, losses, tieBreakerWins) {
@@ -262,52 +227,13 @@ class Series {
 }
 
 class Tournament {
-  constructor(name, tabName, region, type, subType, link, hasTieMatches, isComplete) {
+  constructor(name, tabName, link, hasTieMatches, isComplete, colorScheme) {
     this.name = name;
     this.tabName = tabName;
-
-    // Region
-    if(region === null) {
-      this.region = regions.GLOBAL;
-    } else {
-      this.region = region;
-    }
-
-    // Type 
-    if(type == null) this.type = "None";
-    else if (type.toLowerCase() == "division" || type.toLowerCase() == "div")
-      this.type = "Division";
-    else if (type.toLowerCase() == "major") this.type = "Major";
-    else this.type = type;
-
-    // Sub-type 
-    switch (this.type) {
-      case "Division":
-        if (subType.toLowerCase() == "upper") this.subType = "Upper";
-        else if (subType.toLowerCase() == "lower") this.subType = "Lower";
-        break;
-      case "Major":
-        if (
-          subType.toLowerCase() == "wild card" ||
-          subType.toLowerCase() == "wildcard" ||
-          subType.toLowerCase() == "wc"
-        )
-          this.subType = "Wild Card";
-        else if (
-          subType.toLowerCase() == "group stage" ||
-          subType.toLowerCase() == "groupstage" ||
-          subType.toLowerCase() == "GS"
-        )
-          this.subType = "Group Stage";
-        break;
-      default:
-        this.subType = "None";
-        break;
-    }
-
     this.hasTieMatches = hasTieMatches;
     this.link = link;
     this.isComplete = isComplete;
+    this.colorScheme = colorScheme;
 
     this.teams = [];
     this.remainingSeries = [];
@@ -414,7 +340,8 @@ class Tournament {
       teamScore.innerHTML = this.teams[i].displayScore(includesPredictions, this.hasTieMatches);
 
       // Color table element
-      this.colorRow(i, place);
+      let colorValue = this.colorRow(i);
+      place.classList.add(colorValue);
 
       // Add the score to the table row
       // and the table row to the table
@@ -423,96 +350,13 @@ class Tournament {
     }
   }
 
-  colorRow = (index, place) => {
-    // Color the row depending on the place
-    let teamPlace = index + 1;
-
-    switch (this.type) {
-      case "Demo":
-        // Demo tournaments
-        // Top 2 green, rest red
-        if (teamPlace <= 2) place.classList.add("bg-success");
-        else place.classList.add("bg-danger");
-        break;
-      case "Division":
-        // Upper Division
-        // 1st            - Blue
-        // 2nd            - Light Blue
-        // Middle (rest)  - *Region dependent*
-        // Bottom 2       - Red
-        if (this.subType == "Upper") {
-          if (teamPlace == 1) place.classList.add("bg-primary");
-          else if (teamPlace == 2) place.classList.add("bg-info");
-          else if (teamPlace == this.teams.length ||
-            teamPlace == this.teams.length - 1)
-            place.classList.add("bg-danger");
-          else {
-            // WEU, China, SEA, & EEU's 3rd - Green
-            if (
-              teamPlace == 3 &&
-              (this.region == regions.WEU ||
-                this.region == regions.CN ||
-                this.region == regions.EEU ||
-                this.region == regions.SEA))
-              place.classList.add("bg-success");
-            // WEU & China's 4th - Green
-            else if (teamPlace == 4 &&
-              (this.region == regions.WEU || this.region == regions.CN))
-              place.classList.add("bg-success");
-            // Rest - Yellow
-            else place.classList.add("bg-warning");
-          }
-        }
-        // Lower Division
-        // Top 2          - Green
-        // Middle (rest)  - Yellow
-        // Bottom 2       - Red
-        else if (this.subType == "Lower") this.top2Bottom2(teamPlace, place);
-        break;
-      case "Major":
-        // Major Wild Card
-        // Top 2  - Green
-        // Rest   - Red
-        if (this.subType == "Wild Card") {
-          if (teamPlace == 1 || teamPlace == 2) 
-            place.classList.add("bg-success");
-          else place.classList.add("bg-danger");
-        }
-        // Major Group Stage
-        // Top 2          - Green
-        // Middle (rest)  - Yellow
-        // Bottom 2       - Red
-        else if (this.subType == "Group Stage") this.top2Bottom2(teamPlace, place);
-        break;
-      case "TI":
-          // TI (Group Stage)
-          // Top 4 - Green
-          // Middle (rest) - Yellow
-          // Bottom 1 - Red
-          if (teamPlace <= 4)
-            place.classList.add("bg-success");
-          else if (teamPlace <= 8)
-            place.classList.add("bg-warning");
-          else if (teamPlace == 9)
-            place.classList.add("bg-danger");
-        break;
-    }
-  }
-
-  // A helper function for colorRow()
-  // that colors the top 2 green, bottom 2 red, and rest yellow
-  // (it is a common format)
-  top2Bottom2 = (teamPlace, place) => {
-    // Top 2 green
-    if (teamPlace == 1 || teamPlace == 2) place.classList.add("bg-success");
-    // Bottom 2 red
-    else if (
-      teamPlace == this.teams.length ||
-      teamPlace == this.teams.length - 1
-    )
-      place.classList.add("bg-danger");
-    // Rest yellow
-    else place.classList.add("bg-warning");
+  colorRow = (index) => {
+    let rank = index + 1;
+    
+    if(rank in this.colorScheme.extras)
+      return helpers.convertColorToButtonColor(this.colorScheme.extras[rank]);
+    else
+      return helpers.convertColorToButtonColor(this.colorScheme.base);
   }
 
   setupGameButtons = () => {
@@ -724,144 +568,8 @@ class Tournament {
   }
 }
 
-class Division extends Tournament {
-  constructor(name, tabName, region, subType, link, hasTieMatches, isComplete) {
-    super(
-      name,
-      tabName,
-      region,
-      "Division",
-      subType,
-      link,
-      hasTieMatches,
-      isComplete
-    );
-  }
-}
-
-class Major {
-  constructor(name, tabName, link) {
-    this.name = name;
-    this.tabName = tabName;
-    this.link = link;
-    this.type = "Major";
-    this.qualifiers = {};
-    this.wildCard = null;
-    this.groupStage = null;
-  }
-
-  addQualifier = (region, tournament) => {
-    // Checks if the given region exists, if so, the tournament
-    // is added as the value of that region key
-    for (let key in regions) {
-      if (regions[key] == region) 
-        this.qualifiers[key] = tournament;
-    }
-  }
-
-  addQualifiedTeams = () => {
-    // Loops through each region
-    for (let region in regions) {
-      // Gets the qualifying tournament of each region
-      let qualifierTourney = this.qualifiers[region];
-      // If the tournament exists, the qualifying team is found and
-      // a copy of it is made and added to the major wild card
-      if (qualifierTourney != null) {
-        switch (qualifierTourney.region) {
-          // The 4th placed teams of the Western Europe and
-          // China regions qualify to the major wild card
-          case regions.WEU:
-          case regions.CN:
-            let thirdPlaceTeam = qualifierTourney.teams[3];
-            this.wildCard.addTeam(
-              new Team(thirdPlaceTeam.name, thirdPlaceTeam.abbrev, 0, 0, 0, 0));
-          // The 3rd placed teams of the Western Europe, China,
-          // Eastern Europe, and SE Asia regions qualify to the major wild card
-          case regions.EEU:
-          case regions.SEA:
-            let fourthPlaceTeam = qualifierTourney.teams[2];
-            this.wildCard.addTeam(
-              new Team(fourthPlaceTeam.name, fourthPlaceTeam.abbrev, 0, 0, 0, 0));
-          case regions.NA:
-          case regions.SA:
-            let secondPlaceTeam = qualifierTourney.teams[1];
-            this.groupStage.addTeam(
-              new Team(secondPlaceTeam.name, secondPlaceTeam.abbrev, 0, 0, 0, 0));
-            break;
-          default:
-            break;
-        }
-      }
-    }
-  }
-
-  addWildCardWinnersToGroupStage = () => {
-    // Makes sure the wild card is sorted
-    this.wildCard.sortTeams();
-    // There are no more series left in the wild card
-    if(this.wildCard.remainingSeries.length == 0) {
-      this.groupStage.addTeam(
-        new Team(this.wildCard.teams[0].name, this.wildCard.teams[0].abbrev, 0, 0, 0, 0));
-      this.groupStage.addTeam(
-        new Team(this.wildCard.teams[1].name, this.wildCard.teams[1].abbrev, 0, 0, 0, 0));
-    }
-  }
-
-  getQualifier = (region) => {
-    // Loops through all the regions of the qualifiers
-    for (let r in this.qualifiers) {
-      if (regions[r] == region) {
-        // Returns the qualifier that has the same region as the given region
-        return this.qualifiers[r];
-      }
-    }
-
-    return null;
-  }
-}
-
-class WildCard extends Tournament {
-  constructor(major, link, hasTieMatches, isComplete) {
-    let name = major.name + ": Wild Card";
-    super(
-      name,
-      "Wild Card",
-      regions.GLOBAL,
-      "Major",
-      "Wild Card",
-      link,
-      hasTieMatches,
-      isComplete
-    );
-  }
-}
-
-class GroupStage extends Tournament {
-  constructor(major, link, hasTieMatches, isComplete) {
-    let name = major.name + ": Group Stage";
-    super(
-      name,
-      "Group Stage",
-      regions.GLOBAL,
-      "Major",
-      "Group Stage",
-      link,
-      hasTieMatches,
-      isComplete
-    );
-    this.wildcard = null;
-  }
-}
-
 export { 
-  regions, 
-  Year, 
-  Season, 
   Team, 
   Series, 
-  Tournament, 
-  Division, 
-  Major, 
-  WildCard, 
-  GroupStage 
+  Tournament
 };

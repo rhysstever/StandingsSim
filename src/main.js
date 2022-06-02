@@ -1,5 +1,6 @@
-let years = {};
-let demos = {};
+import * as tournamentsList from "./tournamentsList.js"
+import * as tournamentHelpers from "./tournamentHelpers.js"
+
 let currentTournament = null;
 
 let fps = 20;
@@ -28,43 +29,16 @@ const loop = () => {
 }
 
 //  Displays the next incomplete tournament
-//  Shows the last major's group stage if all tournaments are completed
+//  if all tournaments are complete, it displays the first demo
 const displayNextTournament = () => {
-  // Loops through each year
-  for(let year in years) {
-    // Loops through each season of the year
-    for(let s = 0; s < years[year].seasons.length; s++) {
-      // Loops through each qualifier of the season
-      for(let region in years[year].seasons[s].major.qualifiers) {
-        if(!years[year].seasons[s].major.qualifiers[region].isComplete) {
-          currentTournament = years[year].seasons[s].major.qualifiers[region];
-          break;
-        }
-      }
-
-      // Checks the wild card and group stage of that season's major
-      if(!years[year].seasons[s].major.wildCard.isComplete) {
-        currentTournament = years[year].seasons[s].major.wildCard;
-        break;
-      } else if(!years[year].seasons[s].major.groupStage.isComplete) {
-        currentTournament = years[year].seasons[s].major.groupStage;
-        break;
-      }  
-    }
-
-    // Checks the year's TI groups
-    if(!years[year].tiA.isComplete) {
-      currentTournament = years[year].tiA;
-      break;
-    } else if(!years[year].tiB.isComplete) {
-      currentTournament = years[year].tiB;
-      break;
-    }
-
-    // If all tournaments are complete, the first demo tournament is displayed
-    if (currentTournament == null)
-      currentTournament = demos[0];
-  }
+  // Loop through every tournament, and set the first 
+  // incomplete one to be the current tournament
+  for(let i = 0; i < tournamentsList.tournaments.length; i++)
+    if(!tournamentsList.tournaments[i].isComplete)
+      currentTournament = tournamentsList.tournaments[i];
+  // If the current tournament is still null, set it to be the demo
+  if(currentTournament == null)
+    currentTournament = tournamentsList.demos[0];
 
   // display the current tournament
   currentTournament.displayTournament();
@@ -84,30 +58,20 @@ const predictionButtonClicked = (e) => {
     let team1Button = document.querySelector("#team1series" + series.number);
     let team2Button = document.querySelector("#team2series" + series.number);
 
+    tournamentHelpers.clearPredictionButtonsClassList(team1Button, team2Button);
+
     // First prediction (selection)
     if (series.prediction == -1) {
-      team1Button.classList.remove("btn-primary");
-      team2Button.classList.remove("btn-primary");
       team1Button.classList.add("btn-warning");
       team2Button.classList.add("btn-warning");
     }
     // Remove tie prediction (deselection)
     else if (series.prediction == winnerTeamNum) {
-      team1Button.classList.remove("btn-warning");
-      team2Button.classList.remove("btn-warning");
       team1Button.classList.add("btn-primary");
       team2Button.classList.add("btn-primary");
     }
     // Change prediction
     else {
-      if (team1Button.classList.contains("btn-success")) {
-        team1Button.classList.remove("btn-success");
-        team2Button.classList.remove("btn-danger");
-      } else {
-        team1Button.classList.remove("btn-danger");
-        team2Button.classList.remove("btn-success");
-      }
-
       team1Button.classList.add("btn-warning");
       team2Button.classList.add("btn-warning");
     }
@@ -119,32 +83,21 @@ const predictionButtonClicked = (e) => {
       e.target.id.substring(5);
     let otherButton = document.querySelector("#" + loserId);
 
+    tournamentHelpers.clearPredictionButtonsClassList(e.target, otherButton);
+
     // Change buttons' colors
     // First prediction (selection)
     if (series.prediction == -1) {
-      e.target.classList.remove("btn-primary");
-      otherButton.classList.remove("btn-primary");
       e.target.classList.add("btn-success");
       otherButton.classList.add("btn-danger");
     }
     // Remove prediction (deselection)
     else if (series.prediction == winnerTeamNum) {
-      e.target.classList.remove("btn-success");
-      otherButton.classList.remove("btn-danger");
       e.target.classList.add("btn-primary");
       otherButton.classList.add("btn-primary");
     }
     // Change prediction (flip)
     else {
-      // If the series prediction WAS a tie
-      if (series.prediction == 0) {
-        e.target.classList.remove("btn-warning");
-        otherButton.classList.remove("btn-warning");
-      } else {
-        e.target.classList.remove("btn-danger");
-        otherButton.classList.remove("btn-success");
-      }
-
       e.target.classList.add("btn-success");
       otherButton.classList.add("btn-danger");
     }
@@ -161,49 +114,8 @@ const predictionButtonClicked = (e) => {
 const tournamentButtonClicked = (e) => {
   // Check if the tournament selected is a demo (uses other object)
   if(e.target.id.substring(0, 4) == 'DEMO') {
-    let demoIndex = e.target.id.substring(4);
-    currentTournament = demos[demoIndex];
-  } 
-  // If the tournament selected 
-  else {
-    // Get the year 
-    let yearNum = e.target.id.substring(0, 4);
-
-    let year = years[yearNum];
-    if(year == null)
-      return;
-    
-    if(e.target.id.substring(4, 6) == "TI") {
-      if(e.target.id.substring(11) == "A") {
-        currentTournament = years[yearNum].tiA;
-      }
-      else if(e.target.id.substring(11) == "B") {
-        currentTournament = years[yearNum].tiB;
-      }
-    } else {
-      // Get the season # of the selected tournament 
-      let seasonNum = e.target.id.substring(5, 6);
-
-      for(let s = 0; s < years[yearNum].seasons.length; s++) {
-        if(years[yearNum].seasons[s].number == seasonNum) {
-            // If the season is found, gets whether the clicked tournament 
-            // is a wild card or group stage of the major
-            // OR is a regional qualifier
-            let subType = e.target.id.substring(6);
-            if(subType.toLowerCase() == "wildcard")
-              currentTournament = years[yearNum].seasons[s].major.wildCard;
-            else if(subType.toLowerCase() == "groupstage")
-              currentTournament = years[yearNum].seasons[s].major.groupStage;
-            else {
-              let qualifier = years[yearNum].seasons[s].major.getQualifier(subType);
-              if(qualifier == null)
-                return;
-              else 
-                currentTournament = years[yearNum].seasons[s].major.getQualifier(subType);
-            }
-          }
-      }
-    }
+    let demoIndex = parseInt(e.target.id.substring(4));
+    currentTournament = tournamentsList.demos[demoIndex];
   }
 
   currentTournament.displayTournament();
@@ -246,8 +158,6 @@ const resetAllPredictions = () => {
 }
 
 export { 
-  years, 
-  demos,
   currentTournament,
   init, 
   predictionButtonClicked, 

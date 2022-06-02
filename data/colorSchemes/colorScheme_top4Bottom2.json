@@ -1,0 +1,11 @@
+{
+	"base": "yellow",
+	"extras": {
+		"1": "green",
+		"2": "green",
+		"3": "green",
+		"4": "green",
+		"7": "red",
+		"8": "red" 
+	}
+}

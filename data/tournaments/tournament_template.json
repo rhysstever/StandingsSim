@@ -1,5 +1,6 @@
 {
 	"name": "Tournament_Name",
+	"tabName": "Tab_Name",
 	"source": "link",
 	"hasTieMatches": false,
 	"isComplete": false,

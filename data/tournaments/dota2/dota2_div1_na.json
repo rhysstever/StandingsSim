@@ -1,0 +1,243 @@
+{
+	"name": "DPC NA 2021/2022 Tour 3: Division I",
+	"tabName": "DPC NA Div 1",
+	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/North_America/Division_I",
+	"hasTieMatches": false,
+	"isComplete": false,
+	"teams": [
+		{
+			"name": "Evil Geniuses",
+			"abbrev": "EG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "TSM",
+			"abbrev": "TSM",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Quincy Crew",
+			"abbrev": "QC",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Wildcard Gaming",
+			"abbrev": "WG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "nouns",
+			"abbrev": "nouns",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "The Cut",
+			"abbrev": "Cut",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "5RATFORCESTAFF",
+			"abbrev": "5RFS",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{ 
+			"name": "felt",
+			"abbrev": "felt",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0 
+		}	
+	],
+	"matches": [
+		{
+			"team1": "EG",
+			"team2": "nouns",
+			"date": "06/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "felt",
+			"team2": "WG",
+			"date": "06/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "5RFS",
+			"date": "06/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Cut",
+			"team2": "TSM",
+			"date": "06/11",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "felt",
+			"team2": "nouns",
+			"date": "06/11",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "WG",
+			"date": "06/14",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "TSM",
+			"date": "06/15",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Cut",
+			"team2": "5RFS",
+			"date": "06/15",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "Cut",
+			"date": "06/18",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TSM",
+			"team2": "5RFS",
+			"date": "06/18",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "WG",
+			"team2": "nouns",
+			"date": "06/21",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "felt",
+			"date": "06/22",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "TSM",
+			"date": "06/22",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "WG",
+			"date": "06/25",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Cut",
+			"team2": "nouns",
+			"date": "06/25",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "felt",
+			"team2": "5RFS",
+			"date": "06/28",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "nouns",
+			"date": "06/29",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Cut",
+			"team2": "WG",
+			"date": "06/29",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "5RFS",
+			"date": "07/02",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TSM",
+			"team2": "felt",
+			"date": "07/02",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "felt",
+			"date": "07/05",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "TSM",
+			"team2": "nouns",
+			"date": "07/06",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "QC",
+			"team2": "Cut",
+			"date": "07/06",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "WG",
+			"team2": "5RFS",
+			"date": "07/09",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Cut",
+			"team2": "felt",
+			"date": "07/09",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "5RFS",
+			"team2": "nouns",
+			"date": "07/12",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "TSM",
+			"team2": "WG",
+			"date": "07/13",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "EG",
+			"team2": "QC",
+			"date": "07/13",
+			"isTiebreaker": false
+		}
+	]
+}

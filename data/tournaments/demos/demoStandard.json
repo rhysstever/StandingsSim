@@ -1,0 +1,79 @@
+{
+	"name": "Demo Tournament",
+	"tabName": "Demo Tournament",
+	"source": "#",
+	"hasTieMatches": false,
+	"isComplete": false,
+	"teams": [
+		{
+			"name": "Team Alligator",
+			"abbrev": "Team A",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Bear",
+			"abbrev": "Team B",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Cow",
+			"abbrev": "Team C",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Dog",
+			"abbrev": "Team D",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}
+	],
+	"matches": [
+		{
+			"team1": "Team A",
+			"team2": "Team B",
+			"date": "01/13",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Team C",
+			"team2": "Team D",
+			"date": "01/13",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Team A",
+			"team2": "Team C",
+			"date": "01/14",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Team B",
+			"team2": "Team D",
+			"date": "01/14",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Team A",
+			"team2": "Team D",
+			"date": "01/15",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Team B",
+			"team2": "Team C",
+			"date": "01/15",
+			"isTiebreaker": false
+		}
+	]
+}
