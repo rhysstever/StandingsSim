@@ -11,7 +11,6 @@ A simulator to see the standings for tournaments after predicting remaining game
 - Dota 2 TI 11 Group Stage (both groups)
 
 ## To Do's
-### Overall Project
 - Create a home "dashboard" page that lets the user select a tournament instead of displaying one automatically
 - Allow users to make their own tournaments (entering participating teams and upcoming matches)
 - Optimize sorting (currently uses selection sort because the number of teams has been low)
