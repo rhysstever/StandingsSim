@@ -3,7 +3,7 @@ A simulator to see the standings for tournaments after predicting remaining game
 
 ## Tournaments
 ### Currently Displayed
-- Dota Pro Circuit Tour 3
+- Dota Pro Circuit Tour 3 Division 1
 
 ### To Be Added
 - DPC Arlington Major Group Stage
