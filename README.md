@@ -6,7 +6,7 @@ A simulator to see the standings for tournaments after predicting remaining game
 - Dota Pro Circuit Tour 3 Division 1 (all 6 regions)
 
 ### To Be Added
-- DPC Arlington Major Group Stage (both groups)
+- Dota 2 Arlington Major Group Stage (both groups)
 - Dota 2 TI 11 Last Chance Qualifier
 - Dota 2 TI 11 Group Stage (both groups)
 
