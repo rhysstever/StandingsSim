@@ -6,9 +6,14 @@ let fps = 20;
 let prevLarge = true;
 
 const init = () => {
+  // Load and display tournaments
+	tournamentsList.loadTournaments();
+	tournamentsList.loadDemos();
   displayNextTournament();
+  // inital setups
   setupOnclicks();
   resetAllPredictions();
+  // Start looping
   loop();
 }
 
