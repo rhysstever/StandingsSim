@@ -6,34 +6,77 @@
 	"isComplete": false,
 	"teams": [
 		{
-			"name": "Team1_Name",
-			"abbrev": "Team1_Abbrev",
+			"name": "team10",
+			"abbrev": "team10",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "Team2_Name",
-			"abbrev": "Team2_Abbrev",
+			"name": "team11",
+			"abbrev": "team11",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "team12",
+			"abbrev": "team12",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "team13",
+			"abbrev": "team13",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "team14",
+			"abbrev": "team14",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		},
+		{
+			"name": "team15",
+			"abbrev": "team15",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "team16",
+			"abbrev": "team16",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "team17",
+			"abbrev": "team17",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "team18",
+			"abbrev": "team18",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}
 	],
-	"matches": [
-		{
-			"team1": "Team1_Name",
-			"team2": "Team2_Name",
-			"date": "MM/DD",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Team1_Name",
-			"team2": "Team2_Name",
-			"date": "MM/DD",
-			"isTiebreaker": false
-		}
-	]
+	"matches": []
 }

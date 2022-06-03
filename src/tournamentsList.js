@@ -21,7 +21,7 @@ import colorScheme_4team_top2Buttom2 from '../data/colorSchemes/colorScheme_4tea
 import colorScheme_8team_top2Buttom2 from '../data/colorSchemes/colorScheme_8team_top2Bottom2.json' assert {type: 'json'}; 
 import colorScheme_8team_top3Buttom2 from '../data/colorSchemes/colorScheme_8team_top3Bottom2.json' assert {type: 'json'}; 
 import colorScheme_8team_top4Buttom2 from '../data/colorSchemes/colorScheme_8team_top4Bottom2.json' assert {type: 'json'}; 
-import colorScheme_11team_top4Buttom3 from '../data/colorSchemes/colorScheme_11team_top4Bottom3.json' assert {type: 'json'}; 
+import colorScheme_9team_top4Buttom3 from '../data/colorSchemes/colorScheme_9team_top4Bottom3.json' assert {type: 'json'}; 
 
 let demos = [];
 let tournaments = [];
@@ -36,8 +36,8 @@ const loadTournaments = () => {
 	tournaments.push(createTournament(dpcDiv1WEU, colorScheme_8team_top4Buttom2));
 	
 	// === to add once the teams qualify (end of tour 3) ===
-	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorScheme_11team_top4Buttom3));
-	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorScheme_11team_top4Buttom3));
+	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorScheme_9team_top4Buttom3));
+	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorScheme_9team_top4Buttom3));
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
