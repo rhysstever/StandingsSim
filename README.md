@@ -18,12 +18,12 @@ A simulator to see the standings for tournaments after predicting remaining game
 ## Previews/Demos
 Basic Functionality: (predicting match results, sorting by score, displaying ties, and clearing predictions)<br/>
 <br/>
-<img src="media/basicFunctions.gif" width="80%" height="80%"><br/>
+<img src="media/BasicFunctions.gif"><br/>
 <br/>
-Predicting series that could end in a tie (like in a best of 2):<br/>
+Predicting series that could end in a tie (such a best of 2 games):<br/>
 <br/>
-<img src="media/predictingTies.gif" width="80%" height="80%"><br/>
+<img src="media/PredictingTies.gif"><br/>
 <br/>
 Predicting tiebreaker results:<br/>
 <br/>
-<img src="media/tiebreakers.gif" width="80%" height="80%">
+<img src="media/Tiebreakers.gif">
