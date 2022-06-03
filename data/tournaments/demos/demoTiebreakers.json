@@ -2,7 +2,7 @@
 	"name": "Demo Tournament - Tiebreakers",
 	"tabName": "Tiebreaker Demo Tournament",
 	"source": "#",
-	"hasTieMatches": false,
+	"hasTieMatches": true,
 	"isComplete": false,
 	"teams": [
 		{

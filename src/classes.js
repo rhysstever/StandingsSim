@@ -382,7 +382,8 @@ class Tournament {
 
       // If the match can be tied, a middle "tie" button is created
       // otherwise, plain "vs" text is shown in between team buttons
-      if (this.hasTieMatches) {
+      // Makes sure it is not a tiebreaker match
+      if (this.hasTieMatches && !this.remainingSeries[i].isTieBreaker) {
         let tieButton = document.createElement("button");
         tieButton.innerHTML = "tie";
         tieButton.classList.add("btn");
