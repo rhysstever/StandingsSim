@@ -14,7 +14,6 @@ A simulator to see the standings for tournaments after predicting remaining game
 ### Overall Project
 - Create a home "dashboard" page that lets the user select a tournament instead of displaying one automatically
 - Allow users to make their own tournaments (entering participating teams and upcoming matches)
-- Color table rows based on each team's current score and how many games are left to be played
 - Optimize sorting (currently uses selection sort because the number of teams has been low)
 
 ## Previews/Demos
