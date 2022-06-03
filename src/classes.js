@@ -491,10 +491,6 @@ class Tournament {
     this.calculateTeamPlaces(withPredictions);
   }
 
-  calculateTeamScore = (team, withPredictions) => {
-    return 
-  }
-
   // Calculates the place # for each team
   // called at the end of sortTeams()
   calculateTeamPlaces = (withPredictions) => {
@@ -503,8 +499,12 @@ class Tournament {
       // If the team is the first team, then its place is 1
       if (i == 0) {
         this.teams[i].place = 1;
-        this.teams[i].isTied = false;
-        this.teams[i].isTiedWithPredictions = false;
+        // Because it is first, it won't be tied with any team (yet)
+        // So set it to not be tied
+        if(withPredictions) 
+          this.teams[i].isTiedWithPredictions = false; 
+        else 
+          this.teams[i].isTied = false;
         continue;
       }
 
@@ -516,10 +516,15 @@ class Tournament {
 
       // If the teams' scores are tied 
       if(currentTeamScore == prevTeamScore) {
-        this.teams[i].isTied = true;
-        this.teams[i].isTiedWithPredictions = true;
-        this.teams[i-1].isTied = true;
-        this.teams[i-1].isTiedWithPredictions = true;
+        // Set both teams to be tied
+        if(withPredictions) {
+          this.teams[i].isTiedWithPredictions = true; 
+          this.teams[i - 1].isTiedWithPredictions = true; 
+        }
+        else {
+          this.teams[i].isTied = true;
+          this.teams[i - 1].isTied = true;
+        }
         // If the current team has the same number of tie breaker wins, 
         // both teams are tied and have the same place value
         if(currentTeamTBWins == prevTeamTBWins)
@@ -532,8 +537,11 @@ class Tournament {
       // Otherwise, calculate the current team's place with any possible duplicates before it
       else {
         this.calcPlaceWithDups(i);
-        this.teams[i].isTied = false;
-        this.teams[i].isTiedWithPredictions = false;
+        // Set the team to be tied
+        if(withPredictions) 
+          this.teams[i].isTiedWithPredictions = false; 
+        else 
+          this.teams[i].isTied = false;
       }
     }
   }
