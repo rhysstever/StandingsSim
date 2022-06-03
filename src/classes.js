@@ -1,5 +1,5 @@
 import * as main from "./main.js";
-import * as helpers from "./tournamentHelpers.js"
+import * as helpers from "./helpers.js"
 
 class Team {
   constructor(name, abbrev, wins, ties, losses, tieBreakerWins) {
@@ -369,7 +369,7 @@ class Tournament {
         this.remainingSeries[i].date != this.remainingSeries[i - 1].date
       ) {
         let date = document.createElement("h4");
-        date.innerHTML = this.remainingSeries[i].date;
+        date.innerHTML = helpers.convertNumberDateToString(this.remainingSeries[i].date);
         gamesList.appendChild(date);
       }
       // Create list item element

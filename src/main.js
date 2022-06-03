@@ -1,5 +1,5 @@
 import * as tournamentsList from "./tournamentsList.js"
-import * as tournamentHelpers from "./tournamentHelpers.js"
+import * as helpers from "./helpers.js"
 
 let currentTournament = null;
 
@@ -34,8 +34,10 @@ const displayNextTournament = () => {
   // Loop through every tournament, and set the first 
   // incomplete one to be the current tournament
   for(let i = 0; i < tournamentsList.tournaments.length; i++)
-    if(!tournamentsList.tournaments[i].isComplete)
+    if(!tournamentsList.tournaments[i].isComplete) {
       currentTournament = tournamentsList.tournaments[i];
+      break;
+    }
   // If the current tournament is still null, set it to be the demo
   if(currentTournament == null)
     currentTournament = tournamentsList.demos[0];
@@ -58,7 +60,7 @@ const predictionButtonClicked = (e) => {
     let team1Button = document.querySelector("#team1series" + series.number);
     let team2Button = document.querySelector("#team2series" + series.number);
 
-    tournamentHelpers.clearPredictionButtonsClassList(team1Button, team2Button);
+    helpers.clearPredictionButtonsClassList(team1Button, team2Button);
 
     // First prediction (selection)
     if (series.prediction == -1) {
@@ -83,7 +85,7 @@ const predictionButtonClicked = (e) => {
       e.target.id.substring(5);
     let otherButton = document.querySelector("#" + loserId);
 
-    tournamentHelpers.clearPredictionButtonsClassList(e.target, otherButton);
+    helpers.clearPredictionButtonsClassList(e.target, otherButton);
 
     // Change buttons' colors
     // First prediction (selection)
@@ -116,6 +118,9 @@ const tournamentButtonClicked = (e) => {
   if(e.target.id.substring(0, 4) == 'DEMO') {
     let demoIndex = parseInt(e.target.id.substring(4));
     currentTournament = tournamentsList.demos[demoIndex];
+  } else if(e.target.id.substring(0, 10) == 'TOURNAMENT') {
+    let tournamentIndex = parseInt(e.target.id.substring(10));
+    currentTournament = tournamentsList.tournaments[tournamentIndex];
   }
 
   currentTournament.displayTournament();

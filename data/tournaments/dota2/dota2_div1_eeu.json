@@ -1,0 +1,74 @@
+{
+	"name": "DPC EEU 2021/2022 Tour 3: Division I",
+	"tabName": "DPC EEU Div 1",
+	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/Eastern_Europe/Division_I",
+	"hasTieMatches": false,
+	"isComplete": false,
+	"teams": [
+		{
+			"name": "BetBoom Team",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Spirit",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Mind Games",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "CIS Rejects",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Outsiders",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Natus Vincere",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "One Move",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{ 
+			"name": "Rune Eaters Esports",
+			"abbrev": "abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0 
+		}	
+	],
+	"matches": []
+}

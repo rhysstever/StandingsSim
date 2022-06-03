@@ -1,0 +1,195 @@
+{
+	"name": "DPC SA 2021/2022 Tour 3: Division I",
+	"tabName": "DPC SA Div 1",
+	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/South_America/Division_I",
+	"hasTieMatches": false,
+	"isComplete": false,
+	"teams": [
+		{
+			"name": "Thunder Awaken",
+			"abbrev": "TA",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "beastcoast",
+			"abbrev": "bc",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Hokori",
+			"abbrev": "HKR",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Tempest",
+			"abbrev": "Tempest",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Infamous",
+			"abbrev": "INF.U",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Infinity",
+			"abbrev": "Infinity",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "SG esports",
+			"abbrev": "SG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{ 
+			"name": "Wolf Team",
+			"abbrev": "Wolf",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0 
+		}	
+	],
+	"matches": [
+		{
+			"team1": "Infamous",
+			"team2": "TA",
+			"date": "06/09",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Hokori",
+			"team2": "SG",
+			"date": "06/10",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infinity",
+			"team2": "bc",
+			"date": "06/10",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "Tempest",
+			"date": "06/12",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TA",
+			"team2": "SG",
+			"date": "06/12",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infamous",
+			"team2": "SG",
+			"date": "06/16",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Tempest",
+			"team2": "Infinity",
+			"date": "06/17",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "bc",
+			"date": "06/17",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TA",
+			"team2": "Hokori",
+			"date": "06/19",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Tempest",
+			"team2": "bc",
+			"date": "06/19",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "Infamous",
+			"date": "06/23",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infinity",
+			"team2": "SG",
+			"date": "06/24",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Tempest",
+			"team2": "TA",
+			"date": "06/24",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infamous",
+			"team2": "Infinity",
+			"date": "06/26",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Hokori",
+			"team2": "bc",
+			"date": "06/26",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "Hokori",
+			"date": "06/30",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Tempest",
+			"team2": "SG",
+			"date": "07/01",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infamous",
+			"team2": "bc",
+			"date": "07/01",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infinity",
+			"team2": "Hokori",
+			"date": "07/03",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "TA",
+			"date": "07/03",
+			"isTiebreaker": false
+		}
+	]
+}
