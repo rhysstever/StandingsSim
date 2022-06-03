@@ -1,5 +1,4 @@
 import * as tournamentsList from "./tournamentsList.js"
-import * as helpers from "./helpers.js"
 
 let currentTournament = null;
 
@@ -60,7 +59,7 @@ const predictionButtonClicked = (e) => {
     let team1Button = document.querySelector("#team1series" + series.number);
     let team2Button = document.querySelector("#team2series" + series.number);
 
-    helpers.clearPredictionButtonsClassList(team1Button, team2Button);
+    clearPredictionButtonsClassList(team1Button, team2Button);
 
     // First prediction (selection)
     if (series.prediction == -1) {
@@ -85,7 +84,7 @@ const predictionButtonClicked = (e) => {
       e.target.id.substring(5);
     let otherButton = document.querySelector("#" + loserId);
 
-    helpers.clearPredictionButtonsClassList(e.target, otherButton);
+    clearPredictionButtonsClassList(e.target, otherButton);
 
     // Change buttons' colors
     // First prediction (selection)
@@ -111,19 +110,6 @@ const predictionButtonClicked = (e) => {
   // Redraw the future standings' table
   let futureStandingsTable = document.querySelector("#futureStandings");
   currentTournament.displayTable(futureStandingsTable);
-}
-
-const tournamentButtonClicked = (e) => {
-  // Check if the tournament selected is a demo (uses other object)
-  if(e.target.id.substring(0, 4) == 'DEMO') {
-    let demoIndex = parseInt(e.target.id.substring(4));
-    currentTournament = tournamentsList.demos[demoIndex];
-  } else if(e.target.id.substring(0, 10) == 'TOURNAMENT') {
-    let tournamentIndex = parseInt(e.target.id.substring(10));
-    currentTournament = tournamentsList.tournaments[tournamentIndex];
-  }
-
-  currentTournament.displayTournament();
 }
 
 const setupOnclicks = () => {
@@ -162,9 +148,13 @@ const resetAllPredictions = () => {
   currentTournament.displayTable(futureStandingsTable);
 }
 
+const clearPredictionButtonsClassList = (button1, button2) => {
+  button1.classList = 'btn team1 ripple-surface';
+  button2.classList = 'btn team1 ripple-surface';
+}
+
 export { 
   currentTournament,
   init, 
-  predictionButtonClicked, 
-  tournamentButtonClicked 
+  predictionButtonClicked
 };

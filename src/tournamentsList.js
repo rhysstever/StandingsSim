@@ -1,5 +1,4 @@
 import * as classes from "./classes.js"
-import * as helpers from "./helpers.js"
 
 // Demos 
 import demoStandard from '../data/tournaments/demos/demoStandard.json' assert {type: 'json'}; 
@@ -36,8 +35,23 @@ const loadTournaments = () => {
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
 	for(let i = 0; i < tournaments.length; i++) {
 		let id = "TOURNAMENT" + i;
-		let demoTournamentListItem = helpers.createTournamentDropdown(id, tournaments[i].tabName, false);
+		let demoTournamentListItem = createTournamentDropdown(id, tournaments[i].tabName, false);
     tournamentDropdownParent.appendChild(demoTournamentListItem);
+	}
+}
+
+const loadDemos = () => {
+	// load demo tournaments
+	demos.push(createTournament(demoStandard, colorScheme_4team_top2Buttom2));
+	demos.push(createTournament(demoTieable, colorScheme_4team_top2Buttom2));
+	demos.push(createTournament(demoTiebreakers, colorScheme_4team_top2Buttom2));
+
+	// Create demo dropdown
+	let demoDropdownParent = document.querySelector("#demoDropdown");
+	for(let i = 0; i < demos.length; i++) {
+		let id = "DEMO" + i;
+		let demoTournamentListItem = createTournamentDropdown(id, demos[i].tabName, false);
+    demoDropdownParent.appendChild(demoTournamentListItem);
 	}
 }
 
@@ -83,19 +97,33 @@ const createTournament = (tournamentJSONData, colorSchemeJSONData) => {
 	return newTournament;
 }
 
-const loadDemos = () => {
-	// load demo tournaments
-	demos.push(createTournament(demoStandard, colorScheme_4team_top2Buttom2));
-	demos.push(createTournament(demoTieable, colorScheme_4team_top2Buttom2));
-	demos.push(createTournament(demoTiebreakers, colorScheme_4team_top2Buttom2));
-
-	// Create demo dropdown
-	let demoDropdownParent = document.querySelector("#demoDropdown");
-	for(let i = 0; i < demos.length; i++) {
-		let id = "DEMO" + i;
-		let demoTournamentListItem = helpers.createTournamentDropdown(id, demos[i].tabName, false);
-    demoDropdownParent.appendChild(demoTournamentListItem);
-	}
+const createTournamentDropdown = (id, tabName, isComplete) => {
+  // Creates the list item and button
+  let listItem = document.createElement("li");
+  let tourneyButton = document.createElement("button");
+  // Set attributes of button
+  tourneyButton.id = id;
+  tourneyButton.classList.add("dropdown-item");
+  tourneyButton.type = "button";
+  tourneyButton.onclick = tournamentButtonClicked;
+  tourneyButton.innerHTML = tabName;
+  if (isComplete) tourneyButton.innerHTML += " (C)";
+  // Append the button to the listItem and return the list item
+  listItem.appendChild(tourneyButton);
+  return listItem;
 }
 
-export { tournaments, demos, loadTournaments, loadDemos }
+const tournamentButtonClicked = (e) => {
+  // Check if the tournament selected is a demo (uses other object)
+  if(e.target.id.substring(0, 4) == 'DEMO') {
+    let demoIndex = parseInt(e.target.id.substring(4));
+    currentTournament = demos[demoIndex];
+  } else if(e.target.id.substring(0, 10) == 'TOURNAMENT') {
+    let tournamentIndex = parseInt(e.target.id.substring(10));
+    currentTournament = tournaments[tournamentIndex];
+  }
+
+  currentTournament.displayTournament();
+}
+
+export { demos, tournaments, loadDemos, loadTournaments }
