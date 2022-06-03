@@ -135,13 +135,8 @@ const changeDropdownIcon = (e) => {
 
   // Remove the current innerHTML and add the correct chevron icon
   dropdownButton.innerHTML = "";
-  // If the games are collapsed, show chevron-down
-  if (dropdownButton.classList.contains("collapsed")) {
-    dropdownButton.innerHTML = '<i class="fas fa-chevron-down"></i>';
-    // If the games are shown, show chevron-up
-  } else {
-    dropdownButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
-  }
+  // If the games are collapsed up, show chevron-up, otherwise show chevron-down
+  dropdownButton.innerHTML = dropdownButton.classList.contains("collapsed") ? '<i class="fas fa-chevron-up"></i>' : '<i class="fas fa-chevron-down"></i>';
 }
 
 const resetAllPredictions = () => {
@@ -158,8 +153,22 @@ const clearPredictionButtonsClassList = (button1, button2) => {
   button2.classList = 'btn team1 ripple-surface';
 }
 
+const tournamentButtonClicked = (e) => {
+  // Check if the tournament selected is a demo (uses other object)
+  if(e.target.id.substring(0, 4) == 'DEMO') {
+    let demoIndex = parseInt(e.target.id.substring(4));
+    currentTournament = tournamentsList.demos[demoIndex];
+  } else if(e.target.id.substring(0, 10) == 'TOURNAMENT') {
+    let tournamentIndex = parseInt(e.target.id.substring(10));
+    currentTournament = tournamentsList.tournaments[tournamentIndex];
+  }
+
+  currentTournament.displayTournament();
+}
+
 export { 
   currentTournament,
   init, 
-  predictionButtonClicked
+  predictionButtonClicked,
+  tournamentButtonClicked
 };

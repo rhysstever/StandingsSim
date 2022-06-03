@@ -38,42 +38,38 @@ class Team {
       this.tieBreakerWins + this.predictedTieBreakerWins;
   }
 
-  getStat = (stat, withPreditions, hasTies) => {
-    if(stat.toLowerCase() != "score")
-      hasTies = false;
-
+  getStat = (stat, withPredictions, hasTies) => {
     // Update total values
-    if(withPreditions)
+    if(withPredictions)
       this.calculateTotals();
 
-    switch(stat.toLowerCase()) {
-      case "score":
-        if(hasTies)
-          return (this.getStat("wins", withPreditions, false) * 2) + this.getStat("ties", withPreditions, false);
-        else
-          return this.getStat("wins", withPreditions, false);
-      case "wins":
-        if(withPreditions)
-          return this.totalWins;
-        else
-          return this.wins;
-      case "ties":
-        if(withPreditions)
-          return this.totalTies;
-        else
-          return this.ties;
-      case "losses":
-        if(withPreditions)
-          return this.totalLosses;
-        else
-          return this.losses;
-      case "tiebreakerwins":
-      case "tbwins":
-        if(withPreditions)
-          return this.totalTieBreakerWins;
-        else
-          return this.tieBreakerWins;
-    }
+    stat = stat.toLowerCase();
+
+    const stats = {
+      "wins": this.wins,
+      "ties": this.ties,
+      "losses": this.losses,
+      "tiebreakerwins": this.tieBreakerWins,
+      "tbwins": this.tieBreakerWins
+    };
+
+    const statsWithPredictions = {
+      "wins": this.totalWins,
+      "ties": this.totalTies,
+      "losses": this.totalLosses,
+      "tiebreakerwins": this.totalTieBreakerWins,
+      "tbwins": this.totalTieBreakerWins
+    };
+
+    // Get the asked value, depending on if there are predictions
+    return withPredictions ? statsWithPredictions[stat] : stats[stat];
+  }
+
+  getScore = (withPredictions, hasTies) => {
+    return hasTies ? 
+      (this.getStat("wins", withPredictions, false) * 2) + this.getStat("ties", withPredictions, false)   // returns wins * 2 + ties
+      : 
+      this.getStat("wins", withPredictions, false)  // returns just wins count
   }
 
   displayScore = (isWithPredictions, hasTies) => {
@@ -90,7 +86,7 @@ class Team {
       if(this.isTiedWithPredictions)
         score += " (" + this.totalTieBreakerWins + ")";
     }
-    // The current standings - predictions are not included 
+    // The current standings: predictions are not included 
     else {
       if(hasTies)
         score = this.wins + "-" + this.ties + "-" + this.losses;
@@ -467,23 +463,14 @@ class Tournament {
           continue;
         } else {
           // Compares the current team's score with the (so far) highest score
-          if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
-            > this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
+          if(this.teams[i].getScore(withPredictions, this.hasTieMatches) 
+            > this.teams[highestTeamIndex].getScore(withPredictions, this.hasTieMatches)) {
               // Reassigns highest team if the current team's score is higher
               highestTeamIndex = i;
               continue;
           // If the scores are equal
-          } else if(this.teams[i].getStat("score", withPredictions, this.hasTieMatches) 
-                == this.teams[highestTeamIndex].getStat("score", withPredictions, this.hasTieMatches)) {
-            // If the scores are the same, these 2 teams are set to tied
-            if(withPredictions){
-              this.teams[i].isTiedWithPredictions = true;
-              this.teams[highestTeamIndex].isTiedWithPredictions = true;
-            } else {
-              this.teams[i].isTied = true;
-              this.teams[highestTeamIndex].isTied = true;
-            }
-
+          } else if(this.teams[i].getScore(withPredictions, this.hasTieMatches) 
+              == this.teams[highestTeamIndex].getScore(withPredictions, this.hasTieMatches)) {
             // Compares tieBreaker wins
             if(this.teams[i].getStat("TBWins", withPredictions, false) 
             > this.teams[highestTeamIndex].getStat("TBWins", withPredictions, false)) {
@@ -504,26 +491,35 @@ class Tournament {
     this.calculateTeamPlaces(withPredictions);
   }
 
+  calculateTeamScore = (team, withPredictions) => {
+    return 
+  }
+
   // Calculates the place # for each team
   // called at the end of sortTeams()
   calculateTeamPlaces = (withPredictions) => {
     document.querySelector("#info").innerHTML = "";
     for (let i = 0; i < this.teams.length; i++) {
-
       // If the team is the first team, then its place is 1
       if (i == 0) {
         this.teams[i].place = 1;
+        this.teams[i].isTied = false;
+        this.teams[i].isTiedWithPredictions = false;
         continue;
       }
 
       // Get the current and previous teams' score
-      let currentTeamScore = this.teams[i].getStat("score", withPredictions, this.hasTieMatches);
-      let prevTeamScore = this.teams[i - 1].getStat("score", withPredictions, this.hasTieMatches);
+      let currentTeamScore = this.teams[i].getScore(withPredictions, this.hasTieMatches);
+      let prevTeamScore = this.teams[i - 1].getScore(withPredictions, this.hasTieMatches);
       let currentTeamTBWins = this.teams[i].getStat("TBWins", withPredictions, this.hasTieMatches);
       let prevTeamTBWins = this.teams[i - 1].getStat("TBWins", withPredictions, this.hasTieMatches);
 
       // If the teams' scores are tied 
       if(currentTeamScore == prevTeamScore) {
+        this.teams[i].isTied = true;
+        this.teams[i].isTiedWithPredictions = true;
+        this.teams[i-1].isTied = true;
+        this.teams[i-1].isTiedWithPredictions = true;
         // If the current team has the same number of tie breaker wins, 
         // both teams are tied and have the same place value
         if(currentTeamTBWins == prevTeamTBWins)
@@ -536,6 +532,8 @@ class Tournament {
       // Otherwise, calculate the current team's place with any possible duplicates before it
       else {
         this.calcPlaceWithDups(i);
+        this.teams[i].isTied = false;
+        this.teams[i].isTiedWithPredictions = false;
       }
     }
   }

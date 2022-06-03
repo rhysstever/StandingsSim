@@ -1,0 +1,39 @@
+{
+	"name": "PGL Arlington Major 2022 - Group B",
+	"tabName": "Arlington Major - Group B",
+	"source": "https://liquipedia.net/dota2/PGL/Arlington_Major/2022#Group_B",
+	"hasTieMatches": true,
+	"isComplete": false,
+	"teams": [
+		{
+			"name": "Team1_Name",
+			"abbrev": "Team1_Abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team2_Name",
+			"abbrev": "Team2_Abbrev",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}
+	],
+	"matches": [
+		{
+			"team1": "Team1_Name",
+			"team2": "Team2_Name",
+			"date": "MM/DD",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Team1_Name",
+			"team2": "Team2_Name",
+			"date": "MM/DD",
+			"isTiebreaker": false
+		}
+	]
+}

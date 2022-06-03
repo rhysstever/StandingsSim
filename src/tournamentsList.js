@@ -1,4 +1,5 @@
 import * as classes from "./classes.js"
+import * as main from "./main.js"
 
 // Demos 
 import demoStandard from '../data/tournaments/demos/demoStandard.json' assert {type: 'json'}; 
@@ -6,18 +7,21 @@ import demoTieable from '../data/tournaments/demos/demoTieable.json' assert {typ
 import demoTiebreakers from '../data/tournaments/demos/demoTiebreakers.json' assert {type: 'json'}; 
 
 // Dota 2 Tournaments
-import dpcDiv1CN from '../data/tournaments/dota2/dota2_div1_cn.json' assert {type: 'json'}; 
-import dpcDiv1EEU from '../data/tournaments/dota2/dota2_div1_eeu.json' assert {type: 'json'}; 
-import dpcDiv1NA from '../data/tournaments/dota2/dota2_div1_na.json' assert {type: 'json'}; 
-import dpcDiv1SA from '../data/tournaments/dota2/dota2_div1_sa.json' assert {type: 'json'}; 
-import dpcDiv1SEA from '../data/tournaments/dota2/dota2_div1_sea.json' assert {type: 'json'}; 
-import dpcDiv1WEU from '../data/tournaments/dota2/dota2_div1_weu.json' assert {type: 'json'}; 
+import dpcDiv1CN from '../data/tournaments/dota2/dpcDiv1CN.json' assert {type: 'json'}; 
+import dpcDiv1EEU from '../data/tournaments/dota2/dpcDiv1EEU.json' assert {type: 'json'}; 
+import dpcDiv1NA from '../data/tournaments/dota2/dpcDiv1NA.json' assert {type: 'json'}; 
+import dpcDiv1SA from '../data/tournaments/dota2/dpcDiv1SA.json' assert {type: 'json'}; 
+import dpcDiv1SEA from '../data/tournaments/dota2/dpcDiv1SEA.json' assert {type: 'json'}; 
+import dpcDiv1WEU from '../data/tournaments/dota2/dpcDivWEU.json' assert {type: 'json'}; 
+import arlingtonMajorGroupStageA from '../data/tournaments/dota2/arlingtonGroupStageA.json' assert {type: 'json'}; 
+import arlingtonMajorGroupStageB from '../data/tournaments/dota2/arlingtonGroupStageB.json' assert {type: 'json'}; 
 
 // Color Schemes
 import colorScheme_4team_top2Buttom2 from '../data/colorSchemes/colorScheme_4team_top2Bottom2.json' assert {type: 'json'}; 
 import colorScheme_8team_top2Buttom2 from '../data/colorSchemes/colorScheme_8team_top2Bottom2.json' assert {type: 'json'}; 
 import colorScheme_8team_top3Buttom2 from '../data/colorSchemes/colorScheme_8team_top3Bottom2.json' assert {type: 'json'}; 
 import colorScheme_8team_top4Buttom2 from '../data/colorSchemes/colorScheme_8team_top4Bottom2.json' assert {type: 'json'}; 
+import colorScheme_11team_top4Buttom3 from '../data/colorSchemes/colorScheme_11team_top4Bottom3.json' assert {type: 'json'}; 
 
 let demos = [];
 let tournaments = [];
@@ -30,6 +34,10 @@ const loadTournaments = () => {
 	tournaments.push(createTournament(dpcDiv1SA, colorScheme_8team_top2Buttom2));
 	tournaments.push(createTournament(dpcDiv1SEA, colorScheme_8team_top2Buttom2));
 	tournaments.push(createTournament(dpcDiv1WEU, colorScheme_8team_top4Buttom2));
+	
+	// === to add once the teams qualify (end of tour 3) ===
+	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorScheme_11team_top4Buttom3));
+	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorScheme_11team_top4Buttom3));
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
@@ -105,25 +113,12 @@ const createTournamentDropdown = (id, tabName, isComplete) => {
   tourneyButton.id = id;
   tourneyButton.classList.add("dropdown-item");
   tourneyButton.type = "button";
-  tourneyButton.onclick = tournamentButtonClicked;
+  tourneyButton.onclick = main.tournamentButtonClicked;
   tourneyButton.innerHTML = tabName;
   if (isComplete) tourneyButton.innerHTML += " (C)";
   // Append the button to the listItem and return the list item
   listItem.appendChild(tourneyButton);
   return listItem;
-}
-
-const tournamentButtonClicked = (e) => {
-  // Check if the tournament selected is a demo (uses other object)
-  if(e.target.id.substring(0, 4) == 'DEMO') {
-    let demoIndex = parseInt(e.target.id.substring(4));
-    currentTournament = demos[demoIndex];
-  } else if(e.target.id.substring(0, 10) == 'TOURNAMENT') {
-    let tournamentIndex = parseInt(e.target.id.substring(10));
-    currentTournament = tournaments[tournamentIndex];
-  }
-
-  currentTournament.displayTournament();
 }
 
 export { demos, tournaments, loadDemos, loadTournaments }
