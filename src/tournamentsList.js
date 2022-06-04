@@ -17,42 +17,42 @@ import arlingtonMajorGroupStageA from '../data/tournaments/dota2/arlingtonGroupS
 import arlingtonMajorGroupStageB from '../data/tournaments/dota2/arlingtonGroupStageB.json' assert {type: 'json'}; 
 
 // Color Schemes
-import colorScheme_4team_top2Buttom2 from '../data/colorSchemes/colorScheme_4team_top2Bottom2.json' assert {type: 'json'}; 
-import colorScheme_8team_top2Buttom2 from '../data/colorSchemes/colorScheme_8team_top2Bottom2.json' assert {type: 'json'}; 
-import colorScheme_8team_top3Buttom2 from '../data/colorSchemes/colorScheme_8team_top3Bottom2.json' assert {type: 'json'}; 
-import colorScheme_8team_top4Buttom2 from '../data/colorSchemes/colorScheme_8team_top4Bottom2.json' assert {type: 'json'}; 
-import colorScheme_9team_top4Buttom3 from '../data/colorSchemes/colorScheme_9team_top4Bottom3.json' assert {type: 'json'}; 
+import colorScheme4teamTop2Buttom2 from '../data/colorSchemes/colorScheme4teamTop2Bottom2.json' assert {type: 'json'}; 
+import colorScheme8teamTop2Buttom2 from '../data/colorSchemes/colorScheme8teamTop2Bottom2.json' assert {type: 'json'}; 
+import colorScheme8teamTop3Buttom2 from '../data/colorSchemes/colorScheme8teamTop3Bottom2.json' assert {type: 'json'}; 
+import colorScheme8teamTop4Buttom2 from '../data/colorSchemes/colorScheme8teamTop4Bottom2.json' assert {type: 'json'}; 
+import colorScheme9teamTop4Buttom3 from '../data/colorSchemes/colorScheme9teamTop4Bottom3.json' assert {type: 'json'}; 
 
 let demos = [];
 let tournaments = [];
 
 const loadTournaments = () => {
 	// Create each tournament
-	tournaments.push(createTournament(dpcDiv1CN, colorScheme_8team_top3Buttom2));
-	tournaments.push(createTournament(dpcDiv1EEU, colorScheme_8team_top3Buttom2));
-	tournaments.push(createTournament(dpcDiv1NA, colorScheme_8team_top2Buttom2));
-	tournaments.push(createTournament(dpcDiv1SA, colorScheme_8team_top2Buttom2));
-	tournaments.push(createTournament(dpcDiv1SEA, colorScheme_8team_top2Buttom2));
-	tournaments.push(createTournament(dpcDiv1WEU, colorScheme_8team_top4Buttom2));
+	tournaments.push(createTournament(dpcDiv1CN, colorScheme8teamTop3Buttom2));
+	tournaments.push(createTournament(dpcDiv1EEU, colorScheme8teamTop3Buttom2));
+	tournaments.push(createTournament(dpcDiv1NA, colorScheme8teamTop2Buttom2));
+	tournaments.push(createTournament(dpcDiv1SA, colorScheme8teamTop2Buttom2));
+	tournaments.push(createTournament(dpcDiv1SEA, colorScheme8teamTop2Buttom2));
+	tournaments.push(createTournament(dpcDiv1WEU, colorScheme8teamTop4Buttom2));
 	
 	// === to add once the teams qualify (end of tour 3) ===
-	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorScheme_9team_top4Buttom3));
-	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorScheme_9team_top4Buttom3));
+	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorScheme9teamTop4Buttom3));
+	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorScheme9teamTop4Buttom3));
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
 	for(let i = 0; i < tournaments.length; i++) {
 		let id = "TOURNAMENT" + i;
-		let demoTournamentListItem = createTournamentDropdown(id, tournaments[i].tabName, false);
-    tournamentDropdownParent.appendChild(demoTournamentListItem);
+		let tournamentListItem = createTournamentDropdown(id, tournaments[i].tabName, false);
+    tournamentDropdownParent.appendChild(tournamentListItem);
 	}
 }
 
 const loadDemos = () => {
 	// load demo tournaments
-	demos.push(createTournament(demoStandard, colorScheme_4team_top2Buttom2));
-	demos.push(createTournament(demoTieable, colorScheme_4team_top2Buttom2));
-	demos.push(createTournament(demoTiebreakers, colorScheme_4team_top2Buttom2));
+	demos.push(createTournament(demoStandard, colorScheme4teamTop2Buttom2));
+	demos.push(createTournament(demoTieable, colorScheme4teamTop2Buttom2));
+	demos.push(createTournament(demoTiebreakers, colorScheme4teamTop2Buttom2));
 
 	// Create demo dropdown
 	let demoDropdownParent = document.querySelector("#demoDropdown");
