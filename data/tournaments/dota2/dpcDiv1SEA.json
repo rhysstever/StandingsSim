@@ -39,7 +39,7 @@
 		}, 
 		{
 			"name": "Nigma Galaxy SEA",
-			"abbrev": "Nigma",
+			"abbrev": "NGX.SEA",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
@@ -70,5 +70,126 @@
 			"tiebreakerWins": 0 
 		}	
 	],
-	"matches": []
+	"matches": [
+		{
+			"team1": "Polaris",
+			"team2": "Talon",
+			"date": "06/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "SMG",
+			"date": "06/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "NGX.SEA",
+			"date": "06/09",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Polaris",
+			"team2": "NGX.SEA",
+			"date": "06/11",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "T1",
+			"team2": "RSG",
+			"date": "06/11",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NGX.SEA",
+			"team2": "Talon",
+			"date": "06/15",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "SMG",
+			"team2": "Polaris",
+			"date": "06/15",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "T1",
+			"team2": "NGX.SEA",
+			"date": "06/16",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "Talon",
+			"date": "06/18",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "RSG",
+			"date": "06/18",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Polaris",
+			"team2": "RSG",
+			"date": "06/22",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "T1",
+			"team2": "SMG",
+			"date": "06/22",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "Talon",
+			"date": "06/23",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "SMG",
+			"team2": "RSG",
+			"date": "06/25",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "NGX.SEA",
+			"date": "06/25",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NGX.SEA",
+			"team2": "RSG",
+			"date": "06/29",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "Polaris",
+			"date": "06/29",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "T1",
+			"team2": "Talon",
+			"date": "06/30",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "RSG",
+			"date": "07/02",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "SMG",
+			"date": "07/02",
+			"isTiebreaker": false
+		}
+	]
 }
