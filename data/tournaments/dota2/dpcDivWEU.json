@@ -8,56 +8,56 @@
 		{
 			"name": "OG",
 			"abbrev": "OG",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Liquid",
 			"abbrev": "TL",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Gaimin Gladiators",
 			"abbrev": "GG",
-			"wins": 0,
-			"losses": 0,
+			"wins": 1,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Tundra Esports",
 			"abbrev": "Tundra",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Secret",
 			"abbrev": "Secret",
-			"wins": 0,
-			"losses": 0,
+			"wins": 1,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Entity",
 			"abbrev": "Entity",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "goonsquad",
 			"abbrev": "GS",
-			"wins": 0,
-			"losses": 0,
+			"wins": 1,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -65,102 +65,12 @@
 			"name": "Alliance",
 			"abbrev": "[A]",
 			"wins": 0,
-			"losses": 0,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
-		{
-			"team1": "Secret",
-			"team2": "OG",
-			"date": "06/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "GG",
-			"team2": "Entity",
-			"date": "06/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "[A]",
-			"team2": "Tundra",
-			"date": "06/08",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "GS",
-			"date": "06/11",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "[A]",
-			"team2": "Secret",
-			"date": "06/11",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "Tundra",
-			"date": "06/14",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "GG",
-			"date": "06/14",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Entity",
-			"team2": "GS",
-			"date": "06/15",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "Entity",
-			"date": "06/18",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "GG",
-			"team2": "GS",
-			"date": "06/18",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Secret",
-			"team2": "Tundra",
-			"date": "06/21",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "[A]",
-			"date": "06/21",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "GG",
-			"date": "06/22",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Secret",
-			"team2": "Entity",
-			"date": "06/25",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "Tundra",
-			"date": "06/25",
-			"isTiebreaker": false
-		}, 
 		{
 			"team1": "[A]",
 			"team2": "GS",

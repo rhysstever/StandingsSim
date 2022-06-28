@@ -8,15 +8,15 @@
 		{
 			"name": "BetBoom Team",
 			"abbrev": "BB",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Spirit",
 			"abbrev": "TSpirit",
-			"wins": 0,
+			"wins": 3,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -24,145 +24,55 @@
 		{
 			"name": "Mind Games",
 			"abbrev": "MG",
-			"wins": 0,
-			"losses": 0,
+			"wins": 1,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "CIS Rejects",
-			"abbrev": "CIS-R",
+			"name": "Pari Parni",
+			"abbrev": "Pari",
 			"wins": 0,
-			"losses": 0,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Outsiders",
 			"abbrev": "Otsd",
-			"wins": 0,
-			"losses": 0,
+			"wins": 2,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Natus Vincere",
 			"abbrev": "NAVI",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "One Move",
 			"abbrev": "OM",
-			"wins": 0,
-			"losses": 0,
+			"wins": 2,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{ 
 			"name": "Rune Eaters Esports",
 			"abbrev": "RE",
-			"wins": 0,
-			"losses": 0,
+			"wins": 1,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
 		{
-			"team1": "NAVI",
-			"team2": "CIS-R",
-			"date": "06/09",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "MG",
-			"team2": "RE",
-			"date": "06/10",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OM",
-			"team2": "Otsd",
-			"date": "06/10",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TSpirit",
-			"team2": "CIS-R",
-			"date": "06/12",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "NAVI",
-			"team2": "BB",
-			"date": "06/12",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "MG",
-			"team2": "OM",
-			"date": "06/16",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "CIS-R",
-			"team2": "Otsd",
-			"date": "06/17",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "NAVI",
-			"team2": "TSpirit",
-			"date": "06/17",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OM",
-			"team2": "RE",
-			"date": "06/19",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "MG",
-			"team2": "BB",
-			"date": "06/19",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "BB",
-			"team2": "RE",
-			"date": "06/23",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "MG",
-			"team2": "CIS-R",
-			"date": "06/24",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "NAVI",
-			"team2": "Otsd",
-			"date": "06/24",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TSpirit",
-			"team2": "RE",
-			"date": "06/26",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OM",
-			"team2": "BB",
-			"date": "06/26",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "CIS-R",
+			"team1": "Pari",
 			"team2": "RE",
 			"date": "06/30",
 			"isTiebreaker": false
@@ -186,7 +96,7 @@
 			"isTiebreaker": false
 		}, 
 		{
-			"team1": "CIS-R",
+			"team1": "Pari",
 			"team2": "BB",
 			"date": "07/03",
 			"isTiebreaker": false
