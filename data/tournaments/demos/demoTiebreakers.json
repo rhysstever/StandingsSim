@@ -17,7 +17,7 @@
 			"name": "Team Bear",
 			"abbrev": "Team B",
 			"wins": 0,
-			"losses": 0,
+			"losses": 1,
 			"draws": 2,
 			"tiebreakerWins": 0
 		}, 
@@ -25,7 +25,7 @@
 			"name": "Team Cow",
 			"abbrev": "Team C",
 			"wins": 0,
-			"losses": 0,
+			"losses": 1,
 			"draws": 2,
 			"tiebreakerWins": 0
 		}, 
@@ -33,7 +33,7 @@
 			"name": "Team Dog",
 			"abbrev": "Team D",
 			"wins": 0,
-			"losses": 0,
+			"losses": 1,
 			"draws": 2,
 			"tiebreakerWins": 0
 		}
