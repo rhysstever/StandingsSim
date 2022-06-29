@@ -1,160 +1,54 @@
-html, body {
-     height: 100%;
-}
-
-body {
-     display: flex;
-     flex-direction: column;
-}
-
-nav {
-     display: flex;
-     justify-content: start;
-     padding: 0.5rem;
-}
-
-header {
-     text-align: center;
-     padding: 0rem 0.5rem;
-}
-
-main {
-     flex: 1 0 auto;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     margin: 0rem 15rem;
-}
-
-footer {
-     flex-shrink: 0;
-     background-color: #f1f1f1;
-     text-align: center;
-     margin: 1rem 0rem 0rem 0rem;
-     padding: 1.5rem 0rem;
-}
-
-h3 {
-     text-align: center;
-     margin: 1rem 0rem;
-}
-
-h4 {
-     margin: 0.5rem 0rem;
-     font-size: 1.25rem;
-}
-
-h5 {
-     margin: 0.5rem 0rem;
-     font-size: 1.0rem;
-}
-
-h6 {
-     font-size: 0.9rem;
-}
-
-footer > a {
-     margin: 0.5rem;
-}
-
-.section {
-     margin: 0rem 2rem;
-}
-
 .matchup { 
-     display: flex;
-     justify-content: center;
-     margin: 0rem 0rem;
-}
-
-.dropdownClass {
-     margin: 0rem 0.5rem 0rem 0rem;
-}
-
-.dropdownBtn {
-     margin: .75rem 1rem;
-}
-
-.dropdownHeader {
-     margin: 0.75rem 0rem 0rem 0.5rem;
+	display: flex;
+	justify-content: center;
+	margin: 0rem 0rem;
 }
 
 .matchup > button {
-     margin: 0.5rem;
-     padding: 0.5rem 1rem;
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
 }
 
 .matchup > p {
-     margin: 1rem 0.5rem;
+	margin: 1rem 0.5rem;
 }
 
 .matchup > .btn {
-     font-size: 0.9rem;
+	font-size: 0.9rem;
+}
+
+.dropdownClass {
+	margin: 0rem 0.5rem 0rem 0rem;
+}
+
+.dropdownBtn {
+	margin: .75rem 1rem;
+}
+
+.dropdownHeader {
+	margin: 0.75rem 0rem 0rem 0.5rem;
 }
 
 .table {
-     font-size: 1rem;
-}
-
-.seasonHeader {
-     margin: 0.5rem 0rem 0.5rem 0.35rem;
-}
-
-.majorHeader, .qualsHeader {
-     margin: 0.5rem 0rem 0.5rem 0.75rem;
-}
-
-.ti-option {
-     padding-left: 0.75rem;
-}
-
-.ti-option > h6 {
-     margin: 0rem;
-}
-
-#sections {
-     display: flex;
-     flex-direction: row;
+	font-size: 1rem;
 }
 
 #gamesHeader {
-     display: flex;
-     justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 #source {
-     float: right;
-}
-
-#remainingGamesList {
-     position: relative;
-     padding: 0;
-}
-
-@media screen and (max-width: 1730px){ 
-	main{
-          margin: 0rem;
-     }
+	float: right;
 }
 
 @media screen and (max-width: 1250px){ 
-	#sections {
-          flex-direction: column;
-     }
-
-     #source {
-          float: left;
-     }
+	#source {
+		float: left;
+	}
 }
 
-@media screen and (max-width: 600px){ 
-	#heading {
-          margin: 0rem 1rem;
-     }
-}
-
-@media screen and (max-width: 425px){ 
-	nav {
-          justify-content: center;
-     }
+#remainingGamesList {
+	position: relative;
+	padding: 0;
 }

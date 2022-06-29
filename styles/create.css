@@ -1,0 +1,8 @@
+.inputs-group {
+	display: flex;
+	flex-direction: column;
+}
+
+.input-item {
+	margin: 0.25rem 0rem;
+}
