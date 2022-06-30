@@ -42,6 +42,7 @@
                     <!-- Created in addSeasonToDropdown() -->
                </ul>
           </div>
+          <button class="btn btn-outline-secondary" type="button">Create</button>
      </nav>
      <header>
           <h1>Create a Tournament</h1>
@@ -49,15 +50,15 @@
      </header>
      <main>
           <div id="sections">
-               <div class="section inputs-group">
-                    <h3>Overview Details</h3>
+               <div class="section inputs-section">
+                    <h3>Tournament Details</h3>
                     <div class="form-outline input-item">
                          <input type="text" id="form12" class="form-control" />
                          <label class="form-label" for="form12">Name</label>
                     </div>
                     <div class="form-outline input-item">
                          <input type="text" id="form12" class="form-control" />
-                         <label class="form-label" for="form12">Abbreviated Name</label>
+                         <label class="form-label" for="form12">Name Abbreviation</label>
                     </div>
                     <div class="form-outline input-item">
                          <input type="url" id="form12" class="form-control" />
@@ -65,7 +66,7 @@
                     </div>
                     <div class="form-check form-switch input-item">
                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                         <label class="form-check-label" for="flexSwitchCheckDefault">Can matches tie?</label>
+                         <label class="form-check-label" for="flexSwitchCheckDefault">Are matches tieable?</label>
                     </div>
                     <div class="form-check form-switch input-item">
                          <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
@@ -74,62 +75,71 @@
                </div>
                <div class="section">
                     <h3>Add Teams</h3>
-                    <div class="team inputs-group">
-                         <div class="form-outline input-item">
-                              <input type="text" id="form12" class="form-control" />
-                              <label class="form-label" for="form12">Team Name</label>
-                         </div>
-                         <div class="form-outline input-item">
-                              <input type="text" id="form12" class="form-control" />
-                              <label class="form-label" for="form12">Team Abbreviation</label>
-                         </div>
-                         <div class="form-outline input-item">
-                              <input type="number" id="typeNumber" class="form-control" />
-                              <label class="form-label" for="typeNumber"># of Wins</label>
-                         </div>
-                         <div class="form-outline input-item">
-                              <input type="number" id="typeNumber" class="form-control" />
-                              <label class="form-label" for="typeNumber"># of Losses</label>
-                         </div>
-                         <div class="form-outline input-item">
-                              <input type="number" id="typeNumber" class="form-control" />
-                              <label class="form-label" for="typeNumber"># of Draws</label>
-                         </div>
-                         <div class="form-outline input-item">
-                              <input type="number" id="typeNumber" class="form-control" />
-                              <label class="form-label" for="typeNumber"># of Tiebreaker Wins</label>
+                    <div id="newTeams">
+                         <div class="team inputs-section">
+                              <h4>Team</h4>
+                              <div class="form-outline input-item">
+                                   <input type="text" id="form12" class="form-control" />
+                                   <label class="form-label" for="form12">Team Name</label>
+                              </div>
+                              <div class="form-outline input-item">
+                                   <input type="text" id="form12" class="form-control" />
+                                   <label class="form-label" for="form12">Team Name Abbreviation</label>
+                              </div>
+                              <div class="input-group input-item">
+                                   <span class="input-group-text">Score</span>
+                                   <div class="form-outline input-number">
+                                        <input type="number" id="typeNumber" class="form-control" />
+                                        <label class="form-label" for="typeNumber">Wins</label>
+                                   </div>
+                                   <div class="form-outline input-number">
+                                        <input type="number" id="typeNumber" class="form-control" />
+                                        <label class="form-label" for="typeNumber">Losses</label>
+                                   </div>
+                                   <div class="form-outline input-number">
+                                        <input type="number" id="typeNumber" class="form-control" />
+                                        <label class="form-label" for="typeNumber">Draws</label>
+                                   </div>
+                                   <div class="form-outline input-number">
+                                        <input type="number" id="typeNumber" class="form-control" />
+                                        <label class="form-label" for="typeNumber">TB Wins</label>
+                                   </div>
+                              </div>
                          </div>
                     </div>
-                    <button class="btn btn-outline-secondary input-item" type="button" >New Team</button>
+                    <button class="btn btn-outline-secondary input-item" type="button">New Team</button>
                </div>
                <div class="section">
                     <h3>Add Matches</h3>
-                    <div class="match inputs-group">
-                         <div class="form-outline input-item">
-                              <input type="text" id="form12" class="form-control" />
-                              <label class="form-label" for="form12">Team 1 Name</label>
-                         </div>
-                         <div class="form-outline input-item">
-                              <input type="text" id="form12" class="form-control" />
-                              <label class="form-label" for="form12">Team 2 Name</label>
-                         </div>
-                         <div class="input-group input-item">
-                              <span class="input-group-text">Match Date</span>
-                              <div class="form-outline">
-                                   <input type="number" id="typeNumber" class="form-control" />
-                                   <label class="form-label" for="typeNumber">Day</label>
+                    <div id="newMatches">
+                         <div class="match inputs-section">
+                              <h4>Match</h4>
+                              <div class="form-outline input-item">
+                                   <input type="text" id="form12" class="form-control" />
+                                   <label class="form-label" for="form12">Team 1 Name</label>
                               </div>
-                              <div class="form-outline">
-                                   <input type="number" id="typeNumber" class="form-control" />
-                                   <label class="form-label" for="typeNumber">Month</label>
+                              <div class="form-outline input-item">
+                                   <input type="text" id="form12" class="form-control" />
+                                   <label class="form-label" for="form12">Team 2 Name</label>
                               </div>
-                        </div>
-                        <div class="form-check form-switch input-item">
-                             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
-                             <label class="form-check-label" for="flexSwitchCheckDefault">Is this a tiebreaker?</label>
-                        </div>   
+                              <div class="input-group input-item">
+                                   <span class="input-group-text">Date</span>
+                                   <div class="form-outline input-number">
+                                        <input type="number" id="typeNumber" class="form-control" />
+                                        <label class="form-label" for="typeNumber">Month</label>
+                                   </div>
+                                   <div class="form-outline input-number">
+                                        <input type="number" id="typeNumber" class="form-control" />
+                                        <label class="form-label" for="typeNumber">Day</label>
+                                   </div>
+                              </div>
+                              <div class="form-check form-switch input-item">
+                                  <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" />
+                                  <label class="form-check-label" for="flexSwitchCheckDefault">Is this a tiebreaker?</label>
+                              </div>   
+                         </div>
                     </div>
-                    <button class="btn btn-outline-secondary input-item" type="button" >New Match</button>
+                    <button class="btn btn-outline-secondary input-item" type="button">New Match</button>
                </div>
           </div>
           <div id="info">

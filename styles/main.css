@@ -66,6 +66,10 @@ h6 {
      flex-direction: row;
 }
 
+.dropdownClass {
+	margin: 0rem 0.5rem 0rem 0rem;
+}
+
 @media screen and (max-width: 1730px){ 
 	main{
           margin: 0rem;

@@ -1,8 +1,12 @@
-.inputs-group {
+.inputs-section {
 	display: flex;
 	flex-direction: column;
 }
 
 .input-item {
 	margin: 0.25rem 0rem;
+}
+
+.input-number {
+	max-width: 5rem;
 }
