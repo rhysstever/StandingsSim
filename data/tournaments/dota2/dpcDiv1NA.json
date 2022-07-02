@@ -24,7 +24,7 @@
 		{
 			"name": "Quincy Crew",
 			"abbrev": "QC",
-			"wins": 4,
+			"wins": 5,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -32,7 +32,7 @@
 		{
 			"name": "Wildcard Gaming",
 			"abbrev": "WG",
-			"wins": 1,
+			"wins": 2,
 			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -41,7 +41,7 @@
 			"name": "nouns",
 			"abbrev": "nouns",
 			"wins": 4,
-			"losses": 0,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -49,14 +49,14 @@
 			"name": "The Cut",
 			"abbrev": "Cut",
 			"wins": 1,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "5RATFORCESTAFF",
 			"abbrev": "5RFS",
-			"wins": 0,
+			"wins": 1,
 			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -65,30 +65,12 @@
 			"name": "felt",
 			"abbrev": "felt",
 			"wins": 0,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
-		{
-			"team1": "felt",
-			"team2": "5RFS",
-			"date": "06/28",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "QC",
-			"team2": "nouns",
-			"date": "06/29",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Cut",
-			"team2": "WG",
-			"date": "06/29",
-			"isTiebreaker": false
-		}, 
 		{
 			"team1": "EG",
 			"team2": "5RFS",

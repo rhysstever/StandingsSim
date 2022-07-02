@@ -40,7 +40,7 @@
 		{
 			"name": "Vici Gaming",
 			"abbrev": "VG",
-			"wins": 2,
+			"wins": 3,
 			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -57,7 +57,7 @@
 			"name": "Dandelion Esports Club",
 			"abbrev": "DEC",
 			"wins": 1,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -72,24 +72,6 @@
 	],
 	"matches": [
 		{
-			"team1": "EHOME",
-			"team2": "Aries",
-			"date": "06/28",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Xtreme",
-			"team2": "DEC",
-			"date": "06/28",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "VG",
-			"team2": "DEC",
-			"date": "06/30",
-			"isTiebreaker": false
-		}, 
-		{
 			"team1": "Aster",
 			"team2": "RNG",
 			"date": "07/03",
@@ -99,6 +81,60 @@
 			"team1": "PSG.LGD",
 			"team2": "Xtreme",
 			"date": "07/03",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "EHOME",
+			"team2": "Aries",
+			"date": "07/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "VG",
+			"team2": "Aries",
+			"date": "07/05",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Aster",
+			"team2": "Xtreme",
+			"date": "07/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "RNG",
+			"team2": "Xtreme",
+			"date": "07/08",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "EHOME",
+			"team2": "DEC",
+			"date": "07/10",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "PSG.LGD",
+			"team2": "RNG",
+			"date": "07/10",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Aries",
+			"team2": "DEC",
+			"date": "07/12",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EHOME",
+			"team2": "VG",
+			"date": "07/12",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "PSG.LGD",
+			"team2": "Aster",
+			"date": "07/15",
 			"isTiebreaker": false
 		}
 	]

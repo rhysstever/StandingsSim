@@ -8,7 +8,7 @@
 		{
 			"name": "OG",
 			"abbrev": "OG",
-			"wins": 3,
+			"wins": 4,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -17,14 +17,14 @@
 			"name": "Team Liquid",
 			"abbrev": "TL",
 			"wins": 3,
-			"losses": 1,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Gaimin Gladiators",
 			"abbrev": "GG",
-			"wins": 1,
+			"wins": 2,
 			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -32,7 +32,7 @@
 		{
 			"name": "Tundra Esports",
 			"abbrev": "Tundra",
-			"wins": 3,
+			"wins": 4,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -40,7 +40,7 @@
 		{
 			"name": "Team Secret",
 			"abbrev": "Secret",
-			"wins": 1,
+			"wins": 2,
 			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -49,15 +49,15 @@
 			"name": "Entity",
 			"abbrev": "Entity",
 			"wins": 3,
-			"losses": 1,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "goonsquad",
 			"abbrev": "GS",
-			"wins": 1,
-			"losses": 2,
+			"wins": 2,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -65,42 +65,12 @@
 			"name": "Alliance",
 			"abbrev": "[A]",
 			"wins": 0,
-			"losses": 3,
+			"losses": 5,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
-		{
-			"team1": "[A]",
-			"team2": "GS",
-			"date": "06/28",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "Secret",
-			"date": "06/28",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Tundra",
-			"team2": "Entity",
-			"date": "06/29",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "GS",
-			"date": "07/02",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "[A]",
-			"team2": "GG",
-			"date": "07/02",
-			"isTiebreaker": false
-		}, 
 		{
 			"team1": "[A]",
 			"team2": "OG",

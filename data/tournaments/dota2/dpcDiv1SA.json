@@ -8,16 +8,16 @@
 		{
 			"name": "Thunder Awaken",
 			"abbrev": "TA",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "beastcoast",
 			"abbrev": "bc",
-			"wins": 0,
-			"losses": 0,
+			"wins": 4,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -25,170 +25,128 @@
 			"name": "Hokori",
 			"abbrev": "HKR",
 			"wins": 0,
-			"losses": 0,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Tempest",
 			"abbrev": "Tempest",
-			"wins": 0,
-			"losses": 0,
+			"wins": 2,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Infamous",
 			"abbrev": "INF.U",
-			"wins": 0,
-			"losses": 0,
+			"wins": 3,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Infinity",
 			"abbrev": "Infinity",
-			"wins": 0,
-			"losses": 0,
+			"wins": 2,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "SG esports",
 			"abbrev": "SG",
-			"wins": 0,
-			"losses": 0,
+			"wins": 2,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{ 
 			"name": "Wolf Team",
 			"abbrev": "Wolf",
-			"wins": 0,
-			"losses": 0,
+			"wins": 1,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
 		{
-			"team1": "Infamous",
-			"team2": "TA",
-			"date": "06/09",
+			"team1": "Tempest",
+			"team2": "SG",
+			"date": "07/01",
 			"isTiebreaker": false
 		}, 
 		{
-			"team1": "Hokori",
-			"team2": "SG",
-			"date": "06/10",
+			"team1": "Infamous",
+			"team2": "bc",
+			"date": "07/01",
 			"isTiebreaker": false
 		}, 
 		{
 			"team1": "Infinity",
-			"team2": "bc",
-			"date": "06/10",
+			"team2": "Hokori",
+			"date": "07/03",
 			"isTiebreaker": false
 		}, 
 		{
 			"team1": "Wolf",
+			"team2": "TA",
+			"date": "07/03",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "TA",
+			"team2": "Infinity",
+			"date": "07/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "Hokori",
+			"date": "07/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infamous",
 			"team2": "Tempest",
-			"date": "06/12",
+			"date": "07/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "bc",
+			"team2": "SG",
+			"date": "07/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Tempest",
+			"team2": "Hokori",
+			"date": "07/10",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "Infinity",
+			"date": "07/10",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Wolf",
+			"team2": "SG",
+			"date": "07/14",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Infamous",
+			"team2": "Hokori",
+			"date": "07/15",
 			"isTiebreaker": false
 		}, 
 		{
 			"team1": "TA",
-			"team2": "SG",
-			"date": "06/12",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infamous",
-			"team2": "SG",
-			"date": "06/16",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Tempest",
-			"team2": "Infinity",
-			"date": "06/17",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
 			"team2": "bc",
-			"date": "06/17",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TA",
-			"team2": "Hokori",
-			"date": "06/19",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Tempest",
-			"team2": "bc",
-			"date": "06/19",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
-			"team2": "Infamous",
-			"date": "06/23",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infinity",
-			"team2": "SG",
-			"date": "06/24",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Tempest",
-			"team2": "TA",
-			"date": "06/24",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infamous",
-			"team2": "Infinity",
-			"date": "06/26",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Hokori",
-			"team2": "bc",
-			"date": "06/26",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
-			"team2": "Hokori",
-			"date": "06/30",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Tempest",
-			"team2": "SG",
-			"date": "07/01",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infamous",
-			"team2": "bc",
-			"date": "07/01",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infinity",
-			"team2": "Hokori",
-			"date": "07/03",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
-			"team2": "TA",
-			"date": "07/03",
+			"date": "07/15",
 			"isTiebreaker": false
 		}
 	]
