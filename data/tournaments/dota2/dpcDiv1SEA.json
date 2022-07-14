@@ -8,15 +8,15 @@
 		{
 			"name": "Fnatic",
 			"abbrev": "Fnatic",
-			"wins": 3,
-			"losses": 1,
+			"wins": 4,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "BOOM Esports",
 			"abbrev": "BOOM",
-			"wins": 4,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -24,8 +24,8 @@
 		{
 			"name": "T1",
 			"abbrev": "T1",
-			"wins": 2,
-			"losses": 2,
+			"wins": 3,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -33,7 +33,7 @@
 			"name": "Polaris Esports",
 			"abbrev": "Polaris",
 			"wins": 0,
-			"losses": 5,
+			"losses": 7,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -41,15 +41,15 @@
 			"name": "Nigma Galaxy SEA",
 			"abbrev": "NGX.SEA",
 			"wins": 1,
-			"losses": 5,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team SMG",
 			"abbrev": "SMG",
-			"wins": 2,
-			"losses": 3,
+			"wins": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -57,14 +57,14 @@
 			"name": "RSG",
 			"abbrev": "RSG",
 			"wins": 4,
-			"losses": 2,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{ 
 			"name": "Talon Esports",
 			"abbrev": "Talon",
-			"wins": 4,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0 
@@ -72,52 +72,16 @@
 	],
 	"matches": [
 		{
-			"team1": "SMG",
-			"team2": "Talon",
-			"date": "07/06",
-			"isTiebreaker": false
-		}, 
-		{
 			"team1": "Fnatic",
-			"team2": "Polaris",
-			"date": "07/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "BOOM",
 			"team2": "T1",
-			"date": "07/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "T1",
-			"team2": "Polaris",
-			"date": "07/09",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "BOOM",
-			"date": "07/09",
+			"date": "07/14",
 			"isTiebreaker": false
 		},
 		{
-			"team1": "SMG",
-			"team2": "NGX.SEA",
-			"date": "07/13",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "T1",
-			"date": "07/13",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Talon",
-			"team2": "RSG",
-			"date": "07/14",
-			"isTiebreaker": false
+			"team1": "BOOM",
+			"team2": "Talon",
+			"date": "07/16",
+			"isTiebreaker": true
 		}
 	]
 }

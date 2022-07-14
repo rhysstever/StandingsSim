@@ -8,7 +8,7 @@
 		{
 			"name": "Thunder Awaken",
 			"abbrev": "TA",
-			"wins": 3,
+			"wins": 5,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -16,7 +16,7 @@
 		{
 			"name": "beastcoast",
 			"abbrev": "bc",
-			"wins": 4,
+			"wins": 5,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -24,23 +24,23 @@
 		{
 			"name": "Hokori",
 			"abbrev": "HKR",
-			"wins": 0,
-			"losses": 4,
+			"wins": 1,
+			"losses": 5,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Tempest",
 			"abbrev": "Tempest",
-			"wins": 2,
-			"losses": 3,
+			"wins": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Infamous",
 			"abbrev": "INF.U",
-			"wins": 3,
+			"wins": 4,
 			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -49,7 +49,7 @@
 			"name": "Infinity",
 			"abbrev": "Infinity",
 			"wins": 2,
-			"losses": 2,
+			"losses": 5,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -57,80 +57,20 @@
 			"name": "SG esports",
 			"abbrev": "SG",
 			"wins": 2,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{ 
 			"name": "Wolf Team",
 			"abbrev": "Wolf",
-			"wins": 1,
-			"losses": 2,
+			"wins": 3,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
-		{
-			"team1": "Tempest",
-			"team2": "SG",
-			"date": "07/01",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infamous",
-			"team2": "bc",
-			"date": "07/01",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infinity",
-			"team2": "Hokori",
-			"date": "07/03",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
-			"team2": "TA",
-			"date": "07/03",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "TA",
-			"team2": "Infinity",
-			"date": "07/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
-			"team2": "Hokori",
-			"date": "07/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infamous",
-			"team2": "Tempest",
-			"date": "07/08",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "bc",
-			"team2": "SG",
-			"date": "07/08",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Tempest",
-			"team2": "Hokori",
-			"date": "07/10",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Wolf",
-			"team2": "Infinity",
-			"date": "07/10",
-			"isTiebreaker": false
-		}, 
 		{
 			"team1": "Wolf",
 			"team2": "SG",

@@ -8,32 +8,32 @@
 		{
 			"name": "PSG.LGD",
 			"abbrev": "PSG.LGD",
-			"wins": 2,
-			"losses": 2,
+			"wins": 3,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Xtreme Gaming",
 			"abbrev": "Xtreme",
-			"wins": 3,
-			"losses": 1,
+			"wins": 4,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Aster",
 			"abbrev": "Aster",
-			"wins": 3,
-			"losses": 1,
+			"wins": 4,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Royal Never Give Up",
 			"abbrev": "RNG",
-			"wins": 3,
-			"losses": 1,
+			"wins": 5,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -41,15 +41,15 @@
 			"name": "Vici Gaming",
 			"abbrev": "VG",
 			"wins": 3,
-			"losses": 2,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "EHOME",
 			"abbrev": "EHOME",
-			"wins": 1,
-			"losses": 3,
+			"wins": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -57,14 +57,14 @@
 			"name": "Dandelion Esports Club",
 			"abbrev": "DEC",
 			"wins": 1,
-			"losses": 4,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{ 
 			"name": "Aster.Aries",
 			"abbrev": "Aries",
-			"wins": 1,
+			"wins": 4,
 			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0 
@@ -72,70 +72,16 @@
 	],
 	"matches": [
 		{
-			"team1": "Aster",
-			"team2": "RNG",
-			"date": "07/03",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "PSG.LGD",
-			"team2": "Xtreme",
-			"date": "07/03",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "EHOME",
-			"team2": "Aries",
-			"date": "07/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "VG",
-			"team2": "Aries",
-			"date": "07/05",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "Aster",
-			"team2": "Xtreme",
-			"date": "07/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "RNG",
-			"team2": "Xtreme",
-			"date": "07/08",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "EHOME",
-			"team2": "DEC",
-			"date": "07/10",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "PSG.LGD",
-			"team2": "RNG",
-			"date": "07/10",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "Aries",
-			"team2": "DEC",
-			"date": "07/12",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "EHOME",
-			"team2": "VG",
-			"date": "07/12",
-			"isTiebreaker": false
-		},
-		{
 			"team1": "PSG.LGD",
 			"team2": "Aster",
 			"date": "07/15",
 			"isTiebreaker": false
+		},
+		{
+			"team1": "EHOME",
+			"team2": "VG",
+			"date": "07/17",
+			"isTiebreaker": true
 		}
 	]
 }

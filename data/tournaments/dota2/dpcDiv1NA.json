@@ -8,7 +8,7 @@
 		{
 			"name": "Evil Geniuses",
 			"abbrev": "EG",
-			"wins": 3,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -16,31 +16,31 @@
 		{
 			"name": "TSM",
 			"abbrev": "TSM",
-			"wins": 2,
-			"losses": 2,
+			"wins": 4,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Quincy Crew",
 			"abbrev": "QC",
-			"wins": 5,
-			"losses": 0,
+			"wins": 6,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Wildcard Gaming",
 			"abbrev": "WG",
-			"wins": 2,
-			"losses": 3,
+			"wins": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "nouns",
 			"abbrev": "nouns",
-			"wins": 4,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -49,7 +49,7 @@
 			"name": "The Cut",
 			"abbrev": "Cut",
 			"wins": 1,
-			"losses": 4,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -57,15 +57,15 @@
 			"name": "5RATFORCESTAFF",
 			"abbrev": "5RFS",
 			"wins": 1,
-			"losses": 3,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{ 
 			"name": "felt",
 			"abbrev": "felt",
-			"wins": 0,
-			"losses": 4,
+			"wins": 1,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
@@ -73,63 +73,21 @@
 	"matches": [
 		{
 			"team1": "EG",
-			"team2": "5RFS",
-			"date": "07/02",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TSM",
-			"team2": "felt",
-			"date": "07/02",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "EG",
-			"team2": "felt",
-			"date": "07/05",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "TSM",
-			"team2": "nouns",
-			"date": "07/06",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "QC",
-			"team2": "Cut",
-			"date": "07/06",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "WG",
-			"team2": "5RFS",
-			"date": "07/09",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "Cut",
-			"team2": "felt",
-			"date": "07/09",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "5RFS",
-			"team2": "nouns",
-			"date": "07/12",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "TSM",
-			"team2": "WG",
-			"date": "07/13",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "EG",
 			"team2": "QC",
-			"date": "07/13",
-			"isTiebreaker": false
+			"date": "07/15",
+			"isTiebreaker": true
+		}, 
+		{
+			"team1": "nouns",
+			"team2": "QC",
+			"date": "07/15",
+			"isTiebreaker": true
+		}, 
+		{
+			"team1": "EG",
+			"team2": "nouns",
+			"date": "07/15",
+			"isTiebreaker": true
 		}
 	]
 }

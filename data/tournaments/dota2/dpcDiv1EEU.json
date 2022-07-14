@@ -8,16 +8,16 @@
 		{
 			"name": "BetBoom Team",
 			"abbrev": "BB",
-			"wins": 3,
-			"losses": 1,
+			"wins": 4,
+			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Spirit",
 			"abbrev": "TSpirit",
-			"wins": 4,
-			"losses": 0,
+			"wins": 5,
+			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -25,7 +25,7 @@
 			"name": "Mind Games",
 			"abbrev": "MG",
 			"wins": 1,
-			"losses": 4,
+			"losses": 5,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -33,14 +33,14 @@
 			"name": "Pari Parni",
 			"abbrev": "Pari",
 			"wins": 1,
-			"losses": 4,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Outsiders",
 			"abbrev": "Otsd",
-			"wins": 2,
+			"wins": 5,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -48,7 +48,7 @@
 		{
 			"name": "Natus Vincere",
 			"abbrev": "NAVI",
-			"wins": 4,
+			"wins": 5,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -56,7 +56,7 @@
 		{
 			"name": "One Move",
 			"abbrev": "OM",
-			"wins": 2,
+			"wins": 3,
 			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -65,54 +65,12 @@
 			"name": "Rune Eaters Esports",
 			"abbrev": "RE",
 			"wins": 1,
-			"losses": 4,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
 	"matches": [
-		{
-			"team1": "RE",
-			"team2": "Otsd",
-			"date": "07/03",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Pari",
-			"team2": "BB",
-			"date": "07/03",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "TSpirit",
-			"team2": "Otsd",
-			"date": "07/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OM",
-			"team2": "Pari",
-			"date": "07/08",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "NAVI",
-			"team2": "RE",
-			"date": "07/08",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TSpirit",
-			"team2": "MG",
-			"date": "07/10",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "BB",
-			"team2": "Otsd",
-			"date": "07/10",
-			"isTiebreaker": false
-		}, 
 		{
 			"team1": "TSpirit",
 			"team2": "BB",
