@@ -3,7 +3,7 @@
 	"tabName": "DPC NA Div 1",
 	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/North_America/Division_I",
 	"hasTieMatches": false,
-	"isComplete": false,
+	"isComplete": true,
 	"teams": [
 		{
 			"name": "Evil Geniuses",
@@ -11,7 +11,7 @@
 			"wins": 6,
 			"losses": 1,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 2
 		}, 
 		{
 			"name": "TSM",
@@ -27,7 +27,7 @@
 			"wins": 6,
 			"losses": 1,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "Wildcard Gaming",
@@ -51,7 +51,7 @@
 			"wins": 1,
 			"losses": 6,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "5RATFORCESTAFF",
@@ -59,7 +59,7 @@
 			"wins": 1,
 			"losses": 6,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 2
 		}, 
 		{ 
 			"name": "felt",
@@ -70,24 +70,5 @@
 			"tiebreakerWins": 0 
 		}	
 	],
-	"matches": [
-		{
-			"team1": "EG",
-			"team2": "QC",
-			"date": "07/15",
-			"isTiebreaker": true
-		}, 
-		{
-			"team1": "nouns",
-			"team2": "QC",
-			"date": "07/15",
-			"isTiebreaker": true
-		}, 
-		{
-			"team1": "EG",
-			"team2": "nouns",
-			"date": "07/15",
-			"isTiebreaker": true
-		}
-	]
+	"matches": []
 }

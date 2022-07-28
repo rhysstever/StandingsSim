@@ -3,12 +3,12 @@
 	"tabName": "DPC SEA Div 1",
 	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/Southeast_Asia/Division_I",
 	"hasTieMatches": false,
-	"isComplete": false,
+	"isComplete": true,
 	"teams": [
 		{
 			"name": "Fnatic",
 			"abbrev": "Fnatic",
-			"wins": 4,
+			"wins": 5,
 			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -19,13 +19,13 @@
 			"wins": 6,
 			"losses": 1,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "T1",
 			"abbrev": "T1",
 			"wins": 3,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -70,18 +70,5 @@
 			"tiebreakerWins": 0 
 		}	
 	],
-	"matches": [
-		{
-			"team1": "Fnatic",
-			"team2": "T1",
-			"date": "07/14",
-			"isTiebreaker": false
-		},
-		{
-			"team1": "BOOM",
-			"team2": "Talon",
-			"date": "07/16",
-			"isTiebreaker": true
-		}
-	]
+	"matches": []
 }

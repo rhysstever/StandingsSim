@@ -6,72 +6,64 @@
 	"isComplete": false,
 	"teams": [
 		{
-			"name": "team10",
-			"abbrev": "team10",
+			"name": "beastcoast",
+			"abbrev": "bc",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team11",
-			"abbrev": "team11",
+			"name": "BOOM Esports",
+			"abbrev": "BOOM",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team12",
-			"abbrev": "team12",
+			"name": "Entity",
+			"abbrev": "Entity",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team13",
-			"abbrev": "team13",
+			"name": "Evil Geniusus",
+			"abbrev": "EG",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team14",
-			"abbrev": "team14",
+			"name": "Natus Vincere",
+			"abbrev": "NAVI",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		},
 		{
-			"name": "team15",
-			"abbrev": "team15",
+			"name": "Team Aster",
+			"abbrev": "Aster",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team16",
-			"abbrev": "team16",
+			"name": "Team Spirit",
+			"abbrev": "TSpirit",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team17",
-			"abbrev": "team17",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
-			"tiebreakerWins": 0
-		}, 
-		{
-			"name": "team18",
-			"abbrev": "team18",
+			"name": "Tundra Esports",
+			"abbrev": "Tundra",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,

@@ -6,72 +6,72 @@
 	"isComplete": false,
 	"teams": [
 		{
-			"name": "team1",
-			"abbrev": "team1",
+			"name": "Fnatic",
+			"abbrev": "Fnatic",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team2",
-			"abbrev": "team2",
+			"name": "OG",
+			"abbrev": "OG",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team3",
-			"abbrev": "team3",
+			"name": "Outsiders",
+			"abbrev": "Otsd",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team4",
-			"abbrev": "team4",
+			"name": "PSG.LGD",
+			"abbrev": "PSG.LGD",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team5",
-			"abbrev": "team5",
+			"name": "Quincy Crew",
+			"abbrev": "QC",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team6",
-			"abbrev": "team6",
+			"name": "Royal Never Give Up",
+			"abbrev": "RNG",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team7",
-			"abbrev": "team7",
+			"name": "Talon Esports",
+			"abbrev": "Talon",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team8",
-			"abbrev": "team8",
+			"name": "Team Liquid",
+			"abbrev": "TL",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "team9",
-			"abbrev": "team9",
+			"name": "Thunder Awaken",
+			"abbrev": "TA",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,

@@ -3,20 +3,20 @@
 	"tabName": "DPC EEU Div 1",
 	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/Eastern_Europe/Division_I",
 	"hasTieMatches": false,
-	"isComplete": false,
+	"isComplete": true,
 	"teams": [
 		{
 			"name": "BetBoom Team",
 			"abbrev": "BB",
 			"wins": 4,
-			"losses": 2,
+			"losses": 3,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Spirit",
 			"abbrev": "TSpirit",
-			"wins": 5,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -25,9 +25,9 @@
 			"name": "Mind Games",
 			"abbrev": "MG",
 			"wins": 1,
-			"losses": 5,
+			"losses": 6,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 2
 		}, 
 		{
 			"name": "Pari Parni",
@@ -35,29 +35,29 @@
 			"wins": 1,
 			"losses": 6,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "Outsiders",
 			"abbrev": "Otsd",
-			"wins": 5,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 2
 		}, 
 		{
 			"name": "Natus Vincere",
 			"abbrev": "NAVI",
-			"wins": 5,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "One Move",
 			"abbrev": "OM",
 			"wins": 3,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -70,24 +70,5 @@
 			"tiebreakerWins": 0 
 		}	
 	],
-	"matches": [
-		{
-			"team1": "TSpirit",
-			"team2": "BB",
-			"date": "07/14",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "NAVI",
-			"team2": "OM",
-			"date": "07/15",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "MG",
-			"team2": "Otsd",
-			"date": "07/15",
-			"isTiebreaker": false
-		}
-	]
+	"matches": []
 }

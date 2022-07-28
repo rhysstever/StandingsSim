@@ -3,7 +3,7 @@
 	"tabName": "DPC WEU Div 1",
 	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/Western_Europe/Division_I",
 	"hasTieMatches": false,
-	"isComplete": false,
+	"isComplete": true,
 	"teams": [
 		{
 			"name": "OG",
@@ -19,7 +19,7 @@
 			"wins": 5,
 			"losses": 2,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "Gaimin Gladiators",
@@ -27,7 +27,7 @@
 			"wins": 2,
 			"losses": 5,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "Tundra Esports",
@@ -51,7 +51,7 @@
 			"wins": 4,
 			"losses": 3,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "goonsquad",
@@ -70,24 +70,5 @@
 			"tiebreakerWins": 0 
 		}	
 	],
-	"matches": [
-		{
-			"team1": "GG",
-			"team2": "GS",
-			"date": "07/16",
-			"isTiebreaker": true
-		},
-		{
-			"team1": "Secret",
-			"team2": "Entity",
-			"date": "07/16",
-			"isTiebreaker": true
-		},
-		{
-			"team1": "TL",
-			"team2": "OG",
-			"date": "07/16",
-			"isTiebreaker": true
-		}
-	]
+	"matches": []
 }

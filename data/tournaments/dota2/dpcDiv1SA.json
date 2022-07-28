@@ -3,12 +3,12 @@
 	"tabName": "DPC SA Div 1",
 	"source": "https://liquipedia.net/dota2/Dota_Pro_Circuit/2021-22/3/South_America/Division_I",
 	"hasTieMatches": false,
-	"isComplete": false,
+	"isComplete": true,
 	"teams": [
 		{
 			"name": "Thunder Awaken",
 			"abbrev": "TA",
-			"wins": 5,
+			"wins": 6,
 			"losses": 1,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -17,15 +17,15 @@
 			"name": "beastcoast",
 			"abbrev": "bc",
 			"wins": 5,
-			"losses": 1,
+			"losses": 2,
 			"draws": 0,
-			"tiebreakerWins": 0
+			"tiebreakerWins": 1
 		}, 
 		{
 			"name": "Hokori",
 			"abbrev": "HKR",
 			"wins": 1,
-			"losses": 5,
+			"losses": 6,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
@@ -40,7 +40,7 @@
 		{
 			"name": "Infamous",
 			"abbrev": "INF.U",
-			"wins": 4,
+			"wins": 5,
 			"losses": 2,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -56,7 +56,7 @@
 		{
 			"name": "SG esports",
 			"abbrev": "SG",
-			"wins": 2,
+			"wins": 3,
 			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0
@@ -65,29 +65,10 @@
 			"name": "Wolf Team",
 			"abbrev": "Wolf",
 			"wins": 3,
-			"losses": 3,
+			"losses": 4,
 			"draws": 0,
 			"tiebreakerWins": 0 
 		}	
 	],
-	"matches": [
-		{
-			"team1": "Wolf",
-			"team2": "SG",
-			"date": "07/14",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Infamous",
-			"team2": "Hokori",
-			"date": "07/15",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TA",
-			"team2": "bc",
-			"date": "07/15",
-			"isTiebreaker": false
-		}
-	]
+	"matches": []
 }
