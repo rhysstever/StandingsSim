@@ -36,8 +36,8 @@ const loadTournaments = () => {
 	tournaments.push(createTournament(dpcDiv1WEU, colorSchemeTeams8Top4Bottom2));
 	
 	// === to add once the teams qualify (end of tour 3) ===
-	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorSchemeTeams9Top4Bottom3));
-	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorSchemeTeams9Top4Bottom3));
+	tournaments.push(createTournament(arlingtonMajorGroupStageA, colorSchemeTeams9Top4Bottom3));
+	tournaments.push(createTournament(arlingtonMajorGroupStageB, colorSchemeTeams9Top4Bottom3));
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
