@@ -70,5 +70,174 @@
 			"tiebreakerWins": 0
 		}
 	],
-	"matches": []
+	"matches": [
+		{
+			"team1": "EG",
+			"team2": "Aster",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "Tundra",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "Entity",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TSpirit",
+			"team2": "bc",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Aster",
+			"team2": "Entity",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "BOOM",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TSpirit",
+			"team2": "Tundra",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "bc",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "Aster",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "TSpirit",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Tundra",
+			"team2": "Entity",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "bc",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Aster",
+			"team2": "TSpirit",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "BOOM",
+			"team2": "Entity",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "bc",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "Tundra",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "BOOM",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Aster",
+			"team2": "bc",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TSpirit",
+			"team2": "Entity",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "Tundra",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "EG",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "bc",
+			"team2": "Entity",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Aster",
+			"team2": "Tundra",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TSpirit",
+			"team2": "BOOM",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "EG",
+			"team2": "Entity",
+			"date": "08/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "NAVI",
+			"team2": "TSpirit",
+			"date": "08/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "bc",
+			"team2": "Tundra",
+			"date": "08/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Aster",
+			"team2": "BOOM",
+			"date": "08/08",
+			"isTiebreaker": false
+		}
+	]
 }

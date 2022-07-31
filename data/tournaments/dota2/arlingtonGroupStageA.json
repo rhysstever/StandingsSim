@@ -78,5 +78,222 @@
 			"tiebreakerWins": 0
 		}
 	],
-	"matches": []
+	"matches": [
+		{
+			"team1": "QC",
+			"team2": "TL",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Otsd",
+			"team2": "RNG",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "OG",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "PSG.LGD",
+			"team2": "Talon",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TL",
+			"team2": "OG",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "Otsd",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Talon",
+			"team2": "TA",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "RNG",
+			"team2": "QC",
+			"date": "08/04",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "PSG.LGD",
+			"team2": "OG",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "RNG",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Otsd",
+			"team2": "Talon",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TA",
+			"team2": "QC",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "Talon",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TL",
+			"team2": "Otsd",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TA",
+			"team2": "RNG",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "PSG.LGD",
+			"date": "08/05",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "RNG",
+			"team2": "Talon",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "TA",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TL",
+			"team2": "PSG.LGD",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "OG",
+			"team2": "QC",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "OG",
+			"team2": "RNG",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Otsd",
+			"team2": "TA",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "PSG.LGD",
+			"team2": "QC",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TL",
+			"team2": "Fnatic",
+			"date": "08/06",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Talon",
+			"team2": "TL",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "OG",
+			"team2": "TA",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "PSG.LGD",
+			"team2": "Otsd",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "Fnatic",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TA",
+			"team2": "TL",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "OG",
+			"team2": "Otsd",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Fnatic",
+			"team2": "Talon",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "RNG",
+			"team2": "PSG.LGD",
+			"date": "08/07",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "QC",
+			"team2": "Otsd",
+			"date": "08/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "RNG",
+			"team2": "TL",
+			"date": "08/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "Talon",
+			"team2": "OG",
+			"date": "08/08",
+			"isTiebreaker": false
+		}, 
+		{
+			"team1": "TA",
+			"team2": "PSG.LGD",
+			"date": "08/08",
+			"isTiebreaker": false
+		}
+	]
 }
