@@ -38,8 +38,8 @@
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "Quincy Crew",
-			"abbrev": "QC",
+			"name": "Soniqs",
+			"abbrev": "Soniqs",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
@@ -80,7 +80,7 @@
 	],
 	"matches": [
 		{
-			"team1": "QC",
+			"team1": "Soniqs",
 			"team2": "TL",
 			"date": "08/04",
 			"isTiebreaker": false
@@ -123,7 +123,7 @@
 		}, 
 		{
 			"team1": "RNG",
-			"team2": "QC",
+			"team2": "Soniqs",
 			"date": "08/04",
 			"isTiebreaker": false
 		}, 
@@ -147,12 +147,12 @@
 		}, 
 		{
 			"team1": "TA",
-			"team2": "QC",
+			"team2": "Soniqs",
 			"date": "08/05",
 			"isTiebreaker": false
 		}, 
 		{
-			"team1": "QC",
+			"team1": "Soniqs",
 			"team2": "Talon",
 			"date": "08/05",
 			"isTiebreaker": false
@@ -195,7 +195,7 @@
 		}, 
 		{
 			"team1": "OG",
-			"team2": "QC",
+			"team2": "Soniqs",
 			"date": "08/06",
 			"isTiebreaker": false
 		}, 
@@ -213,7 +213,7 @@
 		}, 
 		{
 			"team1": "PSG.LGD",
-			"team2": "QC",
+			"team2": "Soniqs",
 			"date": "08/06",
 			"isTiebreaker": false
 		}, 
@@ -242,7 +242,7 @@
 			"isTiebreaker": false
 		}, 
 		{
-			"team1": "QC",
+			"team1": "Soniqs",
 			"team2": "Fnatic",
 			"date": "08/07",
 			"isTiebreaker": false
@@ -272,7 +272,7 @@
 			"isTiebreaker": false
 		}, 
 		{
-			"team1": "QC",
+			"team1": "Soniqs",
 			"team2": "Otsd",
 			"date": "08/08",
 			"isTiebreaker": false
