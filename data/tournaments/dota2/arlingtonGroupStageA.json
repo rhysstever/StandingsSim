@@ -8,245 +8,77 @@
 		{
 			"name": "Fnatic",
 			"abbrev": "Fnatic",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"wins": 2,
+			"draws": 4,
+			"losses": 1,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "OG",
 			"abbrev": "OG",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"wins": 2,
+			"draws": 3,
+			"losses": 1,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Outsiders",
 			"abbrev": "Otsd",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"wins": 1,
+			"draws": 4,
+			"losses": 1,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "PSG.LGD",
 			"abbrev": "PSG.LGD",
-			"wins": 0,
+			"wins": 5,
+			"draws": 1,
 			"losses": 0,
-			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Soniqs",
 			"abbrev": "Soniqs",
 			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"draws": 4,
+			"losses": 3,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Royal Never Give Up",
 			"abbrev": "RNG",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"wins": 2,
+			"draws": 3,
+			"losses": 1,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Talon Esports",
 			"abbrev": "Talon",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"wins": 1,
+			"draws": 2,
+			"losses": 3,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Team Liquid",
 			"abbrev": "TL",
-			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"wins": 1,
+			"draws": 3,
+			"losses": 2,
 			"tiebreakerWins": 0
 		}, 
 		{
 			"name": "Thunder Awaken",
 			"abbrev": "TA",
 			"wins": 0,
-			"losses": 0,
-			"draws": 0,
+			"draws": 4,
+			"losses": 2,
 			"tiebreakerWins": 0
 		}
 	],
 	"matches": [
-		{
-			"team1": "Soniqs",
-			"team2": "TL",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Otsd",
-			"team2": "RNG",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "OG",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "PSG.LGD",
-			"team2": "Talon",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "OG",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "Otsd",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Talon",
-			"team2": "TA",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "RNG",
-			"team2": "Soniqs",
-			"date": "08/04",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "PSG.LGD",
-			"team2": "OG",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "RNG",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Otsd",
-			"team2": "Talon",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TA",
-			"team2": "Soniqs",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Soniqs",
-			"team2": "Talon",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "Otsd",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TA",
-			"team2": "RNG",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "PSG.LGD",
-			"date": "08/05",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "RNG",
-			"team2": "Talon",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Fnatic",
-			"team2": "TA",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "PSG.LGD",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "Soniqs",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "RNG",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Otsd",
-			"team2": "TA",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "PSG.LGD",
-			"team2": "Soniqs",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "TL",
-			"team2": "Fnatic",
-			"date": "08/06",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Talon",
-			"team2": "TL",
-			"date": "08/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "OG",
-			"team2": "TA",
-			"date": "08/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "PSG.LGD",
-			"team2": "Otsd",
-			"date": "08/07",
-			"isTiebreaker": false
-		}, 
-		{
-			"team1": "Soniqs",
-			"team2": "Fnatic",
-			"date": "08/07",
-			"isTiebreaker": false
-		}, 
 		{
 			"team1": "TA",
 			"team2": "TL",
