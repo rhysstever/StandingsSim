@@ -1,0 +1,149 @@
+{
+	"name": "ESL One Malaysia 2022 - Group A",
+	"tabName": "ESL One Malaysia - Group A",
+	"source": "https://liquipedia.net/dota2/ESL_One/Malaysia/2022#Group_A",
+	"hasTieMatches": true,
+	"isComplete": false,
+	"teams": [
+		{
+			"name": "Alliance",
+			"abbrev": "[A]",
+			"wins": 0,
+			"draws": 0,
+			"losses": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Entity",
+			"abbrev": "Entity",
+			"wins": 0,
+			"draws": 0,
+			"losses": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Talon Esports",
+			"abbrev": "Talon",
+			"wins": 0,
+			"draws": 0,
+			"losses": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Aster",
+			"abbrev": "Aster",
+			"wins": 0,
+			"draws": 0,
+			"losses": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Secret",
+			"abbrev": "Secret",
+			"wins": 0,
+			"draws": 0,
+			"losses": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Thunder Awaken",
+			"abbrev": "TA",
+			"wins": 0,
+			"draws": 0,
+			"losses": 0,
+			"tiebreakerWins": 0
+		}
+	],
+	"matches": [
+		{
+			"team1": "Aster",
+			"team2": "Talon",
+			"date": "08/23",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Entity",
+			"team2": "Alliance",
+			"date": "08/23",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Secret",
+			"team2": "TA",
+			"date": "08/23",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Secret",
+			"team2": "Alliance",
+			"date": "08/23",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Aster",
+			"team2": "TA",
+			"date": "08/23",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Entity",
+			"team2": "Talon",
+			"date": "08/23",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Aster",
+			"team2": "Secret",
+			"date": "08/24",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Talon",
+			"team2": "Alliance",
+			"date": "08/24",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Entity",
+			"team2": "Secret",
+			"date": "08/24",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Entity",
+			"team2": "TA",
+			"date": "08/24",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Aster",
+			"team2": "Alliance",
+			"date": "08/24",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Talon",
+			"team2": "TA",
+			"date": "08/24",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Entity",
+			"team2": "Aster",
+			"date": "08/25",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "Secret",
+			"team2": "Talon",
+			"date": "08/25",
+			"isTiebreaker": false
+		},
+		{
+			"team1": "TA",
+			"team2": "Alliance",
+			"date": "08/25",
+			"isTiebreaker": false
+		}
+	]
+}

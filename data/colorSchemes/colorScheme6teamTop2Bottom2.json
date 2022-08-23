@@ -1,0 +1,10 @@
+{
+	"count": 6,
+	"base": "yellow",
+	"extras": {
+		"1": "green",
+		"2": "green",
+		"5": "red",
+		"6": "red" 
+	}
+}

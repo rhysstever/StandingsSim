@@ -15,9 +15,12 @@ import dpcDiv1SEA from '../data/tournaments/dota2/dpcDiv1SEA.json' assert {type:
 import dpcDiv1WEU from '../data/tournaments/dota2/dpcDivWEU.json' assert {type: 'json'}; 
 import arlingtonMajorGroupStageA from '../data/tournaments/dota2/arlingtonGroupStageA.json' assert {type: 'json'}; 
 import arlingtonMajorGroupStageB from '../data/tournaments/dota2/arlingtonGroupStageB.json' assert {type: 'json'}; 
+import malaysiaMajorGroupStageA from '../data/tournaments/dota2/malaysiaGroupStageA.json' assert {type: 'json'}; 
+import malaysiaMajorGroupStageB from '../data/tournaments/dota2/malaysiaGroupStageB.json' assert {type: 'json'}; 
 
 // Color Schemes
 import colorSchemeTeams4Top2Bottom2 from '../data/colorSchemes/colorScheme4teamTop2Bottom2.json' assert {type: 'json'}; 
+import colorSchemeTeams6Top2Bottom2 from '../data/colorSchemes/colorScheme6teamTop2Bottom2.json' assert {type: 'json'}; 
 import colorSchemeTeams8Top2Bottom2 from '../data/colorSchemes/colorScheme8teamTop2Bottom2.json' assert {type: 'json'}; 
 import colorSchemeTeams8Top3Bottom2 from '../data/colorSchemes/colorScheme8teamTop3Bottom2.json' assert {type: 'json'}; 
 import colorSchemeTeams8Top4Bottom2 from '../data/colorSchemes/colorScheme8teamTop4Bottom2.json' assert {type: 'json'}; 
@@ -27,17 +30,23 @@ let demos = [];
 let tournaments = [];
 
 const loadTournaments = () => {
-	// Create each tournament
+	// === Create each tournament ===
+
+	// Regional Seasons
 	tournaments.push(createTournament(dpcDiv1CN, colorSchemeTeams8Top4Bottom2));
 	tournaments.push(createTournament(dpcDiv1EEU, colorSchemeTeams8Top3Bottom2));
 	tournaments.push(createTournament(dpcDiv1NA, colorSchemeTeams8Top2Bottom2));
 	tournaments.push(createTournament(dpcDiv1SA, colorSchemeTeams8Top2Bottom2));
 	tournaments.push(createTournament(dpcDiv1SEA, colorSchemeTeams8Top3Bottom2));
 	tournaments.push(createTournament(dpcDiv1WEU, colorSchemeTeams8Top4Bottom2));
-	
-	// === to add once the teams qualify (end of tour 3) ===
+
+	// Major GS
 	tournaments.push(createTournament(arlingtonMajorGroupStageA, colorSchemeTeams9Top4Bottom3));
 	tournaments.push(createTournament(arlingtonMajorGroupStageB, colorSchemeTeams9Top4Bottom3));
+
+	// Malaysia Tournament
+	tournaments.push(createTournament(malaysiaMajorGroupStageA, colorSchemeTeams6Top2Bottom2));
+	tournaments.push(createTournament(malaysiaMajorGroupStageB, colorSchemeTeams6Top2Bottom2));
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
