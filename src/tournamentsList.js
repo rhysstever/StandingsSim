@@ -15,8 +15,9 @@ import dpcDiv1SEA from '../data/tournaments/dota2/dpcDiv1SEA.json' assert {type:
 import dpcDiv1WEU from '../data/tournaments/dota2/dpcDivWEU.json' assert {type: 'json'}; 
 import arlingtonMajorGroupStageA from '../data/tournaments/dota2/arlingtonGroupStageA.json' assert {type: 'json'}; 
 import arlingtonMajorGroupStageB from '../data/tournaments/dota2/arlingtonGroupStageB.json' assert {type: 'json'}; 
-import malaysiaMajorGroupStageA from '../data/tournaments/dota2/malaysiaGroupStageA.json' assert {type: 'json'}; 
-import malaysiaMajorGroupStageB from '../data/tournaments/dota2/malaysiaGroupStageB.json' assert {type: 'json'}; 
+import tiGroupStageA from '../data/tournaments/dota2/ti2022GroupStageA.json' assert {type: 'json'};
+import tiGroupStageB from '../data/tournaments/dota2/ti2022GroupStageB.json' assert {type: 'json'};
+import tiLastChanceQuals from '../data/tournaments/dota2/ti2022LastChanceQuals.json' assert {type: 'json'};
 
 // Color Schemes
 import colorSchemeTeams4Top2Bottom2 from '../data/colorSchemes/colorScheme4teamTop2Bottom2.json' assert {type: 'json'}; 
@@ -44,9 +45,9 @@ const loadTournaments = () => {
 	tournaments.push(createTournament(arlingtonMajorGroupStageA, colorSchemeTeams9Top4Bottom3));
 	tournaments.push(createTournament(arlingtonMajorGroupStageB, colorSchemeTeams9Top4Bottom3));
 
-	// Malaysia Tournament
-	tournaments.push(createTournament(malaysiaMajorGroupStageA, colorSchemeTeams6Top2Bottom2));
-	tournaments.push(createTournament(malaysiaMajorGroupStageB, colorSchemeTeams6Top2Bottom2));
+	// TI Last Chance Quals
+	
+	// TI Group Stages
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");
