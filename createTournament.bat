@@ -1,13 +1,27 @@
 @echo off 
 
-set /p fileName= "Enter the name of the file for the tournament (no spaces) :"
+set /p dirName= "Enter the folder name of the tournament (no spaces) :"
+md C:\Users\Rhys\Desktop\PersonalProjects\StandingsSimulator\data\tournaments\dota2\%dirName%
+
 set /p name= "Enter the tournament name :"
 set /p tabName= "Enter the tournament's tab name :"
 set /p link= "Enter the tournament link :"
+set /p hasTies= "Does the tournament have tieable matches? (true or false) :"
 
-set /p teamName= "Enter in the team name :" 
-set /p teamTag= "Enter in the team tag :" 
+> %dirName%.json echo { "name": "%name%", "tabName": "%tabName%", "source": "%link%", "hasTieMatches": %hasTies%, "isComplete": false }
 
-> %fileName%.json echo { "name": %teamName%, "abbrev": %teamTag%, "wins": 0, "losses": 0, "draws": 0, "tiebreakerWins": 0 }
+move %dirName%.json C:\Users\Rhys\Desktop\PersonalProjects\StandingsSimulator\data\tournaments\dota2\%dirName%
 
-echo "Team %teamName% created"
+echo
+echo "Tournament created: %name%"
+echo
+
+set teamFileName= "%dirName%teams"
+
+> %teamFileName%.json echo { "teams": [] }
+
+move %teamFileName%.json C:\Users\Rhys\Desktop\PersonalProjects\StandingsSimulator\data\tournaments\dota2\%dirName%
+
+echo
+echo "Teams created: %name%"
+echo
