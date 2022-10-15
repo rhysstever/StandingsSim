@@ -17,7 +17,6 @@ import arlingtonMajorGroupStageA from '../data/tournaments/dota2/arlingtonGroupS
 import arlingtonMajorGroupStageB from '../data/tournaments/dota2/arlingtonGroupStageB.json' assert {type: 'json'}; 
 import tiGroupStageA from '../data/tournaments/dota2/ti2022GroupStageA.json' assert {type: 'json'};
 import tiGroupStageB from '../data/tournaments/dota2/ti2022GroupStageB.json' assert {type: 'json'};
-import tiLastChanceQuals from '../data/tournaments/dota2/ti2022LastChanceQuals.json' assert {type: 'json'};
 
 // Color Schemes
 import colorSchemeTeams4Top2Bottom2 from '../data/colorSchemes/colorScheme4teamTop2Bottom2.json' assert {type: 'json'}; 
@@ -26,6 +25,7 @@ import colorSchemeTeams8Top2Bottom2 from '../data/colorSchemes/colorScheme8teamT
 import colorSchemeTeams8Top3Bottom2 from '../data/colorSchemes/colorScheme8teamTop3Bottom2.json' assert {type: 'json'}; 
 import colorSchemeTeams8Top4Bottom2 from '../data/colorSchemes/colorScheme8teamTop4Bottom2.json' assert {type: 'json'}; 
 import colorSchemeTeams9Top4Bottom3 from '../data/colorSchemes/colorScheme9teamTop4Bottom3.json' assert {type: 'json'}; 
+import colorSchemeTeams10Top4Bottom2 from '../data/colorSchemes/colorScheme10teamTop4Bottom2.json' assert {type: 'json'}; 
 
 let demos = [];
 let tournaments = [];
@@ -34,20 +34,20 @@ const loadTournaments = () => {
 	// === Create each tournament ===
 
 	// Regional Seasons
-	tournaments.push(createTournament(dpcDiv1CN, colorSchemeTeams8Top4Bottom2));
-	tournaments.push(createTournament(dpcDiv1EEU, colorSchemeTeams8Top3Bottom2));
-	tournaments.push(createTournament(dpcDiv1NA, colorSchemeTeams8Top2Bottom2));
-	tournaments.push(createTournament(dpcDiv1SA, colorSchemeTeams8Top2Bottom2));
-	tournaments.push(createTournament(dpcDiv1SEA, colorSchemeTeams8Top3Bottom2));
-	tournaments.push(createTournament(dpcDiv1WEU, colorSchemeTeams8Top4Bottom2));
+	// tournaments.push(createTournament(dpcDiv1CN, colorSchemeTeams8Top4Bottom2));
+	// tournaments.push(createTournament(dpcDiv1EEU, colorSchemeTeams8Top3Bottom2));
+	// tournaments.push(createTournament(dpcDiv1NA, colorSchemeTeams8Top2Bottom2));
+	// tournaments.push(createTournament(dpcDiv1SA, colorSchemeTeams8Top2Bottom2));
+	// tournaments.push(createTournament(dpcDiv1SEA, colorSchemeTeams8Top3Bottom2));
+	// tournaments.push(createTournament(dpcDiv1WEU, colorSchemeTeams8Top4Bottom2));
 
 	// Major GS
-	tournaments.push(createTournament(arlingtonMajorGroupStageA, colorSchemeTeams9Top4Bottom3));
-	tournaments.push(createTournament(arlingtonMajorGroupStageB, colorSchemeTeams9Top4Bottom3));
-
-	// TI Last Chance Quals
+	// tournaments.push(createTournament(arlingtonMajorGroupStageA, colorSchemeTeams9Top4Bottom3));
+	// tournaments.push(createTournament(arlingtonMajorGroupStageB, colorSchemeTeams9Top4Bottom3));
 	
 	// TI Group Stages
+	tournaments.push(createTournament(tiGroupStageA, colorSchemeTeams10Top4Bottom2));
+	tournaments.push(createTournament(tiGroupStageB, colorSchemeTeams10Top4Bottom2));
 
 	// Create the tournament dropdown
 	let tournamentDropdownParent = document.querySelector("#tournamentDropdown");

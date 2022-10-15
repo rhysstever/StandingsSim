@@ -6,16 +6,80 @@
 	"isComplete": false,
 	"teams": [
 		{
-			"name": "Team1_Name",
-			"abbrev": "Team1_Abbrev",
+			"name": "BetBoom Team",
+			"abbrev": "BB",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
 			"tiebreakerWins": 0
 		}, 
 		{
-			"name": "Team2_Name",
-			"abbrev": "Team2_Abbrev",
+			"name": "BOOM Esports",
+			"abbrev": "BOOM",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Evil Geniuses",
+			"abbrev": "EG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Gaimin Gladiators",
+			"abbrev": "GG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Hokori",
+			"abbrev": "HKR",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "OG",
+			"abbrev": "OG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "PSG.LGD",
+			"abbrev": "PSG.LGD",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Royal Never Give Up",
+			"abbrev": "RNG",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Soniqs",
+			"abbrev": "Soniqs",
+			"wins": 0,
+			"losses": 0,
+			"draws": 0,
+			"tiebreakerWins": 0
+		}, 
+		{
+			"name": "Team Liquid",
+			"abbrev": "Liquid",
 			"wins": 0,
 			"losses": 0,
 			"draws": 0,
